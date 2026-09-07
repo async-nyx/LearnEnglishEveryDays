@@ -68,7 +68,7 @@ export const onRequestGet = async ({ request }: { request: Request }) => {
     const notFound = () => ({ success: true, word, lemma: word, found: false, phonetic: '', audio: `/api/tts?q=${encodeURIComponent(word)}`, meanings: [] })
 
     const dm = await firstFound(fromDatamuse, cands)
-    if (dm.entry) return json({ success: true, word, lemma: dm.lemma, found: true, ...dm.entry })
+    if (dm.entry) return json({ success: true, lemma: dm.lemma, found: true, ...dm.entry, word })
 
     // Datamuse không có (hoặc không gọi được từ Cloudflare) -> dictionaryapi rồi Wiktionary, tự gắn audio TTS nếu thiếu
     for (const fn of [fromDictionaryApi, fromWiktionary]) {
@@ -82,7 +82,7 @@ export const onRequestGet = async ({ request }: { request: Request }) => {
       if (r.entry) {
         const entry = r.entry as { audio?: string }
         if (!entry.audio) entry.audio = `/api/tts?q=${encodeURIComponent(r.lemma)}`
-        return json({ success: true, word, lemma: r.lemma, found: true, ...entry })
+        return json({ success: true, lemma: r.lemma, found: true, ...entry, word })
       }
       if (r.unavailable) dm.unavailable = true
     }

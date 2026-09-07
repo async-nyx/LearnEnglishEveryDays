@@ -71,6 +71,6 @@ export const onRequestGet = async ({ request }: { request: Request }) => {
     const cands = lemmaCandidates(word)
     const hit = (await firstFound(fromDictionaryApi, cands)) ?? (await firstFound(fromWiktionary, cands))
     if (!hit) return json({ success: true, word, lemma: word, found: false, phonetic: '', audio: '', meanings: [] })
-    return json({ success: true, word, lemma: hit.lemma, found: true, ...hit.entry })
+    return json({ success: true, lemma: hit.lemma, found: true, ...hit.entry, word })
   })
 }
