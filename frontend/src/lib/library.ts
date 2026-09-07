@@ -74,6 +74,19 @@ export function itemsOf(lang: Lang): LibraryItem[] {
   return LIBRARY.filter((v) => langOf(v) === lang)
 }
 
+/** Video hoạt hình: người mới nghe dễ hơn hẳn, nên được ưu tiên xếp trước ở bậc thấp. */
+export function isCartoon(v: LibraryItem): boolean {
+  return /hoạt hình|cartoon|animation/i.test(v.topic) || /小猪佩奇|动画|cartoon|peppa/i.test(v.title)
+}
+
+const EASY_FIRST = new Set(['A1', 'A2', 'HSK1', 'HSK2'])
+
+/** Sắp xếp trong một bậc: bậc thấp thì hoạt hình lên trước, rồi video ngắn trước. */
+export function sortForLevel(list: LibraryItem[], level: string): LibraryItem[] {
+  if (!EASY_FIRST.has(level)) return list
+  return [...list].sort((a, b) => Number(isCartoon(b)) - Number(isCartoon(a)) || a.duration - b.duration)
+}
+
 /**
  * Đề xuất do app tự chọn: cùng bậc với video đang xem (nếu video thuộc thư viện), rồi bậc kề;
  * ưu tiên video chưa xem, không lặp lại video hiện tại.

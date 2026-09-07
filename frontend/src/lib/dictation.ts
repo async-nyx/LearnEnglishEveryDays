@@ -20,6 +20,8 @@ export function normalizeDictation(value: string): string {
       .replace(/(\d),(\d)/g, '$1$2')
       .replace(/(\d)\.(\d)/g, '$1zzdotzz$2')
       .replace(/[^\p{L}\p{N}'\s]/gu, ' ')
+      // tách từng chữ Hán ra thành token riêng (tiếng Trung viết liền)
+      .replace(/(\p{Script=Han})/gu, ' $1 ')
       .replace(/zzdotzz/g, '.')
       .replace(/\s+/g, ' ')
       .trim()

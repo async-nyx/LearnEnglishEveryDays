@@ -8,7 +8,10 @@ Dán liên kết YouTube, app kéo phụ đề về rồi cho bạn:
 - **Nói theo (shadowing)**: lặp câu, **chạy liên tiếp** (phát câu, nghỉ một quãng để bạn đọc theo, tự sang câu kế), giảm tốc 0.65–1×, đọc mẫu bằng giọng máy, ghi âm giọng mình để nghe lại, nhận dạng giọng nói (Chrome/Edge) để chấm khớp với bản gốc.
 - **Ảnh từ vựng**: 2.762 tranh minh hoạ sao từ betterVocab ở `assets/vocabulary/en/<slug>.webp` (slug = chữ thường, ký tự lạ thành `-`), hiện ở popover, danh sách và mặt sau thẻ lật. Thêm ảnh: thả tệp vào thư mục đó, không cần build.
 - **Sổ từ**: danh sách + tìm + xuất CSV (nhập Anki được), **thẻ lật** theo lịch giãn cách (6 hộp: 0, 1, 3, 7, 14, 30 ngày), **chép từ** (nghe + nghĩa → gõ đúng chính tả), **trắc nghiệm** 4 đáp án hai chiều từ ↔ nghĩa.
-- **Thư viện**: 100 video A1–C1 (TED, TED-Ed, BBC Learning English, Kurzgesagt, Vox, Easy English…), mỗi video đã kiểm tra có phụ đề tiếng Anh do người làm, ghi rõ kênh nguồn. Hết video, app tự đề xuất video cùng bậc từ thư viện (không dùng màn đề xuất của YouTube).
+- **Thư viện**: 296 video có phụ đề thật, chia hai tiếng — 190 video tiếng Anh A1–C1 (TED, TED-Ed, BBC Learning English, Kurzgesagt, Vox, Easy English…) và 106 video tiếng Trung HSK 1–9 (Peppa Pig tiếng Trung, kể chuyện chậm, podcast cho người học), ưu tiên hoạt hình ở bậc thấp. Mỗi video ghi rõ kênh nguồn.
+- **Video khác**: lấy chính danh sách YouTube đề xuất cạnh video đang xem, bấm là mở ngay trong app kèm phụ đề.
+- **Dịch**: cả bài song ngữ bằng dịch máy; cắm khoá Gemini hoặc Grok của bạn thì có bản dịch theo văn cảnh, ghi chú cấu trúc và nút giảng từng câu. Khoá chỉ lưu trong trình duyệt.
+- **Tiến trình**: chuỗi ngày học, lịch 12 tuần, tiến độ từng video, sổ từ theo mức nhớ, số video theo bậc.
 - Sáng / tối / theo hệ thống. Toàn bộ dữ liệu nằm trong `localStorage` của trình duyệt, không cần đăng nhập.
 
 ## Bản trực tuyến

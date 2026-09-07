@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { LANG_LABEL, LEVELS_OF, LEVEL_LABEL, LIBRARY_DATE, LIBRARY_NOTE, itemsOf, type Lang } from '../lib/library'
+import { LANG_LABEL, LEVELS_OF, LEVEL_LABEL, LIBRARY_DATE, LIBRARY_NOTE, itemsOf, sortForLevel, type Lang } from '../lib/library'
 import { useStore } from '../store/useStore'
 import { VideoCard } from './VideoCard'
 import { VideoRow } from './VideoRow'
@@ -53,6 +53,7 @@ export function LibraryView() {
       ),
     [items, level, needle],
   )
+  const shown = useMemo(() => (level === 'all' ? list : sortForLevel(list, level)), [list, level])
 
   const channels = useMemo(() => {
     const m = new Map<string, string>()
@@ -130,7 +131,7 @@ export function LibraryView() {
                   title={`${l} · ${LEVEL_LABEL[l]}`}
                   badge={<span className="rounded-md bg-mat-noi px-1.5 py-0.5 font-mono text-[11px] text-chu-mo">{counts[l]}</span>}
                   subtitle={LEVEL_BLURB[l]}
-                  items={items.filter((v) => v.level === l)}
+                  items={sortForLevel(items.filter((v) => v.level === l), l)}
                   action={{ label: 'Xem dạng lưới', onClick: () => setLevel(l) }}
                 />
               ))}
@@ -164,7 +165,7 @@ export function LibraryView() {
                   animate="show"
                   variants={{ show: { transition: { staggerChildren: 0.02 } } }}
                 >
-                  {list.map((v) => (
+                  {shown.map((v) => (
                     <motion.li key={v.id} variants={{ hidden: { opacity: 0, y: 6 }, show: { opacity: 1, y: 0 } }} className="min-w-0">
                       <VideoCard item={v} />
                     </motion.li>

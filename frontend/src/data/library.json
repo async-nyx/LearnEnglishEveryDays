@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-09-07",
-  "note": "Video thuộc bản quyền của từng kênh; Subloop chỉ nhúng qua trình phát YouTube chính thức và không lưu video. Danh sách được lọc tự động: phụ đề tiếng Anh do người làm, độ dài phù hợp bậc.",
+  "note": "Video thuộc bản quyền của từng kênh; Subloop chỉ nhúng qua trình phát YouTube chính thức và không lưu video. Danh sách được lọc tự động: có phụ đề đúng tiếng, độ dài phù hợp bậc.",
   "items": [
     {
       "id": "Nb0t2XSqsko",
@@ -11,7 +11,9 @@
       "level": "A1",
       "topic": "Giao tiếp cơ bản",
       "captions": "en",
-      "source": "Learn English with Bob the Canadian trên YouTube"
+      "source": "Learn English with Bob the Canadian trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "WViet2fy5Es",
@@ -22,7 +24,9 @@
       "level": "A1",
       "topic": "Giao tiếp cơ bản",
       "captions": "en",
-      "source": "Learn English with Bob the Canadian trên YouTube"
+      "source": "Learn English with Bob the Canadian trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "ecF1y2bI2T4",
@@ -33,7 +37,9 @@
       "level": "A1",
       "topic": "Giao tiếp cơ bản",
       "captions": "en",
-      "source": "Learn English with Bob the Canadian trên YouTube"
+      "source": "Learn English with Bob the Canadian trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "MP4VMulJHIc",
@@ -44,7 +50,9 @@
       "level": "A1",
       "topic": "Giao tiếp cơ bản",
       "captions": "en",
-      "source": "Learn English with Bob the Canadian trên YouTube"
+      "source": "Learn English with Bob the Canadian trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "B-zN3MbwFTg",
@@ -55,7 +63,9 @@
       "level": "A1",
       "topic": "Ngữ pháp 1 phút",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "ChYnYM0txRk",
@@ -66,7 +76,9 @@
       "level": "A1",
       "topic": "Nghe dễ",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "I_tRSrPru94",
@@ -77,7 +89,9 @@
       "level": "A1",
       "topic": "Hội thoại dễ",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "LDkvRFCm8No",
@@ -88,7 +102,9 @@
       "level": "A1",
       "topic": "Hỏi đáp BBC",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "9ifQ3xRz4hM",
@@ -99,7 +115,9 @@
       "level": "A1",
       "topic": "6 Minute English",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "V2eW5jGQe8I",
@@ -110,7 +128,9 @@
       "level": "A1",
       "topic": "6 Minute English",
       "captions": "en",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "Y681hXWwhQY",
@@ -121,7 +141,9 @@
       "level": "A1",
       "topic": "6 Minute English",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "AC44cmplg9M",
@@ -132,7 +154,9 @@
       "level": "A1",
       "topic": "Từ vựng cơ bản",
       "captions": "en",
-      "source": "English with Emma · engVid trên YouTube"
+      "source": "English with Emma · engVid trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "uUMPULuwdLI",
@@ -143,7 +167,9 @@
       "level": "A1",
       "topic": "Giao tiếp cơ bản",
       "captions": "en",
-      "source": "Learn English with Bob the Canadian trên YouTube"
+      "source": "Learn English with Bob the Canadian trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "ZM6Sg4SN7kU",
@@ -154,7 +180,9 @@
       "level": "A1",
       "topic": "Từ vựng đời sống",
       "captions": "en",
-      "source": "Learn English with Bob the Canadian trên YouTube"
+      "source": "Learn English with Bob the Canadian trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "NG-de6quWkE",
@@ -165,7 +193,9 @@
       "level": "A1",
       "topic": "Từ vựng đời sống",
       "captions": "en",
-      "source": "Learn English with Bob the Canadian trên YouTube"
+      "source": "Learn English with Bob the Canadian trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "7_VEBpkoWcg",
@@ -176,7 +206,9 @@
       "level": "A1",
       "topic": "Giao tiếp cơ bản",
       "captions": "en",
-      "source": "English Coach Chad trên YouTube"
+      "source": "English Coach Chad trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "yVPYHNslNyc",
@@ -187,7 +219,9 @@
       "level": "A1",
       "topic": "Giao tiếp cơ bản",
       "captions": "en",
-      "source": "English Coach Chad trên YouTube"
+      "source": "English Coach Chad trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "6E7i_7Mr_5c",
@@ -198,7 +232,9 @@
       "level": "A1",
       "topic": "Giao tiếp cơ bản",
       "captions": "en",
-      "source": "English Coach Chad trên YouTube"
+      "source": "English Coach Chad trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "M7CeTh4XpnI",
@@ -209,7 +245,9 @@
       "level": "A1",
       "topic": "Giao tiếp cơ bản",
       "captions": "en",
-      "source": "English Coach Chad trên YouTube"
+      "source": "English Coach Chad trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "78LjCJb1JE8",
@@ -220,7 +258,139 @@
       "level": "A1",
       "topic": "Giao tiếp cơ bản",
       "captions": "en",
-      "source": "English Coach Chad trên YouTube"
+      "source": "English Coach Chad trên YouTube",
+      "lang": "en",
+      "generated": false
+    },
+    {
+      "id": "4zXys7i8Zrc",
+      "title": "Learn English Small Talk to use at Work and with Friends, Family and Strangers",
+      "channel": "Learn English with Bob the Canadian",
+      "channelUrl": "https://www.youtube.com/@LearnEnglishwithBobtheCanadian",
+      "duration": 532,
+      "lang": "en",
+      "level": "A1",
+      "topic": "Giao tiếp cơ bản",
+      "captions": "en",
+      "generated": false,
+      "source": "Learn English with Bob the Canadian trên YouTube"
+    },
+    {
+      "id": "aOiuSsnWEik",
+      "title": "What's your favourite kind of noodle? ⏲️ 6 Minute English",
+      "channel": "BBC Learning English",
+      "channelUrl": "https://www.youtube.com/@bbclearningenglish",
+      "duration": 376,
+      "lang": "en",
+      "level": "A1",
+      "topic": "Ngữ pháp 1 phút",
+      "captions": "en-GB",
+      "generated": false,
+      "source": "BBC Learning English trên YouTube"
+    },
+    {
+      "id": "VgG0J2-OxfM",
+      "title": "Easy English Conversation: 11 Common Social Expressions",
+      "channel": "English with Emma · engVid",
+      "channelUrl": "https://www.youtube.com/@engvidEmma",
+      "duration": 537,
+      "lang": "en",
+      "level": "A1",
+      "topic": "Từ vựng cơ bản",
+      "captions": "en",
+      "generated": false,
+      "source": "English with Emma · engVid trên YouTube"
+    },
+    {
+      "id": "NcZMD1t_WXo",
+      "title": "EASY ENGLISH CONVERSATION: Talk about your commute to work or school",
+      "channel": "English with Emma · engVid",
+      "channelUrl": "https://www.youtube.com/@engvidEmma",
+      "duration": 519,
+      "lang": "en",
+      "level": "A1",
+      "topic": "Từ vựng cơ bản",
+      "captions": "en",
+      "generated": false,
+      "source": "English with Emma · engVid trên YouTube"
+    },
+    {
+      "id": "k_LVNl35aJ4",
+      "title": "LISTENING & UNDERSTANDING in 3 Easy Steps",
+      "channel": "English with Emma · engVid",
+      "channelUrl": "https://www.youtube.com/@engvidEmma",
+      "duration": 532,
+      "lang": "en",
+      "level": "A1",
+      "topic": "Từ vựng cơ bản",
+      "captions": "en",
+      "generated": false,
+      "source": "English with Emma · engVid trên YouTube"
+    },
+    {
+      "id": "UCXAzrZO8vc",
+      "title": "Say or Tell? Learn English with Simple English Videos",
+      "channel": "Simple English Videos",
+      "channelUrl": "https://www.youtube.com/@SimpleEnglishVideos",
+      "duration": 399,
+      "lang": "en",
+      "level": "A1",
+      "topic": "Hội thoại tình huống",
+      "captions": "en",
+      "generated": false,
+      "source": "Simple English Videos trên YouTube"
+    },
+    {
+      "id": "YuXFxvTbviI",
+      "title": "1 - 100 Learn Basic English Numbers + Pronunciation Practice",
+      "channel": "Shaw English Online",
+      "channelUrl": "https://www.youtube.com/@ShawEnglishOnline",
+      "duration": 306,
+      "lang": "en",
+      "level": "A1",
+      "topic": "Bài học vỡ lòng",
+      "captions": "en",
+      "generated": false,
+      "source": "Shaw English Online trên YouTube"
+    },
+    {
+      "id": "I1OmLNCdmP8",
+      "title": "2nd Conditional - Learn English with Papa Teach Me",
+      "channel": "Learn English with Papa Teach Me",
+      "channelUrl": "https://www.youtube.com/@papateachme",
+      "duration": 347,
+      "lang": "en",
+      "level": "A1",
+      "topic": "Ngữ pháp vui",
+      "captions": "en",
+      "generated": false,
+      "source": "Learn English with Papa Teach Me trên YouTube"
+    },
+    {
+      "id": "EvhZPWJSub4",
+      "title": "Intro to Linking:  American English Pronunciation",
+      "channel": "Rachel's English",
+      "channelUrl": "https://www.youtube.com/@rachelsenglish",
+      "duration": 200,
+      "lang": "en",
+      "level": "A1",
+      "topic": "Phát âm",
+      "captions": "en",
+      "generated": false,
+      "source": "Rachel's English trên YouTube"
+    },
+    {
+      "id": "m3g51xfopIE",
+      "title": "How to Improve Spoken American English - Sound like a Native Speaker",
+      "channel": "Rachel's English",
+      "channelUrl": "https://www.youtube.com/@rachelsenglish",
+      "duration": 437,
+      "lang": "en",
+      "level": "A1",
+      "topic": "Phát âm",
+      "captions": "en",
+      "generated": false,
+      "source": "Rachel's English trên YouTube"
     },
     {
       "id": "_5siHrpPnmw",
@@ -231,7 +401,9 @@
       "level": "A2",
       "topic": "6 Minute English",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "Af4kqQ8hdhE",
@@ -242,7 +414,9 @@
       "level": "A2",
       "topic": "6 Minute English",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "H5BVbrZ64bQ",
@@ -253,7 +427,9 @@
       "level": "A2",
       "topic": "6 Minute English",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "RN6HGltVp2A",
@@ -264,7 +440,9 @@
       "level": "A2",
       "topic": "6 Minute English",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "9hus12iCyL8",
@@ -275,7 +453,9 @@
       "level": "A2",
       "topic": "6 Minute English",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "pEO9-iPZQWA",
@@ -286,7 +466,9 @@
       "level": "A2",
       "topic": "6 Minute English",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "26PrgjTboVQ",
@@ -297,7 +479,9 @@
       "level": "A2",
       "topic": "6 Minute English",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "hoyhPZDp3dE",
@@ -308,7 +492,9 @@
       "level": "A2",
       "topic": "Kỹ năng nói",
       "captions": "en",
-      "source": "Oxford Online English trên YouTube"
+      "source": "Oxford Online English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "vXI2lRCnTKw",
@@ -319,7 +505,9 @@
       "level": "A2",
       "topic": "Kỹ năng nói",
       "captions": "en",
-      "source": "Oxford Online English trên YouTube"
+      "source": "Oxford Online English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "n4NVPg2kHv4",
@@ -330,7 +518,9 @@
       "level": "A2",
       "topic": "Phát âm",
       "captions": "en",
-      "source": "mmmEnglish trên YouTube"
+      "source": "mmmEnglish trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "XAIoSYqzGkY",
@@ -341,7 +531,9 @@
       "level": "A2",
       "topic": "Phát âm",
       "captions": "en",
-      "source": "mmmEnglish trên YouTube"
+      "source": "mmmEnglish trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "vL1iGL11Jzg",
@@ -352,7 +544,9 @@
       "level": "A2",
       "topic": "Phát âm",
       "captions": "en",
-      "source": "mmmEnglish trên YouTube"
+      "source": "mmmEnglish trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "69DwHUg2f7s",
@@ -363,7 +557,9 @@
       "level": "A2",
       "topic": "Phát âm",
       "captions": "en",
-      "source": "mmmEnglish trên YouTube"
+      "source": "mmmEnglish trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "iizWVpqGHcY",
@@ -374,7 +570,9 @@
       "level": "A2",
       "topic": "Hội thoại",
       "captions": "en",
-      "source": "mmmEnglish trên YouTube"
+      "source": "mmmEnglish trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "UcVNwvpQm8A",
@@ -385,7 +583,9 @@
       "level": "A2",
       "topic": "Hội thoại",
       "captions": "en",
-      "source": "mmmEnglish trên YouTube"
+      "source": "mmmEnglish trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "aA8sgiw-8jA",
@@ -396,7 +596,9 @@
       "level": "A2",
       "topic": "Hội thoại",
       "captions": "en",
-      "source": "mmmEnglish trên YouTube"
+      "source": "mmmEnglish trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "N20jOJDYyYA",
@@ -407,7 +609,9 @@
       "level": "A2",
       "topic": "Từ vựng",
       "captions": "en-GB",
-      "source": "English with Lucy trên YouTube"
+      "source": "English with Lucy trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "4zCVYWtYKV8",
@@ -418,7 +622,9 @@
       "level": "A2",
       "topic": "Từ vựng",
       "captions": "en",
-      "source": "English with Lucy trên YouTube"
+      "source": "English with Lucy trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "wMwN94BSPWM",
@@ -429,7 +635,9 @@
       "level": "A2",
       "topic": "Giao tiếp",
       "captions": "en",
-      "source": "English Coach Chad trên YouTube"
+      "source": "English Coach Chad trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "quV2bLXfL7c",
@@ -440,7 +648,269 @@
       "level": "A2",
       "topic": "Giao tiếp",
       "captions": "en",
+      "source": "English Coach Chad trên YouTube",
+      "lang": "en",
+      "generated": false
+    },
+    {
+      "id": "YAsDeXcYyTg",
+      "title": "Scared to speak English? ⏲️ 6 Minute English",
+      "channel": "BBC Learning English",
+      "channelUrl": "https://www.youtube.com/@bbclearningenglish",
+      "duration": 408,
+      "lang": "en",
+      "level": "A2",
+      "topic": "6 Minute English",
+      "captions": "en-GB",
+      "generated": false,
+      "source": "BBC Learning English trên YouTube"
+    },
+    {
+      "id": "kzkEGEjkb30",
+      "title": "Talking About Your Home - How to Describe Your Home in English - Spoken English Lesson",
+      "channel": "Oxford Online English",
+      "channelUrl": "https://www.youtube.com/@Oxfordonlineenglish1",
+      "duration": 614,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Kỹ năng nói",
+      "captions": "en",
+      "generated": false,
+      "source": "Oxford Online English trên YouTube"
+    },
+    {
+      "id": "SLC1Rdaxdj8",
+      "title": "How to Order Coffee in English - Spoken English Lesson",
+      "channel": "Oxford Online English",
+      "channelUrl": "https://www.youtube.com/@Oxfordonlineenglish1",
+      "duration": 295,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Kỹ năng nói",
+      "captions": "en",
+      "generated": false,
+      "source": "Oxford Online English trên YouTube"
+    },
+    {
+      "id": "T91p6pTPpSY",
+      "title": "Lesson 1 - Speak English Clearly! The Imitation Technique",
+      "channel": "mmmEnglish",
+      "channelUrl": "https://www.youtube.com/@mmmEnglish_Emma",
+      "duration": 622,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Phát âm",
+      "captions": "en",
+      "generated": false,
+      "source": "mmmEnglish trên YouTube"
+    },
+    {
+      "id": "rN01ExHHRhk",
+      "title": "TRAIN YOUR BRAIN to Think and Speak in English - 4 Methods",
+      "channel": "English with Lucy",
+      "channelUrl": "https://www.youtube.com/@EnglishwithLucy",
+      "duration": 635,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Từ vựng",
+      "captions": "en-GB",
+      "generated": false,
+      "source": "English with Lucy trên YouTube"
+    },
+    {
+      "id": "Ub7VxQFphsk",
+      "title": "English Speaking Practice with Repeat-After-Me + SHADOWING",
+      "channel": "English Coach Chad",
+      "channelUrl": "https://www.youtube.com/@EnglishCoachChad",
+      "duration": 618,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Giao tiếp",
+      "captions": "en",
+      "generated": false,
       "source": "English Coach Chad trên YouTube"
+    },
+    {
+      "id": "W_7I0ClByxY",
+      "title": "Repeat-After-Me + SHADOWING English Speaking Practice",
+      "channel": "English Coach Chad",
+      "channelUrl": "https://www.youtube.com/@EnglishCoachChad",
+      "duration": 645,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Giao tiếp",
+      "captions": "en",
+      "generated": false,
+      "source": "English Coach Chad trên YouTube"
+    },
+    {
+      "id": "gksRufPcT64",
+      "title": "SHADOWING English Speaking Practice SHADOW ME for FLUENCY",
+      "channel": "English Coach Chad",
+      "channelUrl": "https://www.youtube.com/@EnglishCoachChad",
+      "duration": 580,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Giao tiếp",
+      "captions": "en",
+      "generated": false,
+      "source": "English Coach Chad trên YouTube"
+    },
+    {
+      "id": "Cyf69D5oPUo",
+      "title": "English Speaking Practice: Listen and Shadow English",
+      "channel": "English Coach Chad",
+      "channelUrl": "https://www.youtube.com/@EnglishCoachChad",
+      "duration": 482,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Giao tiếp",
+      "captions": "en",
+      "generated": false,
+      "source": "English Coach Chad trên YouTube"
+    },
+    {
+      "id": "SJOnhWiJArM",
+      "title": "How to THINK in English | No More Translating in Your Head!",
+      "channel": "Rachel's English",
+      "channelUrl": "https://www.youtube.com/@rachelsenglish",
+      "duration": 639,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Phát âm Mỹ",
+      "captions": "en",
+      "generated": false,
+      "source": "Rachel's English trên YouTube"
+    },
+    {
+      "id": "oWP9Riq-ZBg",
+      "title": "How to Introduce Yourself -- American English Pronunciation",
+      "channel": "Rachel's English",
+      "channelUrl": "https://www.youtube.com/@rachelsenglish",
+      "duration": 550,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Phát âm Mỹ",
+      "captions": "en",
+      "generated": false,
+      "source": "Rachel's English trên YouTube"
+    },
+    {
+      "id": "T09u75kiKGc",
+      "title": "Present Perfect or Past Simple? - English Grammar lesson",
+      "channel": "Learn English with Papa Teach Me",
+      "channelUrl": "https://www.youtube.com/@papateachme",
+      "duration": 512,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Ngữ pháp vui",
+      "captions": "en",
+      "generated": false,
+      "source": "Learn English with Papa Teach Me trên YouTube"
+    },
+    {
+      "id": "Cy6GQRj3MO0",
+      "title": "Is it TO or ING? - Learn English Grammar",
+      "channel": "Learn English with Papa Teach Me",
+      "channelUrl": "https://www.youtube.com/@papateachme",
+      "duration": 457,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Ngữ pháp vui",
+      "captions": "en",
+      "generated": false,
+      "source": "Learn English with Papa Teach Me trên YouTube"
+    },
+    {
+      "id": "Sr829fvNrus",
+      "title": "4 Better Ways to Say \"Because\" in English | Boost Your Fluency with Advanced Phrases!",
+      "channel": "Learn English with Papa Teach Me",
+      "channelUrl": "https://www.youtube.com/@papateachme",
+      "duration": 511,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Ngữ pháp vui",
+      "captions": "en",
+      "generated": false,
+      "source": "Learn English with Papa Teach Me trên YouTube"
+    },
+    {
+      "id": "g3tUM15bFZ0",
+      "title": "Why do we use contractions in English?",
+      "channel": "Learn English with Papa Teach Me",
+      "channelUrl": "https://www.youtube.com/@papateachme",
+      "duration": 243,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Ngữ pháp vui",
+      "captions": "en",
+      "generated": false,
+      "source": "Learn English with Papa Teach Me trên YouTube"
+    },
+    {
+      "id": "UFpUcq3k-vI",
+      "title": "English Grammar - The Passive Voice ...and zombies",
+      "channel": "Learn English with Papa Teach Me",
+      "channelUrl": "https://www.youtube.com/@papateachme",
+      "duration": 300,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Ngữ pháp vui",
+      "captions": "en",
+      "generated": false,
+      "source": "Learn English with Papa Teach Me trên YouTube"
+    },
+    {
+      "id": "X0qRT9nRoFU",
+      "title": "Most Common Grammar Mistake Ever!! (Don't Do This!)",
+      "channel": "Learn English with Papa Teach Me",
+      "channelUrl": "https://www.youtube.com/@papateachme",
+      "duration": 298,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Ngữ pháp vui",
+      "captions": "en",
+      "generated": false,
+      "source": "Learn English with Papa Teach Me trên YouTube"
+    },
+    {
+      "id": "qhqx6wmQf04",
+      "title": "The Subjunctive Mood! - English Grammar",
+      "channel": "Learn English with Papa Teach Me",
+      "channelUrl": "https://www.youtube.com/@papateachme",
+      "duration": 211,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Ngữ pháp vui",
+      "captions": "en",
+      "generated": false,
+      "source": "Learn English with Papa Teach Me trên YouTube"
+    },
+    {
+      "id": "Lp_PPRbcsCQ",
+      "title": "If I was...? If I were...? - Learn The Subjunctive Mood!",
+      "channel": "Learn English with Papa Teach Me",
+      "channelUrl": "https://www.youtube.com/@papateachme",
+      "duration": 375,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Ngữ pháp vui",
+      "captions": "en",
+      "generated": false,
+      "source": "Learn English with Papa Teach Me trên YouTube"
+    },
+    {
+      "id": "BjuhgzNEG0Y",
+      "title": "100 Common English Questions with ESTHER | How to Ask and Answer Questions in English",
+      "channel": "Shaw English Online",
+      "channelUrl": "https://www.youtube.com/@ShawEnglishOnline",
+      "duration": 406,
+      "lang": "en",
+      "level": "A2",
+      "topic": "Hội thoại",
+      "captions": "en",
+      "generated": false,
+      "source": "Shaw English Online trên YouTube"
     },
     {
       "id": "JOs-q7rXqdk",
@@ -451,7 +921,9 @@
       "level": "B1",
       "topic": "Khoa học & đời sống",
       "captions": "en",
-      "source": "TED-Ed trên YouTube"
+      "source": "TED-Ed trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "BSdEiOYvKpE",
@@ -462,7 +934,9 @@
       "level": "B1",
       "topic": "Khoa học & đời sống",
       "captions": "en",
-      "source": "TED-Ed trên YouTube"
+      "source": "TED-Ed trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "n6wpNhyreDE",
@@ -473,7 +947,9 @@
       "level": "B1",
       "topic": "Khoa học & đời sống",
       "captions": "en",
-      "source": "TED-Ed trên YouTube"
+      "source": "TED-Ed trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "JAyuHIthHco",
@@ -484,7 +960,9 @@
       "level": "B1",
       "topic": "Khoa học & đời sống",
       "captions": "en",
-      "source": "TED-Ed trên YouTube"
+      "source": "TED-Ed trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "sbCvQbBi2G8",
@@ -495,7 +973,9 @@
       "level": "B1",
       "topic": "Khoa học & đời sống",
       "captions": "en",
-      "source": "TED-Ed trên YouTube"
+      "source": "TED-Ed trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "CHMY4G9gTPA",
@@ -506,7 +986,9 @@
       "level": "B1",
       "topic": "Khoa học & đời sống",
       "captions": "en",
-      "source": "TED-Ed trên YouTube"
+      "source": "TED-Ed trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "PUe80HnKE3E",
@@ -517,7 +999,9 @@
       "level": "B1",
       "topic": "Khoa học & đời sống",
       "captions": "en",
-      "source": "TED-Ed trên YouTube"
+      "source": "TED-Ed trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "Pop0Gtl-8Jw",
@@ -528,7 +1012,9 @@
       "level": "B1",
       "topic": "Từ vựng & văn hoá",
       "captions": "en-GB",
-      "source": "English with Lucy trên YouTube"
+      "source": "English with Lucy trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "LXrh2AJa8nU",
@@ -539,7 +1025,9 @@
       "level": "B1",
       "topic": "Tin tức",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "tZ-Pbwdqlt0",
@@ -550,7 +1038,9 @@
       "level": "B1",
       "topic": "Tin tức",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "RV1WOCzTknc",
@@ -561,7 +1051,9 @@
       "level": "B1",
       "topic": "Tin tức",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "SMN_ZQMtWNM",
@@ -572,7 +1064,9 @@
       "level": "B1",
       "topic": "Tin tức",
       "captions": "en",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "TdkSeb9aAwI",
@@ -583,7 +1077,9 @@
       "level": "B1",
       "topic": "Tin tức",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "FuExlxdoTcY",
@@ -594,7 +1090,9 @@
       "level": "B1",
       "topic": "Tin tức",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "MlHJCNLa__k",
@@ -605,7 +1103,9 @@
       "level": "B1",
       "topic": "Tin tức",
       "captions": "en-GB",
-      "source": "BBC Learning English trên YouTube"
+      "source": "BBC Learning English trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "zpUyJx2RurE",
@@ -616,7 +1116,9 @@
       "level": "B1",
       "topic": "Lịch sử",
       "captions": "en",
-      "source": "Simple History trên YouTube"
+      "source": "Simple History trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "yxaegqvl4aE",
@@ -627,7 +1129,9 @@
       "level": "B1",
       "topic": "Lịch sử",
       "captions": "en",
-      "source": "Simple History trên YouTube"
+      "source": "Simple History trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "VLpSxHwfU04",
@@ -638,7 +1142,9 @@
       "level": "B1",
       "topic": "Khoa học phổ thông",
       "captions": "en",
-      "source": "SciShow Kids trên YouTube"
+      "source": "SciShow Kids trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "AzTJx-XBXGg",
@@ -649,7 +1155,9 @@
       "level": "B1",
       "topic": "Khoa học phổ thông",
       "captions": "en",
-      "source": "SciShow trên YouTube"
+      "source": "SciShow trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "9bNaBpSh0vU",
@@ -660,7 +1168,269 @@
       "level": "B1",
       "topic": "Khoa học phổ thông",
       "captions": "en",
+      "source": "SciShow Kids trên YouTube",
+      "lang": "en",
+      "generated": false
+    },
+    {
+      "id": "wtovy-1-QUM",
+      "title": "This is what happens in your brain when you can’t recall a word - Cella Wright",
+      "channel": "TED-Ed",
+      "channelUrl": "https://www.youtube.com/@TEDEd",
+      "duration": 331,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Khoa học & đời sống",
+      "captions": "en",
+      "generated": false,
+      "source": "TED-Ed trên YouTube"
+    },
+    {
+      "id": "OTwexuyafvw",
+      "title": "7,000 steps can reduce risk of depression: BBC Learning English from the News",
+      "channel": "BBC Learning English",
+      "channelUrl": "https://www.youtube.com/@bbclearningenglish",
+      "duration": 490,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Tin tức",
+      "captions": "en-GB",
+      "generated": false,
+      "source": "BBC Learning English trên YouTube"
+    },
+    {
+      "id": "l0OVj6BfqgI",
+      "title": "These Rocks Are Older Than the Sun",
+      "channel": "SciShow",
+      "channelUrl": "https://www.youtube.com/@SciShow",
+      "duration": 768,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Khoa học phổ thông",
+      "captions": "en",
+      "generated": false,
+      "source": "SciShow trên YouTube"
+    },
+    {
+      "id": "mlft34vjImg",
+      "title": "What’s Ruining Our Ruins?",
+      "channel": "SciShow",
+      "channelUrl": "https://www.youtube.com/@SciShow",
+      "duration": 691,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Khoa học phổ thông",
+      "captions": "en",
+      "generated": false,
+      "source": "SciShow trên YouTube"
+    },
+    {
+      "id": "N2s7KjzcoKg",
+      "title": "Sea Monsters Of The Past | SciShow Kids",
+      "channel": "SciShow Kids",
+      "channelUrl": "https://www.youtube.com/@SciShowKids",
+      "duration": 398,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Khoa học phổ thông",
+      "captions": "en",
+      "generated": false,
       "source": "SciShow Kids trên YouTube"
+    },
+    {
+      "id": "NQ0270jDrGY",
+      "title": "Menopause Starts Way Earlier Than You Think",
+      "channel": "SciShow",
+      "channelUrl": "https://www.youtube.com/@SciShow",
+      "duration": 762,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Khoa học phổ thông",
+      "captions": "en",
+      "generated": false,
+      "source": "SciShow trên YouTube"
+    },
+    {
+      "id": "UePoV1SU2M0",
+      "title": "We Solved The Mystery Of The Pyramids",
+      "channel": "SciShow",
+      "channelUrl": "https://www.youtube.com/@SciShow",
+      "duration": 360,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Khoa học phổ thông",
+      "captions": "en",
+      "generated": false,
+      "source": "SciShow trên YouTube"
+    },
+    {
+      "id": "YXh8FUD2f9o",
+      "title": "What's Really Living in the Subway",
+      "channel": "SciShow",
+      "channelUrl": "https://www.youtube.com/@SciShow",
+      "duration": 645,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Khoa học phổ thông",
+      "captions": "en",
+      "generated": false,
+      "source": "SciShow trên YouTube"
+    },
+    {
+      "id": "sh-8TyRgV5Y",
+      "title": "The World’s Best Diet Doesn’t Make You Lose Weight",
+      "channel": "SciShow",
+      "channelUrl": "https://www.youtube.com/@SciShow",
+      "duration": 731,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Khoa học phổ thông",
+      "captions": "en",
+      "generated": false,
+      "source": "SciShow trên YouTube"
+    },
+    {
+      "id": "uSfJXecof4M",
+      "title": "Why You Should Get Your DNA Sequenced After You Die",
+      "channel": "SciShow",
+      "channelUrl": "https://www.youtube.com/@SciShow",
+      "duration": 545,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Khoa học phổ thông",
+      "captions": "en",
+      "generated": false,
+      "source": "SciShow trên YouTube"
+    },
+    {
+      "id": "0AfM2Jitsps",
+      "title": "Why The Black Plague Isn't Over",
+      "channel": "MinuteEarth",
+      "channelUrl": "https://www.youtube.com/@MinuteEarth",
+      "duration": 185,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Trái Đất",
+      "captions": "en",
+      "generated": false,
+      "source": "MinuteEarth trên YouTube"
+    },
+    {
+      "id": "3NPDq2ubKoo",
+      "title": "These Countries Are Cheating",
+      "channel": "MinuteEarth",
+      "channelUrl": "https://www.youtube.com/@MinuteEarth",
+      "duration": 218,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Trái Đất",
+      "captions": "en",
+      "generated": false,
+      "source": "MinuteEarth trên YouTube"
+    },
+    {
+      "id": "nxDVBDyAM7I",
+      "title": "The Crabs Are Coming",
+      "channel": "MinuteEarth",
+      "channelUrl": "https://www.youtube.com/@MinuteEarth",
+      "duration": 208,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Trái Đất",
+      "captions": "en",
+      "generated": false,
+      "source": "MinuteEarth trên YouTube"
+    },
+    {
+      "id": "hdoKHTf03W0",
+      "title": "Why Does This Shrimp Cost More Than A Car?",
+      "channel": "MinuteEarth",
+      "channelUrl": "https://www.youtube.com/@MinuteEarth",
+      "duration": 227,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Trái Đất",
+      "captions": "en",
+      "generated": false,
+      "source": "MinuteEarth trên YouTube"
+    },
+    {
+      "id": "hItlmfXZBQU",
+      "title": "40 Years Without A New Antibiotic. Why?",
+      "channel": "MinuteEarth",
+      "channelUrl": "https://www.youtube.com/@MinuteEarth",
+      "duration": 235,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Trái Đất",
+      "captions": "en",
+      "generated": false,
+      "source": "MinuteEarth trên YouTube"
+    },
+    {
+      "id": "x_XcChy9U5I",
+      "title": "How Deep Can Caves Get?",
+      "channel": "MinuteEarth",
+      "channelUrl": "https://www.youtube.com/@MinuteEarth",
+      "duration": 245,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Trái Đất",
+      "captions": "en",
+      "generated": false,
+      "source": "MinuteEarth trên YouTube"
+    },
+    {
+      "id": "Sk10Bz_TKPU",
+      "title": "The Best Pokémon (According to Science)",
+      "channel": "MinuteEarth",
+      "channelUrl": "https://www.youtube.com/@MinuteEarth",
+      "duration": 246,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Trái Đất",
+      "captions": "en",
+      "generated": false,
+      "source": "MinuteEarth trên YouTube"
+    },
+    {
+      "id": "idlq8zCrUkY",
+      "title": "Weird Things Animals Do During Eclipses",
+      "channel": "MinuteEarth",
+      "channelUrl": "https://www.youtube.com/@MinuteEarth",
+      "duration": 275,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Trái Đất",
+      "captions": "en",
+      "generated": false,
+      "source": "MinuteEarth trên YouTube"
+    },
+    {
+      "id": "9HjtFqBi494",
+      "title": "How Much Sleep Do You REALLY Need?",
+      "channel": "Life Noggin",
+      "channelUrl": "https://www.youtube.com/@lifenoggin",
+      "duration": 193,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Khoa học vui",
+      "captions": "en",
+      "generated": false,
+      "source": "Life Noggin trên YouTube"
+    },
+    {
+      "id": "mlw-n7SdKsM",
+      "title": "What If Whales Got Their Legs Back?",
+      "channel": "Life Noggin",
+      "channelUrl": "https://www.youtube.com/@lifenoggin",
+      "duration": 210,
+      "lang": "en",
+      "level": "B1",
+      "topic": "Khoa học vui",
+      "captions": "en",
+      "generated": false,
+      "source": "Life Noggin trên YouTube"
     },
     {
       "id": "RcGyVTAoXEU",
@@ -671,7 +1441,9 @@
       "level": "B2",
       "topic": "Diễn thuyết TED",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "BHY0FxzoKZE",
@@ -682,7 +1454,9 @@
       "level": "B2",
       "topic": "Diễn thuyết TED",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "-moW9jvvMr4",
@@ -693,7 +1467,9 @@
       "level": "B2",
       "topic": "Diễn thuyết TED",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "LpSDuDIaBGk",
@@ -704,7 +1480,9 @@
       "level": "B2",
       "topic": "Diễn thuyết TED",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "PY9DcIMGxMs",
@@ -715,7 +1493,9 @@
       "level": "B2",
       "topic": "Diễn thuyết TED",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "rNxC16mlO60",
@@ -726,7 +1506,9 @@
       "level": "B2",
       "topic": "Diễn thuyết TEDx",
       "captions": "en",
-      "source": "TEDx Talks trên YouTube"
+      "source": "TEDx Talks trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "gUV5DJb6KGs",
@@ -737,7 +1519,9 @@
       "level": "B2",
       "topic": "Diễn thuyết TEDx",
       "captions": "en",
-      "source": "TEDx Talks trên YouTube"
+      "source": "TEDx Talks trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "idrbwnWLJ7w",
@@ -748,7 +1532,9 @@
       "level": "B2",
       "topic": "Diễn thuyết TED",
       "captions": "en",
-      "source": "TED-Ed trên YouTube"
+      "source": "TED-Ed trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "a4sq1CKPl0E",
@@ -759,7 +1545,9 @@
       "level": "B2",
       "topic": "Diễn thuyết TED",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "rKgtm81yi94",
@@ -770,7 +1558,9 @@
       "level": "B2",
       "topic": "Diễn thuyết TED",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "esPRsT-lmw8",
@@ -781,7 +1571,9 @@
       "level": "B2",
       "topic": "Diễn thuyết TEDx",
       "captions": "en",
-      "source": "TEDx Talks trên YouTube"
+      "source": "TEDx Talks trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "iNyUmbmQQZg",
@@ -792,7 +1584,9 @@
       "level": "B2",
       "topic": "Diễn thuyết TED",
       "captions": "en",
-      "source": "TED-Ed trên YouTube"
+      "source": "TED-Ed trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "Cyl3X88KEgg",
@@ -803,7 +1597,9 @@
       "level": "B2",
       "topic": "Khoa học",
       "captions": "en",
-      "source": "Kurzgesagt – In a Nutshell trên YouTube"
+      "source": "Kurzgesagt – In a Nutshell trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "PqtggjVAi8M",
@@ -814,7 +1610,9 @@
       "level": "B2",
       "topic": "Khoa học",
       "captions": "en",
-      "source": "Kurzgesagt – In a Nutshell trên YouTube"
+      "source": "Kurzgesagt – In a Nutshell trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "FfWtIaDtfYk",
@@ -825,7 +1623,9 @@
       "level": "B2",
       "topic": "Khoa học",
       "captions": "en",
-      "source": "Kurzgesagt – In a Nutshell trên YouTube"
+      "source": "Kurzgesagt – In a Nutshell trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "71eUes30gwc",
@@ -836,7 +1636,9 @@
       "level": "B2",
       "topic": "Khoa học",
       "captions": "en",
-      "source": "Kurzgesagt – In a Nutshell trên YouTube"
+      "source": "Kurzgesagt – In a Nutshell trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "VB_GWz25B3Q",
@@ -847,7 +1649,9 @@
       "level": "B2",
       "topic": "Khoa học",
       "captions": "en-GB",
-      "source": "Kurzgesagt – In a Nutshell trên YouTube"
+      "source": "Kurzgesagt – In a Nutshell trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "ulCdoCfw-bY",
@@ -858,7 +1662,9 @@
       "level": "B2",
       "topic": "Khoa học",
       "captions": "en",
-      "source": "Kurzgesagt – In a Nutshell trên YouTube"
+      "source": "Kurzgesagt – In a Nutshell trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "y8XvQNt26KI",
@@ -869,7 +1675,9 @@
       "level": "B2",
       "topic": "Khoa học",
       "captions": "en",
-      "source": "Kurzgesagt – In a Nutshell trên YouTube"
+      "source": "Kurzgesagt – In a Nutshell trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "l_b86duruvs",
@@ -880,7 +1688,269 @@
       "level": "B2",
       "topic": "Giải thích thời sự",
       "captions": "en",
+      "source": "Vox trên YouTube",
+      "lang": "en",
+      "generated": false
+    },
+    {
+      "id": "tic7X3ET4gE",
+      "title": "Sugar is Not a Treat | Jody Stanislaw | TEDxSunValley",
+      "channel": "TEDx Talks",
+      "channelUrl": "https://www.youtube.com/@TEDx",
+      "duration": 931,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Diễn thuyết TED",
+      "captions": "en",
+      "generated": false,
+      "source": "TEDx Talks trên YouTube"
+    },
+    {
+      "id": "ElYYD7Wx2WE",
+      "title": "Idiots Are Everywhere. Here’s How to Cope | Joshua Johnson | TED",
+      "channel": "TED",
+      "channelUrl": "https://www.youtube.com/@TED",
+      "duration": 383,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Diễn thuyết TED",
+      "captions": "en",
+      "generated": false,
+      "source": "TED trên YouTube"
+    },
+    {
+      "id": "WWloIAQpMcQ",
+      "title": "How to cope with anxiety | Olivia Remes | TEDxUHasselt",
+      "channel": "TEDx Talks",
+      "channelUrl": "https://www.youtube.com/@TEDx",
+      "duration": 916,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Diễn thuyết TED",
+      "captions": "en",
+      "generated": false,
+      "source": "TEDx Talks trên YouTube"
+    },
+    {
+      "id": "PaErPyEnDvk",
+      "title": "What’s Hiding at the Most Solitary Place on Earth? The Deep Sea",
+      "channel": "Kurzgesagt – In a Nutshell",
+      "channelUrl": "https://www.youtube.com/@kurzgesagt",
+      "duration": 680,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Khoa học",
+      "captions": "en",
+      "generated": false,
+      "source": "Kurzgesagt – In a Nutshell trên YouTube"
+    },
+    {
+      "id": "1UnIDL-eHOs",
+      "title": "Why we say “OK”",
+      "channel": "Vox",
+      "channelUrl": "https://www.youtube.com/@Vox",
+      "duration": 322,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Giải thích thời sự",
+      "captions": "en",
+      "generated": false,
       "source": "Vox trên YouTube"
+    },
+    {
+      "id": "NLtnm_bRzPw",
+      "title": "Why can’t prices just stay the same?",
+      "channel": "Vox",
+      "channelUrl": "https://www.youtube.com/@Vox",
+      "duration": 451,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Giải thích thời sự",
+      "captions": "en-US",
+      "generated": false,
+      "source": "Vox trên YouTube"
+    },
+    {
+      "id": "v8O8Em_RPNg",
+      "title": "Magic Eye: The optical illusion, explained",
+      "channel": "Vox",
+      "channelUrl": "https://www.youtube.com/@Vox",
+      "duration": 563,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Giải thích thời sự",
+      "captions": "en",
+      "generated": false,
+      "source": "Vox trên YouTube"
+    },
+    {
+      "id": "9D420SOmL6U",
+      "title": "Homer Simpson: An economic analysis",
+      "channel": "Vox",
+      "channelUrl": "https://www.youtube.com/@Vox",
+      "duration": 252,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Giải thích thời sự",
+      "captions": "en",
+      "generated": false,
+      "source": "Vox trên YouTube"
+    },
+    {
+      "id": "r01fv4IXZ68",
+      "title": "Iconic movie trailers, explained by a trailer editor",
+      "channel": "Vox",
+      "channelUrl": "https://www.youtube.com/@Vox",
+      "duration": 704,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Giải thích thời sự",
+      "captions": "en",
+      "generated": false,
+      "source": "Vox trên YouTube"
+    },
+    {
+      "id": "SVcsDDABEkM",
+      "title": "AI art, explained",
+      "channel": "Vox",
+      "channelUrl": "https://www.youtube.com/@Vox",
+      "duration": 813,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Giải thích thời sự",
+      "captions": "en",
+      "generated": false,
+      "source": "Vox trên YouTube"
+    },
+    {
+      "id": "2PEt5RdNHNw",
+      "title": "Dungeons and Dragons, explained",
+      "channel": "Vox",
+      "channelUrl": "https://www.youtube.com/@Vox",
+      "duration": 613,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Giải thích thời sự",
+      "captions": "en",
+      "generated": false,
+      "source": "Vox trên YouTube"
+    },
+    {
+      "id": "3LopI4YeC4I",
+      "title": "Why Being Delusional is a Superpower",
+      "channel": "Veritasium",
+      "channelUrl": "https://www.youtube.com/@veritasium",
+      "duration": 724,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Vật lý & kỹ thuật",
+      "captions": "en",
+      "generated": false,
+      "source": "Veritasium trên YouTube"
+    },
+    {
+      "id": "OxGsU8oIWjY",
+      "title": "How An Infinite Hotel Ran Out Of Room",
+      "channel": "Veritasium",
+      "channelUrl": "https://www.youtube.com/@veritasium",
+      "duration": 367,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Vật lý & kỹ thuật",
+      "captions": "en",
+      "generated": false,
+      "source": "Veritasium trên YouTube"
+    },
+    {
+      "id": "uBGl2BujkPQ",
+      "title": "Introduction to Anatomy & Physiology: Crash Course Anatomy & Physiology #1",
+      "channel": "CrashCourse",
+      "channelUrl": "https://www.youtube.com/@crashcourse",
+      "duration": 680,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Kiến thức nền",
+      "captions": "en",
+      "generated": false,
+      "source": "CrashCourse trên YouTube"
+    },
+    {
+      "id": "qG2SwE_6uVM",
+      "title": "How to Train a Brain: Crash Course Psychology #11",
+      "channel": "CrashCourse",
+      "channelUrl": "https://www.youtube.com/@crashcourse",
+      "duration": 709,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Kiến thức nền",
+      "captions": "en",
+      "generated": false,
+      "source": "CrashCourse trên YouTube"
+    },
+    {
+      "id": "qPix_X-9t7E",
+      "title": "The Nervous System, Part 1: Crash Course Anatomy & Physiology #8",
+      "channel": "CrashCourse",
+      "channelUrl": "https://www.youtube.com/@crashcourse",
+      "duration": 636,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Kiến thức nền",
+      "captions": "en",
+      "generated": false,
+      "source": "CrashCourse trên YouTube"
+    },
+    {
+      "id": "vHrmiy4W9C0",
+      "title": "Meet Your Master - Getting to Know Your Brain: Crash Course Psychology #4",
+      "channel": "CrashCourse",
+      "channelUrl": "https://www.youtube.com/@crashcourse",
+      "duration": 754,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Kiến thức nền",
+      "captions": "en",
+      "generated": false,
+      "source": "CrashCourse trên YouTube"
+    },
+    {
+      "id": "4KbSRXP0wik",
+      "title": "Emotion, Stress, and Health: Crash Course Psychology #26",
+      "channel": "CrashCourse",
+      "channelUrl": "https://www.youtube.com/@crashcourse",
+      "duration": 620,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Kiến thức nền",
+      "captions": "en",
+      "generated": false,
+      "source": "CrashCourse trên YouTube"
+    },
+    {
+      "id": "o0DYP-u1rNM",
+      "title": "Vision: Crash Course Anatomy & Physiology #18",
+      "channel": "CrashCourse",
+      "channelUrl": "https://www.youtube.com/@crashcourse",
+      "duration": 579,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Kiến thức nền",
+      "captions": "en",
+      "generated": false,
+      "source": "CrashCourse trên YouTube"
+    },
+    {
+      "id": "aX7jnVXXG5o",
+      "title": "OCD and Anxiety Disorders: Crash Course Psychology #29",
+      "channel": "CrashCourse",
+      "channelUrl": "https://www.youtube.com/@crashcourse",
+      "duration": 692,
+      "lang": "en",
+      "level": "B2",
+      "topic": "Kiến thức nền",
+      "captions": "en",
+      "generated": false,
+      "source": "CrashCourse trên YouTube"
     },
     {
       "id": "th3KE_H27bs",
@@ -891,7 +1961,9 @@
       "level": "C1",
       "topic": "Kinh tế & xã hội",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "Rhcrbcg8HBw",
@@ -902,7 +1974,9 @@
       "level": "C1",
       "topic": "Kinh tế & xã hội",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "6MK6tuZ7Rws",
@@ -913,7 +1987,9 @@
       "level": "C1",
       "topic": "Kinh tế & xã hội",
       "captions": "en",
-      "source": "TED-Ed trên YouTube"
+      "source": "TED-Ed trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "uXrCeiQxWyc",
@@ -924,7 +2000,9 @@
       "level": "C1",
       "topic": "Kinh tế & xã hội",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "1BHOflzxPjI",
@@ -935,7 +2013,9 @@
       "level": "C1",
       "topic": "Diễn thuyết TEDx",
       "captions": "en",
-      "source": "TEDx Talks trên YouTube"
+      "source": "TEDx Talks trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "rEnf_CFoyv0",
@@ -946,7 +2026,9 @@
       "level": "C1",
       "topic": "Kinh tế & xã hội",
       "captions": "en",
-      "source": "TED-Ed trên YouTube"
+      "source": "TED-Ed trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "FXjHwQ6J_yI",
@@ -957,7 +2039,9 @@
       "level": "C1",
       "topic": "Diễn thuyết TEDx",
       "captions": "en",
-      "source": "TEDx Talks trên YouTube"
+      "source": "TEDx Talks trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "VO6XEQIsCoM",
@@ -968,7 +2052,9 @@
       "level": "C1",
       "topic": "Kinh tế & xã hội",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "btF6nKHo2i0",
@@ -979,7 +2065,9 @@
       "level": "C1",
       "topic": "Diễn thuyết TEDx",
       "captions": "en",
-      "source": "TEDx Talks trên YouTube"
+      "source": "TEDx Talks trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "7onAN_t68t0",
@@ -990,7 +2078,9 @@
       "level": "C1",
       "topic": "Kinh tế & xã hội",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "jsZDlBU36n0",
@@ -1001,7 +2091,9 @@
       "level": "C1",
       "topic": "Diễn thuyết TEDx",
       "captions": "en",
-      "source": "TEDx Talks trên YouTube"
+      "source": "TEDx Talks trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "P6FORpg0KVo",
@@ -1012,7 +2104,9 @@
       "level": "C1",
       "topic": "Kinh tế & xã hội",
       "captions": "en",
-      "source": "TED trên YouTube"
+      "source": "TED trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "tcbxIoERm6w",
@@ -1023,7 +2117,9 @@
       "level": "C1",
       "topic": "Tư duy & triết học",
       "captions": "en",
-      "source": "Big Think trên YouTube"
+      "source": "Big Think trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "-p4v0a7Gj24",
@@ -1034,7 +2130,9 @@
       "level": "C1",
       "topic": "Tư duy & triết học",
       "captions": "en",
-      "source": "Big Think Clips trên YouTube"
+      "source": "Big Think Clips trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "0HMjTxKRbaI",
@@ -1045,7 +2143,9 @@
       "level": "C1",
       "topic": "Tư duy & triết học",
       "captions": "en",
-      "source": "Big Think trên YouTube"
+      "source": "Big Think trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "2WShJeNX7W8",
@@ -1056,7 +2156,9 @@
       "level": "C1",
       "topic": "Tư duy & triết học",
       "captions": "en",
-      "source": "Big Think trên YouTube"
+      "source": "Big Think trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "JJqHqWvA-8k",
@@ -1067,7 +2169,9 @@
       "level": "C1",
       "topic": "Tư duy & triết học",
       "captions": "en",
-      "source": "Big Think Clips trên YouTube"
+      "source": "Big Think Clips trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "32z8Ax1j-Q4",
@@ -1078,7 +2182,9 @@
       "level": "C1",
       "topic": "Tư duy & triết học",
       "captions": "en",
-      "source": "Big Think trên YouTube"
+      "source": "Big Think trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "wWSSJ5aDvW4",
@@ -1089,7 +2195,9 @@
       "level": "C1",
       "topic": "Tư duy & triết học",
       "captions": "en",
-      "source": "Big Think trên YouTube"
+      "source": "Big Think trên YouTube",
+      "lang": "en",
+      "generated": false
     },
     {
       "id": "kKqBidNBGRs",
@@ -1100,7 +2208,1647 @@
       "level": "C1",
       "topic": "Tư duy & triết học",
       "captions": "en",
+      "source": "Big Think trên YouTube",
+      "lang": "en",
+      "generated": false
+    },
+    {
+      "id": "eHJnEHyyN1Y",
+      "title": "6 Tips on Being a Successful Entrepreneur | John Mullins | TED",
+      "channel": "TED",
+      "channelUrl": "https://www.youtube.com/@TED",
+      "duration": 920,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Kinh tế & xã hội",
+      "captions": "en",
+      "generated": false,
+      "source": "TED trên YouTube"
+    },
+    {
+      "id": "FvKeHcpps1Y",
+      "title": "The Economic Opportunity Hidden in the Climate Transition | Marielle Remillard | TED",
+      "channel": "TED",
+      "channelUrl": "https://www.youtube.com/@TED",
+      "duration": 746,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Kinh tế & xã hội",
+      "captions": "en",
+      "generated": false,
+      "source": "TED trên YouTube"
+    },
+    {
+      "id": "jfiBDuUVc-A",
+      "title": "How to pull yourself out of a cheap dopamine spiral | Mark Manson",
+      "channel": "Big Think Clips",
+      "channelUrl": "",
+      "duration": 1073,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Tư duy & triết học",
+      "captions": "en",
+      "generated": false,
+      "source": "Big Think Clips trên YouTube"
+    },
+    {
+      "id": "t0qq9R__XiQ",
+      "title": "Your brain wasn't built to hold this much information | Richard Cytowic",
+      "channel": "Big Think",
+      "channelUrl": "",
+      "duration": 1167,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Tư duy & triết học",
+      "captions": "en",
+      "generated": false,
       "source": "Big Think trên YouTube"
+    },
+    {
+      "id": "CI3sV3RrIkQ",
+      "title": "How power, conformity, and social media erode critical thinking | Jonny Thomson",
+      "channel": "Big Think Clips",
+      "channelUrl": "",
+      "duration": 1044,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Tư duy & triết học",
+      "captions": "en",
+      "generated": false,
+      "source": "Big Think Clips trên YouTube"
+    },
+    {
+      "id": "Q8QxTRI72js",
+      "title": "3 experts explain everything you need to know about loneliness",
+      "channel": "Big Think",
+      "channelUrl": "",
+      "duration": 405,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Tư duy & triết học",
+      "captions": "en",
+      "generated": false,
+      "source": "Big Think trên YouTube"
+    },
+    {
+      "id": "cuNPqmX15gs",
+      "title": "Happy couples don't solve their problems | John & Julie Gottman",
+      "channel": "Big Think Clips",
+      "channelUrl": "",
+      "duration": 1484,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Tư duy & triết học",
+      "captions": "en",
+      "generated": false,
+      "source": "Big Think Clips trên YouTube"
+    },
+    {
+      "id": "tWDcqt-Xj2w",
+      "title": "The uncomfortable question you should ask on every first date | Alain de Botton",
+      "channel": "Big Think Clips",
+      "channelUrl": "",
+      "duration": 1414,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Tư duy & triết học",
+      "captions": "en",
+      "generated": false,
+      "source": "Big Think Clips trên YouTube"
+    },
+    {
+      "id": "q57fOwJ0sLs",
+      "title": "The science of stress, coping, and recovery, in 22 minutes | Lisa Damour",
+      "channel": "Big Think Clips",
+      "channelUrl": "",
+      "duration": 1389,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Tư duy & triết học",
+      "captions": "en",
+      "generated": false,
+      "source": "Big Think Clips trên YouTube"
+    },
+    {
+      "id": "7lECIsRif10",
+      "title": "How To Simplify Your Life",
+      "channel": "The School of Life",
+      "channelUrl": "https://www.youtube.com/@theschooloflifetv",
+      "duration": 395,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Tâm lý",
+      "captions": "en-GB",
+      "generated": false,
+      "source": "The School of Life trên YouTube"
+    },
+    {
+      "id": "1JCJVaK48RM",
+      "title": "The Eight Rules of The School of Life",
+      "channel": "The School of Life",
+      "channelUrl": "https://www.youtube.com/@theschooloflifetv",
+      "duration": 447,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Tâm lý",
+      "captions": "en-GB",
+      "generated": false,
+      "source": "The School of Life trên YouTube"
+    },
+    {
+      "id": "Om7jApT9cVc",
+      "title": "How to Make the Best First Impressions",
+      "channel": "Stanford Graduate School of Business",
+      "channelUrl": "https://www.youtube.com/@stanfordgsb",
+      "duration": 680,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Kinh doanh",
+      "captions": "en",
+      "generated": false,
+      "source": "Stanford Graduate School of Business trên YouTube"
+    },
+    {
+      "id": "R8VBRCs2jTU",
+      "title": "How does raising interest rates control inflation?",
+      "channel": "The Economist",
+      "channelUrl": "https://www.youtube.com/@TheEconomist",
+      "duration": 494,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Kinh tế thế giới",
+      "captions": "en-GB",
+      "generated": false,
+      "source": "The Economist trên YouTube"
+    },
+    {
+      "id": "DI5S4LfUob4",
+      "title": "Four stories to watch out for in 2026",
+      "channel": "The Economist",
+      "channelUrl": "https://www.youtube.com/@TheEconomist",
+      "duration": 672,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Kinh tế thế giới",
+      "captions": "en",
+      "generated": false,
+      "source": "The Economist trên YouTube"
+    },
+    {
+      "id": "_O48-ao5_40",
+      "title": "Is it still worth going to university?",
+      "channel": "The Economist",
+      "channelUrl": "https://www.youtube.com/@TheEconomist",
+      "duration": 366,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Kinh tế thế giới",
+      "captions": "en",
+      "generated": false,
+      "source": "The Economist trên YouTube"
+    },
+    {
+      "id": "-mmqm7OkvL4",
+      "title": "Is a private-credit meltdown the next financial crisis? | The Economist",
+      "channel": "The Economist",
+      "channelUrl": "https://www.youtube.com/@TheEconomist",
+      "duration": 554,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Kinh tế thế giới",
+      "captions": "en",
+      "generated": false,
+      "source": "The Economist trên YouTube"
+    },
+    {
+      "id": "3frsoMjYRko",
+      "title": "Why gold, bonds and the dollar are underwhelming investors  | The Economist",
+      "channel": "The Economist",
+      "channelUrl": "https://www.youtube.com/@TheEconomist",
+      "duration": 467,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Kinh tế thế giới",
+      "captions": "en",
+      "generated": false,
+      "source": "The Economist trên YouTube"
+    },
+    {
+      "id": "nEgGEFJUFf8",
+      "title": "What SpaceX, OpenAI and Anthropic's IPOs mean for investors | The Economist",
+      "channel": "The Economist",
+      "channelUrl": "https://www.youtube.com/@TheEconomist",
+      "duration": 448,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Kinh tế thế giới",
+      "captions": "en",
+      "generated": false,
+      "source": "The Economist trên YouTube"
+    },
+    {
+      "id": "894jQkeewiU",
+      "title": "The Science of Sleep (and the Art of Productivity) | Dr. Matthew Carter | TEDxNorthAdams",
+      "channel": "TEDx Talks",
+      "channelUrl": "https://www.youtube.com/@TEDx",
+      "duration": 1101,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Nghiên cứu",
+      "captions": "en",
+      "generated": false,
+      "source": "TEDx Talks trên YouTube"
+    },
+    {
+      "id": "MtOG5PK8xDA",
+      "title": "The science of analyzing conversations, second by second | Elizabeth Stokoe | TEDxBermuda",
+      "channel": "TEDx Talks",
+      "channelUrl": "https://www.youtube.com/@TEDx",
+      "duration": 1164,
+      "lang": "en",
+      "level": "C1",
+      "topic": "Nghiên cứu",
+      "captions": "en",
+      "generated": false,
+      "source": "TEDx Talks trên YouTube"
+    },
+    {
+      "id": "HE-3K3aIla8",
+      "title": "新．年獸｜新年故事【  節慶故事  】｜斐寶樂學｜Happy New Year｜動畫｜Festival Stories｜BedtimeStories",
+      "channel": "哈吉派趣x斐寶樂學",
+      "channelUrl": "https://www.youtube.com/@HajiPachiTV",
+      "duration": 793,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Hoạt hình thiếu nhi",
+      "captions": "zh-Hant",
+      "generated": false,
+      "source": "哈吉派趣x斐寶樂學 trên YouTube"
+    },
+    {
+      "id": "cITO2U1vRz4",
+      "title": "Peppa Pig  - Learn Mandarin Chinese with Pinyin + English Subtitles | Mud Puddle |  泥水洼 S1E1 | 小猪佩奇",
+      "channel": "Gaofushuai Adrian",
+      "channelUrl": "https://www.youtube.com/@GaofushuaiAdrian",
+      "duration": 305,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Hoạt hình cho người mới",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Gaofushuai Adrian trên YouTube"
+    },
+    {
+      "id": "fthtJdgPPuY",
+      "title": "Peppa pig Chinese version - Basketball🏀篮球 - 6 subtitles",
+      "channel": "TryTryChinese with Subs",
+      "channelUrl": "https://www.youtube.com/@trytrychinesewithsubs",
+      "duration": 301,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Hoạt hình cho người mới",
+      "captions": "zh",
+      "generated": false,
+      "source": "TryTryChinese with Subs trên YouTube"
+    },
+    {
+      "id": "S5h6jXobMWc",
+      "title": "Peppa pig Chinese version - 🌮Pancakes 煎饼 - Pinyin & English subtitles",
+      "channel": "TryTryChinese with Subs",
+      "channelUrl": "https://www.youtube.com/@trytrychinesewithsubs",
+      "duration": 601,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Hoạt hình cho người mới",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "TryTryChinese with Subs trên YouTube"
+    },
+    {
+      "id": "FQrVRyNI9nU",
+      "title": "木兰Mulan |Chinese Stories| HSK 2 3 |Slow Chinese|| Pinyin + English Subtitles|the Story of Hua Mulan",
+      "channel": "Chill Chinese",
+      "channelUrl": "https://www.youtube.com/@superchillchinese",
+      "duration": 820,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Hoạt hình cho người mới",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "Chill Chinese trên YouTube"
+    },
+    {
+      "id": "aw6oz_WuEHg",
+      "title": "peppa pig chinese version - 🍚Lunch 午餐 - pinyin & english & simplified subtitles",
+      "channel": "TryTryChinese with Subs",
+      "channelUrl": "https://www.youtube.com/@trytrychinesewithsubs",
+      "duration": 302,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Hoạt hình Peppa Pig",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "TryTryChinese with Subs trên YouTube"
+    },
+    {
+      "id": "VV41CLltCOU",
+      "title": "Peppa Pig in Mandarin - 👗Mummy Pig's Birthday - Pinyin & English & Simplified & Traditional subs",
+      "channel": "TryTryChinese with Subs",
+      "channelUrl": "https://www.youtube.com/@trytrychinesewithsubs",
+      "duration": 302,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Hoạt hình Peppa Pig",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "TryTryChinese with Subs trên YouTube"
+    },
+    {
+      "id": "DVRy3l9ojq4",
+      "title": "HSK 1–2 | 为什么学了很久还是不会说中文？| Why You Still Can’t Speak Chinese?",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 1137,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "yDr4gAxZif0",
+      "title": "HSK 1-3 | How to Stay Motivated in Chinese Learning | 如何每天保持学习中文的动力？",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 1109,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "Hq4dXHjlRFc",
+      "title": "HSK 1-2 | 这个中文习惯改变你的一天 | The Secret Chinese Habit That CHANGES Your Day",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 758,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "PRSeZ1IQJek",
+      "title": "H10901/HSK 1/AUDIO/ WITH PINYIN SUBTITLES",
+      "channel": "Mengzi Yu",
+      "channelUrl": "https://www.youtube.com/@mengziyu396",
+      "duration": 852,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Mengzi Yu trên YouTube"
+    },
+    {
+      "id": "TUJw4nfN7S8",
+      "title": "Learn HSK 1 & HSK 2 |  Pinyin & English Subtitles | Peppa Pig - Best Friends | 小猪佩奇",
+      "channel": "Gaofushuai Adrian",
+      "channelUrl": "https://www.youtube.com/@GaofushuaiAdrian",
+      "duration": 305,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Gaofushuai Adrian trên YouTube"
+    },
+    {
+      "id": "FKUzdj2DedU",
+      "title": "【HSK1 Listening & Reading 22】| 天气很好 (The Weather is Nice) | Learn Chinese Through Listening & Quiz",
+      "channel": "ChineseClass365 中文加油站",
+      "channelUrl": "https://www.youtube.com/@ChineseClass365",
+      "duration": 136,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "ChineseClass365 中文加油站 trên YouTube"
+    },
+    {
+      "id": "VHDfXcoNutg",
+      "title": "🇨🇳 15个适合HSK 1-2级初学者的日常中文对话 | 厨房场景中文 🥢",
+      "channel": "Say Mandarin 说普通话 (Nǐ hǎo)",
+      "channelUrl": "https://www.youtube.com/@SayMandarin%E8%AF%B4%E6%99%AE%E9%80%9A%E8%AF%9D",
+      "duration": 942,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Say Mandarin 说普通话 (Nǐ hǎo) trên YouTube"
+    },
+    {
+      "id": "oLHfnK9IVZs",
+      "title": "Slow Chinese Vlog | What I Eat in a Day (comprehensible input, HSK1-3)",
+      "channel": "jiayouchinese",
+      "channelUrl": "https://www.youtube.com/@jiayouchinese2023",
+      "duration": 960,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "jiayouchinese trên YouTube"
+    },
+    {
+      "id": "QlXrNGBvH0I",
+      "title": "【HSK1 Listening & Reading 16】| 水果很好吃 (Fruits Are Delicious) | Beginner Chinese|中文听力+阅读练习",
+      "channel": "ChineseClass365 中文加油站",
+      "channelUrl": "https://www.youtube.com/@ChineseClass365",
+      "duration": 178,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "ChineseClass365 中文加油站 trên YouTube"
+    },
+    {
+      "id": "MYQrQvbR8Vk",
+      "title": "HSK 1–2 | 我的⼀天 My Daily Routine | Learn Everyday Chinese through Real Conversations",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 547,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "GFPOvOvFgQI",
+      "title": "HSK 1-3 | 像泡茶一样学中文  | Learn Chinese Like Making Tea | Chinese Daily Podcast",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 994,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "ive5H8hCBFs",
+      "title": "Slow Chinese Vlog | Grocery Shopping at a Supermarket (HSK1–3, Comprehensible Input, Easy & Fun)",
+      "channel": "jiayouchinese",
+      "channelUrl": "https://www.youtube.com/@jiayouchinese2023",
+      "duration": 440,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "jiayouchinese trên YouTube"
+    },
+    {
+      "id": "jdS3ghjgc54",
+      "title": "Xiaoyu's First Trip to the Supermarket | Slow Chinese Story for Beginners (HSK 1-2)",
+      "channel": "Storytime in Chinese",
+      "channelUrl": "https://www.youtube.com/@StorytimeinChinese",
+      "duration": 278,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Storytime in Chinese trên YouTube"
+    },
+    {
+      "id": "8MTp5dZoFGM",
+      "title": "HSK 1-2｜用中文介绍自己！Self-introduction in Chinese for Beginners",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 973,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Luyện nghe HSK 1",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "qxdX_cF5SBg",
+      "title": "小雨的一天 | 慢速中文 | 中文故事 | 中文学习 | HSK 1-2",
+      "channel": "Storytime in Chinese",
+      "channelUrl": "https://www.youtube.com/@StorytimeinChinese",
+      "duration": 614,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Kể chuyện chậm",
+      "captions": "zh",
+      "generated": false,
+      "source": "Storytime in Chinese trên YouTube"
+    },
+    {
+      "id": "r9C7f4u8Z7Y",
+      "title": "睡到自然醒 | 慢速中文 | 中文故事 | 中文听力 | HSK 2-3",
+      "channel": "Storytime in Chinese",
+      "channelUrl": "https://www.youtube.com/@StorytimeinChinese",
+      "duration": 593,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Kể chuyện chậm",
+      "captions": "zh",
+      "generated": false,
+      "source": "Storytime in Chinese trên YouTube"
+    },
+    {
+      "id": "2_jfPj_oKoM",
+      "title": "和好朋友去逛街 | 慢速中文 | 中文故事 | 中文学习 | HSK 3-4",
+      "channel": "Storytime in Chinese",
+      "channelUrl": "https://www.youtube.com/@StorytimeinChinese",
+      "duration": 591,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Kể chuyện chậm",
+      "captions": "zh",
+      "generated": false,
+      "source": "Storytime in Chinese trên YouTube"
+    },
+    {
+      "id": "Rr76tVx2C6Q",
+      "title": "我讨厌星期一 | 慢速中文 | 中文故事 | 中文听力 | HSK 2-3",
+      "channel": "Storytime in Chinese",
+      "channelUrl": "https://www.youtube.com/@StorytimeinChinese",
+      "duration": 701,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Kể chuyện chậm",
+      "captions": "zh",
+      "generated": false,
+      "source": "Storytime in Chinese trên YouTube"
+    },
+    {
+      "id": "kd71AjWome0",
+      "title": "慢速中文蒸水蛋 Slow Chinese steamed egg 【中文字幕/Chinese SUB】",
+      "channel": "Sanhuan",
+      "channelUrl": "https://www.youtube.com/@sanhuan9840",
+      "duration": 201,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Kể chuyện chậm",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "Sanhuan trên YouTube"
+    },
+    {
+      "id": "RGVLoHrX4Vc",
+      "title": "中文听力训练8 : Mandarin Listening - Improve Chinese listening skill（CC字幕）",
+      "channel": "Lotus Chinese",
+      "channelUrl": "https://www.youtube.com/@lotuschinese4456",
+      "duration": 338,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Kể chuyện chậm",
+      "captions": "zh",
+      "generated": false,
+      "source": "Lotus Chinese trên YouTube"
+    },
+    {
+      "id": "SUlizAUCUpI",
+      "title": "INTERACTIVE CHINESE for beginners // Chinese Comprehensible Input // HSK 0-1",
+      "channel": "Speak Your Chinese",
+      "channelUrl": "https://www.youtube.com/@speakyourchinese",
+      "duration": 467,
+      "lang": "zh",
+      "level": "HSK1",
+      "topic": "Nghe hiểu vỡ lòng",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "Speak Your Chinese trên YouTube"
+    },
+    {
+      "id": "gnCXffOg7T8",
+      "title": "🇨🇳 25 分钟日常生活中文对话 (HSK 1-2) | 简单普通话",
+      "channel": "Say Mandarin (Shuō Zhōngwén)",
+      "channelUrl": "https://www.youtube.com/@SayMandarin",
+      "duration": 1253,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Luyện nghe HSK 2",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Say Mandarin (Shuō Zhōngwén) trên YouTube"
+    },
+    {
+      "id": "9rwKFTBbopM",
+      "title": "How to Use 为什么 (why) : Learn Chinese with Chinese podcast | HSK 2 ｜CC SUB (pinyin)",
+      "channel": "Chloe Chinese Class",
+      "channelUrl": "https://www.youtube.com/@chloechinesecoach",
+      "duration": 806,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Luyện nghe HSK 2",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chloe Chinese Class trên YouTube"
+    },
+    {
+      "id": "M5_GapKFonQ",
+      "title": "HSK2汉语听力模拟测试 #1",
+      "channel": "MandarinBite",
+      "channelUrl": "https://www.youtube.com/@MandarinBite",
+      "duration": 960,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Luyện nghe HSK 2",
+      "captions": "zh",
+      "generated": false,
+      "source": "MandarinBite trên YouTube"
+    },
+    {
+      "id": "UXmUxqMbVFY",
+      "title": "The Reward of Effort | Slow Chinese | Chinese Story | Chinese Listening Practice | HSK 2-3",
+      "channel": "Tai Nghe Tiếng Trung",
+      "channelUrl": "https://www.youtube.com/@Dailychineselisteningpractice",
+      "duration": 832,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Luyện nghe HSK 2",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Tai Nghe Tiếng Trung trên YouTube"
+    },
+    {
+      "id": "3bkYHhpJ7ww",
+      "title": "Easy listening practice  | Comprehensible input Chinese story for HSK 2",
+      "channel": "Mandarin Slowly",
+      "channelUrl": "https://www.youtube.com/@MandarinSlowly",
+      "duration": 286,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Luyện nghe HSK 2",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "Mandarin Slowly trên YouTube"
+    },
+    {
+      "id": "mFjDP-bSV3Y",
+      "title": "HSK 1-2 | What’s stopping you from learning Chinese? | Chinese Listening Practice",
+      "channel": "Learn Chinese Through Podcast",
+      "channelUrl": "https://www.youtube.com/@LearnChineseThroughPodcast",
+      "duration": 1247,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Luyện nghe HSK 2",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Learn Chinese Through Podcast trên YouTube"
+    },
+    {
+      "id": "uU6bTIPOi4k",
+      "title": "HSK 2 – 3 | 周末安排：一起去看电影吧！Weekend Plan: Go to the Movies",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 913,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Luyện nghe HSK 2",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "1QkAGR0U-EU",
+      "title": "【HSK2 Slow Chinese】在餐厅里 In the restaurant｜Practice Chinese through vlogs｜Eng subtitles | with pinyin",
+      "channel": "talkinchinese_redred",
+      "channelUrl": "https://www.youtube.com/@talkinChinese_redred",
+      "duration": 1129,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Luyện nghe HSK 2",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "talkinchinese_redred trên YouTube"
+    },
+    {
+      "id": "M1BnUYEYeOg",
+      "title": "生活中文- Shēnghuó Zhōngwén | Chinese for Everyday Life | Chinese Podcast Station | HSK 2 - 3",
+      "channel": "Chinese Podcast Station",
+      "channelUrl": "https://www.youtube.com/@ChinesePodcastStation101",
+      "duration": 760,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Luyện nghe HSK 2",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Podcast Station trên YouTube"
+    },
+    {
+      "id": "wCDqRUGKlO8",
+      "title": "【刺激~】日语电影视频语音实时生成中文字幕，老司机福利！PotPlayer+AI语音识别，有网无网都可以|One-Click Japanese Subtitles!",
+      "channel": "不一样的强哥",
+      "channelUrl": "https://www.youtube.com/@QGshare",
+      "duration": 737,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Hoạt hình ngắn",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "不一样的强哥 trên YouTube"
+    },
+    {
+      "id": "DfVnbCv8SjM",
+      "title": "🇨🇳 餐厅中文：15个真实对话 | HSK1-2 | 学中文",
+      "channel": "Say Mandarin (Shuō Zhōngwén)",
+      "channelUrl": "https://www.youtube.com/@SayMandarin",
+      "duration": 1106,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Hội thoại chậm",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Say Mandarin (Shuō Zhōngwén) trên YouTube"
+    },
+    {
+      "id": "PXB1arlBgWg",
+      "title": "购物常用英语口语 | 简单慢速 | 简体/繁體字幕",
+      "channel": "肉肉教英文",
+      "channelUrl": "https://www.youtube.com/@rourou817",
+      "duration": 602,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Hội thoại hằng ngày",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "肉肉教英文 trên YouTube"
+    },
+    {
+      "id": "nxAfRmACtZs",
+      "title": "HSK 1–2 | 用中文讲故事 | Listen to Chinese Bedtime Stories for Sleep & Learning",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 1186,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Podcast",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "_C0CqAQowjY",
+      "title": "HSK 2+ | The Secret Story of \"Jiāyóu\"? Let's talk about the \"cheering\" stories you might not know...",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 756,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Podcast",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "O_kkptuQPY8",
+      "title": "HSK 1–2 | Chinese Speaking Practice | Talking About Food and Feelings",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 995,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Podcast",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "gr-PvRnUIjA",
+      "title": "HSK 2 - 3 | How to Express Your Feelings in Chinese?",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 1003,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Podcast",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "iyVM1bW0rUY",
+      "title": "HSK 2+ | Why You Should STOP Trying to Understand 100%",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 789,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Podcast",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "rpMZgQa1aBk",
+      "title": "Learn Chinese via slow Vlog, comprehensible Chinese input, my OOTD",
+      "channel": "Mandarin with Gisele",
+      "channelUrl": "https://www.youtube.com/@MandarinwithGisele",
+      "duration": 774,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Nhật ký đời sống",
+      "captions": "zh",
+      "generated": false,
+      "source": "Mandarin with Gisele trên YouTube"
+    },
+    {
+      "id": "N55ZNxgKA3I",
+      "title": "Learn Chinese Through My Morning Routine: A Slow & Comprehensible Vlog",
+      "channel": "Zhangkai Chinese",
+      "channelUrl": "https://www.youtube.com/@ZhangkaiChinese",
+      "duration": 1056,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Nhật ký đời sống",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "Zhangkai Chinese trên YouTube"
+    },
+    {
+      "id": "nM28NQ5KcIc",
+      "title": "Slow Chinese - Learn Chinese While Cooking (Comprehensible Input)",
+      "channel": "Zhangkai Chinese",
+      "channelUrl": "https://www.youtube.com/@ZhangkaiChinese",
+      "duration": 1317,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Nhật ký đời sống",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "Zhangkai Chinese trên YouTube"
+    },
+    {
+      "id": "NY-JpQjuzV0",
+      "title": "Slow vlog learning Chinese, comprehensible input in Chinese, having breakfast and returning books",
+      "channel": "Mandarin with Gisele",
+      "channelUrl": "https://www.youtube.com/@MandarinwithGisele",
+      "duration": 794,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Nhật ký đời sống",
+      "captions": "zh",
+      "generated": false,
+      "source": "Mandarin with Gisele trên YouTube"
+    },
+    {
+      "id": "WyAUkruxOnE",
+      "title": "Slow Chinese Podcast #1 | Listen to slow, clear & natural Chinese, learn with me",
+      "channel": "Mandarin with Gisele",
+      "channelUrl": "https://www.youtube.com/@MandarinwithGisele",
+      "duration": 952,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Nhật ký đời sống",
+      "captions": "zh",
+      "generated": false,
+      "source": "Mandarin with Gisele trên YouTube"
+    },
+    {
+      "id": "DmR-r1YZXZg",
+      "title": "Slow Chinese, comprehensible input, and learn simple Chinese through my wandering.",
+      "channel": "Mandarin with Gisele",
+      "channelUrl": "https://www.youtube.com/@MandarinwithGisele",
+      "duration": 904,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Nhật ký đời sống",
+      "captions": "zh",
+      "generated": false,
+      "source": "Mandarin with Gisele trên YouTube"
+    },
+    {
+      "id": "Wh6RSnr02KQ",
+      "title": "Learn Chinese While Touring My Home: Slow & Comprehensible Vlog",
+      "channel": "Zhangkai Chinese",
+      "channelUrl": "https://www.youtube.com/@ZhangkaiChinese",
+      "duration": 922,
+      "lang": "zh",
+      "level": "HSK2",
+      "topic": "Nhật ký đời sống",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "Zhangkai Chinese trên YouTube"
+    },
+    {
+      "id": "_qoWYona8_g",
+      "title": "Learn Chinese Through Real Chat | “除了…以外”:Besides | HSK 3 grammar｜Chinese podcast（ Pinyin & CC SUB)",
+      "channel": "Chloe Chinese Class",
+      "channelUrl": "https://www.youtube.com/@chloechinesecoach",
+      "duration": 1086,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Luyện nghe HSK 3",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chloe Chinese Class trên YouTube"
+    },
+    {
+      "id": "WYHIqg49PxA",
+      "title": "Easy listening practice  | Comprehensible input Chinese story for HSK 3",
+      "channel": "Mandarin Slowly",
+      "channelUrl": "https://www.youtube.com/@MandarinSlowly",
+      "duration": 191,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Luyện nghe HSK 3",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "Mandarin Slowly trên YouTube"
+    },
+    {
+      "id": "vP68RC_FwXQ",
+      "title": "HSK 3 WORKBOOK LESSON 16 我现在累得下了班就想睡觉",
+      "channel": "Mengzi Yu",
+      "channelUrl": "https://www.youtube.com/@mengziyu396",
+      "duration": 1279,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Luyện nghe HSK 3",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Mengzi Yu trên YouTube"
+    },
+    {
+      "id": "Z6OeYmWRe6E",
+      "title": "Convenience Store Culture in Taiwan - intermediate Chinese Podcast - Chinese & English Subtitles",
+      "channel": "Talk Taiwanese Mandarin With Abby",
+      "channelUrl": "https://www.youtube.com/@TalkTaiwaneseMandarin",
+      "duration": 693,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Nghe trung cấp",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Talk Taiwanese Mandarin With Abby trên YouTube"
+    },
+    {
+      "id": "S7m3CEsOViw",
+      "title": "☀️ My MORNING ROUTINE  in Chinese ☕️｜Intermediate Chinese Listening (subs) ｜Comprehensible Input",
+      "channel": "Nail Chinese with Stella",
+      "channelUrl": "https://www.youtube.com/@stellatuan.Chinese",
+      "duration": 1146,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Nghe trung cấp",
+      "captions": "zh",
+      "generated": false,
+      "source": "Nail Chinese with Stella trên YouTube"
+    },
+    {
+      "id": "Mk7R1HVF6wk",
+      "title": "Are Chinese Really Happy? Intermediate Chinese. CN/EN Subs.",
+      "channel": "EazyMandarin",
+      "channelUrl": "https://www.youtube.com/@EazyMandarin",
+      "duration": 579,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Nghe trung cấp",
+      "captions": "zh",
+      "generated": false,
+      "source": "EazyMandarin trên YouTube"
+    },
+    {
+      "id": "070A8eeeoVs",
+      "title": "Motorbike Round-trip in Taiwan - Intermediate Chinese Podcast with subtitles",
+      "channel": "Talk Taiwanese Mandarin With Abby",
+      "channelUrl": "https://www.youtube.com/@TalkTaiwaneseMandarin",
+      "duration": 1070,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Nghe trung cấp",
+      "captions": "zh",
+      "generated": false,
+      "source": "Talk Taiwanese Mandarin With Abby trên YouTube"
+    },
+    {
+      "id": "vz9ALKrU1yw",
+      "title": "Dessert Soups - Taiwanese Mandarin Podcast - Intermediate Chinese Podcast with subtitles",
+      "channel": "Talk Taiwanese Mandarin With Abby",
+      "channelUrl": "https://www.youtube.com/@TalkTaiwaneseMandarin",
+      "duration": 723,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Nghe trung cấp",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Talk Taiwanese Mandarin With Abby trên YouTube"
+    },
+    {
+      "id": "oH1CrRU0du4",
+      "title": "Braces in Taiwan - 6 Minute Intermediate Chinese Podcast - Mandarin podcast with Subtitles",
+      "channel": "Talk Taiwanese Mandarin With Abby",
+      "channelUrl": "https://www.youtube.com/@TalkTaiwaneseMandarin",
+      "duration": 362,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Nghe trung cấp",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Talk Taiwanese Mandarin With Abby trên YouTube"
+    },
+    {
+      "id": "Q1FO6dr5T_Y",
+      "title": "HSK 3-4 | Social Media and Modern Life | Is Social Media Good or Bad? | Chinese Daily Podcast",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 891,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Podcast trung cấp",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "hBPECevVz-k",
+      "title": "HSK 4 | Why Chinese People Love Hot Water? | 为什么中国人爱喝热水？| Chinese Daily Podcast",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 1204,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Podcast trung cấp",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "5diy_TEiQ5E",
+      "title": "Best Friends Challenge: How Well Do We Know Each Other? | Chinese Podcast (CC SUB)",
+      "channel": "Chloe Chinese Class",
+      "channelUrl": "https://www.youtube.com/@chloechinesecoach",
+      "duration": 1059,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Podcast trung cấp",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chloe Chinese Class trên YouTube"
+    },
+    {
+      "id": "QTDSCuxhe3c",
+      "title": "HSK 3 | Chinese Birthday Culture & Longevity Noodles | What do Chinese people eat on their birthd...",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 985,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Podcast trung cấp",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "_9mzcbyZ-eY",
+      "title": "中文情景对话 | 我的一天 | 中文口语练习",
+      "channel": "Mr. Chinese Channel",
+      "channelUrl": "https://www.youtube.com/@mr.chinesechannel",
+      "duration": 975,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Podcast trung cấp",
+      "captions": "zh",
+      "generated": false,
+      "source": "Mr. Chinese Channel trên YouTube"
+    },
+    {
+      "id": "dF1NRC9zZkk",
+      "title": "From Small Talk to Weird Chinese Conversations in 15 Minutes 中文播客 Intermediate Chinese Podcast EP.5",
+      "channel": "Chinese with Ben",
+      "channelUrl": "",
+      "duration": 824,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Podcast trung cấp",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Chinese with Ben trên YouTube"
+    },
+    {
+      "id": "nuL3ssJWh7Q",
+      "title": "Why You Still Can't Understand Chinese: The REAL Reason (Multi-Subs)",
+      "channel": "Mandarin Chinese Podcast",
+      "channelUrl": "https://www.youtube.com/@MandarinChinesePodcast",
+      "duration": 945,
+      "lang": "zh",
+      "level": "HSK3",
+      "topic": "Podcast trung cấp",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Mandarin Chinese Podcast trên YouTube"
+    },
+    {
+      "id": "3ytKlz7hX-8",
+      "title": "HSK4｜My Favorite Place｜我最喜欢的地方｜Walk Around in Dalian China｜Mandarin Vlog｜中文｜汉语｜语法",
+      "channel": "Chinese Mandarin Cherry",
+      "channelUrl": "https://www.youtube.com/@chinesemandarincherry",
+      "duration": 942,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Luyện nghe HSK 4",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Chinese Mandarin Cherry trên YouTube"
+    },
+    {
+      "id": "ot08DY_ns88",
+      "title": "HSK 4/5 | 找工作 Looking for a job | Mandarin Chinese Podcast 9 | Chinese Listening Pre Intermediate",
+      "channel": "Mandarin Click",
+      "channelUrl": "https://www.youtube.com/@MandarinClick",
+      "duration": 220,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Luyện nghe HSK 4",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Mandarin Click trên YouTube"
+    },
+    {
+      "id": "Q089ofjULU0",
+      "title": "HSK4听力练习|listening|with answers|リスニング|回答解説付| 中国語の耳を作る",
+      "channel": "Hi-Chinese",
+      "channelUrl": "https://www.youtube.com/@hi-chinese5557",
+      "duration": 935,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Luyện nghe HSK 4",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Hi-Chinese trên YouTube"
+    },
+    {
+      "id": "LXtr3HgJQPU",
+      "title": "HSK 4-5 | Learn Chinese by watching dramas, say goodbye to subtitles",
+      "channel": "故事学中文",
+      "channelUrl": "https://www.youtube.com/@Learning_Chinese2025",
+      "duration": 1388,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Luyện nghe HSK 4",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "故事学中文 trên YouTube"
+    },
+    {
+      "id": "hNUtJNjEog4",
+      "title": "HSK4/workbook/lesson 12/用心发现世界",
+      "channel": "Mengzi Yu",
+      "channelUrl": "https://www.youtube.com/@mengziyu396",
+      "duration": 964,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Luyện nghe HSK 4",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Mengzi Yu trên YouTube"
+    },
+    {
+      "id": "BUX5z4pMfKI",
+      "title": "Learning Chinese through Stories｜To Stay Or To Leave｜HSK4-5｜Listening & Speaking｜留下还是离开｜物語で中国語学習",
+      "channel": "易小小中文学习角Chinese Learning Corner",
+      "channelUrl": "https://www.youtube.com/@%E6%98%93%E5%B0%8F%E5%B0%8F%E4%B8%AD%E6%96%87%E5%AD%A6%E4%B9%A0%E8%A7%92",
+      "duration": 711,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Luyện nghe HSK 4",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "易小小中文学习角Chinese Learning Corner trên YouTube"
+    },
+    {
+      "id": "ZqKBfC8G9wA",
+      "title": "太尴尬了！Awkward Moments in Daily Life｜Chinese Podcast Listening Practice (Intermediate)",
+      "channel": "Chloe Chinese Class",
+      "channelUrl": "https://www.youtube.com/@chloechinesecoach",
+      "duration": 1525,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Podcast",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chloe Chinese Class trên YouTube"
+    },
+    {
+      "id": "J4AKpH47mko",
+      "title": "Do you like yourself @xiaoguachinese  | Intermediate Chinese Podcast | Comprehensible input",
+      "channel": "Lazy Chinese - Comprehensible Input",
+      "channelUrl": "https://www.youtube.com/@Lazy-Chinese",
+      "duration": 1565,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Podcast",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Lazy Chinese - Comprehensible Input trên YouTube"
+    },
+    {
+      "id": "wUfs7qcVzaA",
+      "title": "People keep telling me I got LUCKY - Intermediate Chinese Podcast @Lazy-Chinese",
+      "channel": "Xiaogua Chinese",
+      "channelUrl": "https://www.youtube.com/@xiaoguachinese",
+      "duration": 1478,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Podcast",
+      "captions": "zh",
+      "generated": false,
+      "source": "Xiaogua Chinese trên YouTube"
+    },
+    {
+      "id": "V1xjCi-1EKU",
+      "title": "HSK 4 - 5 | Conversations on Habits | Chinese Listening Practice",
+      "channel": "Learn Chinese Through Podcast",
+      "channelUrl": "https://www.youtube.com/@LearnChineseThroughPodcast",
+      "duration": 1623,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Podcast",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Learn Chinese Through Podcast trên YouTube"
+    },
+    {
+      "id": "mmOD6lUl5Y0",
+      "title": "Easy Chinese podcast: will we die alone? @xiaoguachinese  | intermediate | comprehensible input",
+      "channel": "Lazy Chinese - Comprehensible Input",
+      "channelUrl": "https://www.youtube.com/@Lazy-Chinese",
+      "duration": 1386,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Podcast",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Lazy Chinese - Comprehensible Input trên YouTube"
+    },
+    {
+      "id": "kvG7QF89Ddo",
+      "title": "Job Interview | 工作面试 - Gōngzuò miànshì | Easy Chinese Podcast | HSK 2 - 3",
+      "channel": "Easy Chinese Club",
+      "channelUrl": "https://www.youtube.com/@EasyChineseClub",
+      "duration": 664,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Podcast",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "Easy Chinese Club trên YouTube"
+    },
+    {
+      "id": "rTOwIJeG7sM",
+      "title": "HSK 4-5 | Don't Wait for the Perfect Moment | 不要等待完美的时机 | Chinese daily podcast",
+      "channel": "Chinese Daily Podcast",
+      "channelUrl": "https://www.youtube.com/@ChineseDailyPodcast",
+      "duration": 1418,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Podcast",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chinese Daily Podcast trên YouTube"
+    },
+    {
+      "id": "mhEAM52nm0M",
+      "title": "Why I left China and moved to Berlin | Intermediate Chinese podcast | Comprehensible input",
+      "channel": "Lazy Chinese - Comprehensible Input",
+      "channelUrl": "https://www.youtube.com/@Lazy-Chinese",
+      "duration": 1124,
+      "lang": "zh",
+      "level": "HSK4",
+      "topic": "Podcast",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Lazy Chinese - Comprehensible Input trên YouTube"
+    },
+    {
+      "id": "tELx2Yz49EU",
+      "title": "听故事学中文 HSK5李红的奶茶店 Learning Chinese with stories | Chinese Listening & Speaking Skills study Chinese",
+      "channel": "Chinese in Stories",
+      "channelUrl": "https://www.youtube.com/@ChineseinStories",
+      "duration": 1672,
+      "lang": "zh",
+      "level": "HSK5",
+      "topic": "Luyện nghe HSK 5",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Chinese in Stories trên YouTube"
+    },
+    {
+      "id": "uS-yya9Mn_4",
+      "title": "听故事学中文 HSK5莉莉的旅行 Learning Chinese with stories | Chinese Listening & Speaking Skills study Chinese",
+      "channel": "Chinese in Stories",
+      "channelUrl": "https://www.youtube.com/@ChineseinStories",
+      "duration": 1561,
+      "lang": "zh",
+      "level": "HSK5",
+      "topic": "Luyện nghe HSK 5",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Chinese in Stories trên YouTube"
+    },
+    {
+      "id": "7FGDO3x_up4",
+      "title": "HSK5 下/workbook/leccion21/汉字叔叔：一个美国人的汉字情缘",
+      "channel": "Mengzi Yu",
+      "channelUrl": "https://www.youtube.com/@mengziyu396",
+      "duration": 611,
+      "lang": "zh",
+      "level": "HSK5",
+      "topic": "Luyện nghe HSK 5",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Mengzi Yu trên YouTube"
+    },
+    {
+      "id": "ztFvAWcAXrM",
+      "title": "中文听力训练5 : Mandarin Listening -Improve Chinese listening skill（CC字幕）",
+      "channel": "Lotus Chinese",
+      "channelUrl": "https://www.youtube.com/@lotuschinese4456",
+      "duration": 730,
+      "lang": "zh",
+      "level": "HSK5",
+      "topic": "Luyện nghe HSK 5",
+      "captions": "zh",
+      "generated": false,
+      "source": "Lotus Chinese trên YouTube"
+    },
+    {
+      "id": "kpLhzBifHt4",
+      "title": "HSK5上/workbook/leccion 1/爱的细节",
+      "channel": "Mengzi Yu",
+      "channelUrl": "https://www.youtube.com/@mengziyu396",
+      "duration": 510,
+      "lang": "zh",
+      "level": "HSK5",
+      "topic": "Luyện nghe HSK 5",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Mengzi Yu trên YouTube"
+    },
+    {
+      "id": "snZ811wvjjw",
+      "title": "如何不讓人生留下遺憾? | Breaking the power of guilt | 陳永儀 May Chen | TEDxTaipei",
+      "channel": "TEDx Talks",
+      "channelUrl": "https://www.youtube.com/@TEDx",
+      "duration": 868,
+      "lang": "zh",
+      "level": "HSK5",
+      "topic": "Diễn thuyết",
+      "captions": "zh-TW",
+      "generated": false,
+      "source": "TEDx Talks trên YouTube"
+    },
+    {
+      "id": "t7ZI9c6Ze7E",
+      "title": "Don't Work Too Hard 不要太努力 | 之喬 曾 | TEDxTaipeiFuhsingPrivateSchool",
+      "channel": "TEDx Talks",
+      "channelUrl": "https://www.youtube.com/@TEDx",
+      "duration": 1247,
+      "lang": "zh",
+      "level": "HSK5",
+      "topic": "Diễn thuyết",
+      "captions": "zh-TW",
+      "generated": false,
+      "source": "TEDx Talks trên YouTube"
+    },
+    {
+      "id": "ctR1jrI42uc",
+      "title": "Chinese Podcast | Speak Chinese Better: What Pro Teachers Do & Practice Tips (CC SUB)",
+      "channel": "Chloe Chinese Class",
+      "channelUrl": "https://www.youtube.com/@chloechinesecoach",
+      "duration": 1756,
+      "lang": "zh",
+      "level": "HSK5",
+      "topic": "Podcast nâng cao",
+      "captions": "zh",
+      "generated": false,
+      "source": "Chloe Chinese Class trên YouTube"
+    },
+    {
+      "id": "LeLzW1nY3Io",
+      "title": "Advanced Chinese Podcast: Lost Money, Lost Friend? / Comprehensible Input#learnchinese #podcast",
+      "channel": "EasyTalk Chinese - Comprehensible Input",
+      "channelUrl": "",
+      "duration": 1746,
+      "lang": "zh",
+      "level": "HSK5",
+      "topic": "Podcast nâng cao",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "EasyTalk Chinese - Comprehensible Input trên YouTube"
+    },
+    {
+      "id": "KsbNkdCoCTo",
+      "title": "Advanced Chinese Listening Practice｜Investing in Taiwan 🇹🇼",
+      "channel": "Boba Taiwanese Mandarin",
+      "channelUrl": "https://www.youtube.com/@bobaTaiwaneseMandarin",
+      "duration": 920,
+      "lang": "zh",
+      "level": "HSK5",
+      "topic": "Podcast nâng cao",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "Boba Taiwanese Mandarin trên YouTube"
+    },
+    {
+      "id": "K2vBHUUqWoI",
+      "title": "一刻talks |对话蔡康永：如何做一个温柔且清醒的人",
+      "channel": "一刻Talks",
+      "channelUrl": "https://www.youtube.com/@talks1004",
+      "duration": 755,
+      "lang": "zh",
+      "level": "HSK6",
+      "topic": "Phỏng vấn chuyên sâu",
+      "captions": "zh-Hant",
+      "generated": false,
+      "source": "一刻Talks trên YouTube"
+    },
+    {
+      "id": "BZeuuP7DS0c",
+      "title": "马斯克 2026 最新访谈 全中文解读：下一个智能时代！AGI 倒计时已开启！",
+      "channel": "字节简报 - 专注美股投资",
+      "channelUrl": "https://www.youtube.com/@%E5%AD%97%E8%8A%82%E7%AE%80%E6%8A%A5",
+      "duration": 1240,
+      "lang": "zh",
+      "level": "HSK6",
+      "topic": "Phỏng vấn chuyên sâu",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "字节简报 - 专注美股投资 trên YouTube"
+    },
+    {
+      "id": "dKeBKjTi9fc",
+      "title": "地球史上最震撼的访谈(20/39)来自非洲的科瑞多穆特瓦Credo Mutwa&David Icke",
+      "channel": "auagate",
+      "channelUrl": "https://www.youtube.com/@auagate",
+      "duration": 588,
+      "lang": "zh",
+      "level": "HSK6",
+      "topic": "Phỏng vấn chuyên sâu",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "auagate trên YouTube"
+    },
+    {
+      "id": "2ND526EXAus",
+      "title": "教育如何讓孩子成為自己 | Chung-Chiene Lee | TEDxDadun",
+      "channel": "TEDx Talks",
+      "channelUrl": "https://www.youtube.com/@TEDx",
+      "duration": 1056,
+      "lang": "zh",
+      "level": "HSK6",
+      "topic": "Diễn thuyết TEDx",
+      "captions": "zh-TW",
+      "generated": false,
+      "source": "TEDx Talks trên YouTube"
+    },
+    {
+      "id": "6i7RcP39NB0",
+      "title": "留十八分鐘給自己：蔣勳 (Chiang Hsun) at TEDxTaipei 2012",
+      "channel": "TEDxTaipei",
+      "channelUrl": "https://www.youtube.com/@tedxtaipei",
+      "duration": 1483,
+      "lang": "zh",
+      "level": "HSK6",
+      "topic": "Diễn thuyết TEDx",
+      "captions": "zh-TW",
+      "generated": false,
+      "source": "TEDxTaipei trên YouTube"
+    },
+    {
+      "id": "O2ucDApdbvs",
+      "title": "為什麼不該追求愛情 Why shouldn't we \"pursue\" love? | 國洋 張 | TEDxFJCU",
+      "channel": "TEDx Talks",
+      "channelUrl": "https://www.youtube.com/@TEDx",
+      "duration": 1324,
+      "lang": "zh",
+      "level": "HSK6",
+      "topic": "Diễn thuyết TEDx",
+      "captions": "zh-TW",
+      "generated": false,
+      "source": "TEDx Talks trên YouTube"
+    },
+    {
+      "id": "sGgHPZ_ScyE",
+      "title": "終結與開始，每次都是學習 | Ryan Lau (柳俊江) | TEDxHSUHK",
+      "channel": "TEDx Talks",
+      "channelUrl": "https://www.youtube.com/@TEDx",
+      "duration": 1161,
+      "lang": "zh",
+      "level": "HSK6",
+      "topic": "Diễn thuyết TEDx",
+      "captions": "zh-HK",
+      "generated": false,
+      "source": "TEDx Talks trên YouTube"
+    },
+    {
+      "id": "sfmEZSyQck4",
+      "title": "Be confident without any reason  自信的建造！獻給總在生活中焦慮跟自卑的你 | Judy Chou | TEDxNeihu",
+      "channel": "TEDx Talks",
+      "channelUrl": "https://www.youtube.com/@TEDx",
+      "duration": 1201,
+      "lang": "zh",
+      "level": "HSK6",
+      "topic": "Diễn thuyết TEDx",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "TEDx Talks trên YouTube"
+    },
+    {
+      "id": "M9Rnyr86-rI",
+      "title": "【一席】黃曉丹：隨時間而來的真理",
+      "channel": "一席YiXi",
+      "channelUrl": "https://www.youtube.com/@yixi2028",
+      "duration": 1803,
+      "lang": "zh",
+      "level": "HSK7-9",
+      "topic": "Diễn thuyết",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "一席YiXi trên YouTube"
+    },
+    {
+      "id": "rTgSizwYA_8",
+      "title": "【一席】戴錦華：宅內宅外",
+      "channel": "一席YiXi",
+      "channelUrl": "https://www.youtube.com/@yixi2028",
+      "duration": 1537,
+      "lang": "zh",
+      "level": "HSK7-9",
+      "topic": "Diễn thuyết",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "一席YiXi trên YouTube"
+    },
+    {
+      "id": "QsCyzxjlmvo",
+      "title": "【一席】畢贛：路邊野餐 (中英日文版)",
+      "channel": "一席YiXi",
+      "channelUrl": "https://www.youtube.com/@yixi2028",
+      "duration": 1596,
+      "lang": "zh",
+      "level": "HSK7-9",
+      "topic": "Diễn thuyết",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "一席YiXi trên YouTube"
+    },
+    {
+      "id": "v4DXxh0Yzz0",
+      "title": "【一席】梁冬：不二",
+      "channel": "一席YiXi",
+      "channelUrl": "https://www.youtube.com/@yixi2028",
+      "duration": 1126,
+      "lang": "zh",
+      "level": "HSK7-9",
+      "topic": "Diễn thuyết",
+      "captions": "zh-Hans",
+      "generated": false,
+      "source": "一席YiXi trên YouTube"
+    },
+    {
+      "id": "RRx9692gDZY",
+      "title": "【一席】葉泰興：No Problem Peter",
+      "channel": "一席YiXi",
+      "channelUrl": "https://www.youtube.com/@yixi2028",
+      "duration": 1478,
+      "lang": "zh",
+      "level": "HSK7-9",
+      "topic": "Diễn thuyết",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "一席YiXi trên YouTube"
+    },
+    {
+      "id": "D7aC1e0y-Ho",
+      "title": "【一席】陳華：風口",
+      "channel": "一席YiXi",
+      "channelUrl": "https://www.youtube.com/@yixi2028",
+      "duration": 1594,
+      "lang": "zh",
+      "level": "HSK7-9",
+      "topic": "Diễn thuyết",
+      "captions": "zh-CN",
+      "generated": false,
+      "source": "一席YiXi trên YouTube"
     }
   ]
 }

@@ -161,8 +161,13 @@ def get_transcript():
             fetched = api.fetch(video_id, languages=preferred)
         except NoTranscriptFound:
             if transcript_list is not None:
-                # Ưu tiên tiếng Anh, rồi tiếng Việt, rồi bất kỳ.
-                for prefix in ("en", "vi", ""):
+                # Ưu tiên đúng tiếng đã xin, rồi tiếng Anh, rồi bất kỳ.
+                roots = []
+                for code in preferred:
+                    root = code.split("-")[0]
+                    if root not in roots:
+                        roots.append(root)
+                for prefix in (*roots, "en", ""):
                     for t in transcript_list:
                         if t.language_code.startswith(prefix):
                             try:

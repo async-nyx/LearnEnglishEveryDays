@@ -13,7 +13,7 @@ import type {
 } from '../lib/types'
 import { newSrs, rateSrs } from '../lib/srs'
 import { fetchTranscript } from '../lib/api'
-import type { Lang, Level } from '../lib/library'
+import { langOf, libraryItem, type Lang, type Level } from '../lib/library'
 import { uid } from '../lib/text'
 
 export interface Toast {
@@ -203,7 +203,14 @@ export const useStore = create<State>()(
         }
         set({ loadingVideoId: id, loading: true })
         try {
-          setTranscript(await fetchTranscript(id))
+          // video tiếng Trung: xin đúng phụ đề tiếng Trung, không thì máy chủ trả bản tiếng Anh
+          const item = libraryItem(id)
+          // video ngoài thư viện (đề xuất YouTube): đoán theo video đang xem, để chuỗi video tiếng
+          // Trung không rơi về phụ đề tiếng Anh
+          const cur = get().currentVideoId ? libraryItem(get().currentVideoId as string) : undefined
+          const zh = item ? langOf(item) === 'zh' : cur ? langOf(cur) === 'zh' : false
+          const languages = zh ? ['zh-Hans', 'zh-CN', 'zh', 'zh-Hant', 'zh-TW', 'zh-HK'] : undefined
+          setTranscript(await fetchTranscript(id, languages))
         } catch (e) {
           toast(`Không lấy được phụ đề: ${(e as Error).message}`, 'bad')
         } finally {

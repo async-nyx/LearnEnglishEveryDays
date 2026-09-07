@@ -5,7 +5,8 @@ export interface Token {
   isWord: boolean
 }
 
-const WORD_RE = /[A-Za-zÀ-ỹ][A-Za-zÀ-ỹ'’-]*/g
+// Tiếng Trung không có khoảng trắng: MỖI CHỮ HÁN là một token riêng, bấm được và đếm được.
+const WORD_RE = /\p{Script=Han}|[A-Za-zÀ-ỹ][A-Za-zÀ-ỹ'’-]*/gu
 
 /** Tách câu thành từ và các ký tự còn lại, giữ nguyên thứ tự để render. */
 export function tokenize(text: string): Token[] {
@@ -25,7 +26,8 @@ export function normalizeWord(w: string): string {
   return w
     .toLowerCase()
     .replace(/’/g, "'")
-    .replace(/[^a-z0-9']/g, '')
+    // giữ chữ Hán, không thì mọi từ tiếng Trung thành chuỗi rỗng
+    .replace(/[^a-z0-9'\p{Script=Han}]/gu, '')
 }
 
 export function wordsOf(text: string): string[] {
@@ -115,11 +117,17 @@ export function buildSentences(segments: Segment[], opts?: { maxWords?: number; 
       cur.end = Math.max(cur.end, segEnd)
       cur.segIndexes.push(idx)
     }
-    const words = cur.text.split(/\s+/).filter(Boolean).length
-    if (/[.!?]["’”)]?$/.test(seg.text.trim()) || words >= maxWords) flush()
+    const words = countWords(cur.text)
+    // dấu chấm câu của cả hai tiếng: . ! ? và 。！？
+    if (/[.!?。！？][""'’”)]?$/.test(seg.text.trim()) || words >= maxWords) flush()
   })
   flush()
   return out
+}
+
+/** Đếm từ: tiếng Anh theo khoảng trắng, tiếng Trung theo chữ Hán. */
+export function countWords(text: string): number {
+  return (text.match(WORD_RE) ?? []).length
 }
 
 export function toSrt(segments: Segment[]): string {

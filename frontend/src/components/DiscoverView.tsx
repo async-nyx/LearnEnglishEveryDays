@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Sparkle } from '@phosphor-icons/react'
-import { LANG_LABEL, LEVELS_OF, LEVEL_LABEL, itemsOf, libraryItem, mostWatchedLevel, type Lang, type Level } from '../lib/library'
+import { LANG_LABEL, LEVELS_OF, LEVEL_LABEL, itemsOf, libraryItem, mostWatchedLevel, sortForLevel, type Lang, type Level } from '../lib/library'
 import { shuffle } from '../lib/text'
 import { useStore } from '../store/useStore'
 import { VideoRow } from './VideoRow'
@@ -30,7 +30,7 @@ export function DiscoverView() {
     const pool = items.filter((v) => v.level === level)
     const fresh = shuffle(pool.filter((v) => !seen.has(v.id)))
     const old = shuffle(pool.filter((v) => seen.has(v.id)))
-    return [...fresh, ...old].slice(0, n)
+    return sortForLevel([...fresh, ...old].slice(0, n), level)
   }
   const resume = history.map((h) => libraryItem(h.videoId)).filter((v): v is NonNullable<typeof v> => !!v && (v.lang ?? 'en') === lang).slice(0, 12)
   const goLevel = (level: Level) => ({

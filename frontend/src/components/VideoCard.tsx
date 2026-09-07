@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { formatDuration, thumbnailOf, type LibraryItem } from '../lib/library'
+import { formatDuration, isCartoon, thumbnailOf, type LibraryItem } from '../lib/library'
 import { useStore } from '../store/useStore'
 import { cx } from './ui'
 
@@ -33,7 +33,10 @@ export function VideoCard({ item, size = 'md', className }: { item: LibraryItem;
           loading="lazy"
         />
         <span className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/70 to-transparent" />
-        <span className="absolute left-2 top-2 rounded-md bg-nen/90 px-1.5 py-0.5 font-mono text-[11px] font-semibold text-chu">{item.level}</span>
+        <span className="absolute left-2 top-2 flex items-center gap-1">
+          <span className="rounded-md bg-nen/90 px-1.5 py-0.5 font-mono text-[11px] font-semibold text-chu">{item.level}</span>
+          {isCartoon(item) && <span className="rounded-md bg-nhan/90 px-1.5 py-0.5 text-[10px] font-semibold text-nhan-chu">Hoạt hình</span>}
+        </span>
         <span className="absolute bottom-2 right-2 rounded-md bg-black/70 px-1.5 py-0.5 font-mono text-[11px] text-white">{formatDuration(item.duration)}</span>
         <span className="absolute bottom-2 left-2 max-w-[70%] truncate text-[11px] font-medium text-white/90">{item.channel}</span>
         {watched && !busy && (

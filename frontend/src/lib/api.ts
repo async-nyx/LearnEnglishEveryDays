@@ -8,11 +8,11 @@ async function readJson<T>(res: Response): Promise<T> {
   return data
 }
 
-export async function fetchTranscript(url: string): Promise<TranscriptData> {
+export async function fetchTranscript(url: string, languages?: string[]): Promise<TranscriptData> {
   const res = await fetch('/api/transcript', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ url }),
+    body: JSON.stringify(languages ? { url, languages } : { url }),
   })
   return readJson<TranscriptData>(res)
 }

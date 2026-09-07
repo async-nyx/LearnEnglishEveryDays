@@ -36,6 +36,8 @@ export function WordPopover() {
   const imageSlugs = useStore((s) => s.imageSlugs)
 
   const norm = target ? normalizeWord(target.word) : ''
+  // chữ Hán: từ điển Anh-Anh không có, chỉ dịch sang tiếng Việt
+  const isHan = /\p{Script=Han}/u.test(norm)
   const lemma = dict?.lemma ?? norm
   const saved = vocab.find((v) => v.lemma === lemma || v.word === norm)
   const image = target ? findImage(imageSlugs, lemma, norm) : null
@@ -47,9 +49,15 @@ export function WordPopover() {
     setErr(null)
     setDictPending(true)
     let alive = true
-    translateText(target.word, 'vi', 'en')
+    translateText(target.word, 'vi', isHan ? 'zh' : 'en')
       .then((r) => alive && setVi(r))
       .catch((e: Error) => alive && setErr(e.message))
+    if (isHan) {
+      setDictPending(false)
+      return () => {
+        alive = false
+      }
+    }
     // nhanh (~0,3 s): Datamuse + TTS. Chậm (tới 25 s lần đầu): IPA chuẩn, audio người đọc, ví dụ.
     defineWord(target.word)
       .then((d) => alive && setDict((cur) => (cur && cur.source === 'dictionaryapi' ? cur : d)))

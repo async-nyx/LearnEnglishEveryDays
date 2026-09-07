@@ -81,20 +81,19 @@ function trackName(t: CaptionTrack): string {
   return t.name?.simpleText ?? t.name?.runs?.map((r) => r.text).join('') ?? t.languageCode
 }
 
-function pickTrack(tracks: CaptionTrack[]): CaptionTrack | null {
+function pickTrack(tracks: CaptionTrack[], preferred: string[] = ['en', 'en-US', 'en-GB']): CaptionTrack | null {
   const manual = tracks.filter((t) => t.kind !== 'asr')
-  const order = ['en', 'en-US', 'en-GB']
+  const order = preferred
   for (const code of order) {
     const t = manual.find((x) => x.languageCode === code)
     if (t) return t
   }
-  return (
-    manual.find((t) => t.languageCode.startsWith('en')) ??
-    tracks.find((t) => t.languageCode.startsWith('en')) ??
-    manual.find((t) => t.languageCode.startsWith('vi')) ??
-    tracks[0] ??
-    null
-  )
+  const roots = Array.from(new Set(order.map((c) => c.split('-')[0])))
+  for (const root of roots) {
+    const m = manual.find((t) => t.languageCode.startsWith(root)) ?? tracks.find((t) => t.languageCode.startsWith(root))
+    if (m) return m
+  }
+  return manual[0] ?? tracks[0] ?? null
 }
 
 interface Json3 {
@@ -103,19 +102,22 @@ interface Json3 {
 
 export const onRequestPost = async ({ request }: { request: Request }) => {
   let url = ''
+  let languages: string[] | undefined
   try {
-    const body = (await request.json()) as { url?: string }
+    const body = (await request.json()) as { url?: string; languages?: string[] }
     url = (body.url ?? '').trim()
+    languages = Array.isArray(body.languages) && body.languages.length ? body.languages : undefined
   } catch {
     return fail('Body không hợp lệ.')
   }
   if (!url) return fail('Vui lòng nhập liên kết YouTube.')
   const videoId = extractVideoId(url)
   if (!videoId) return fail('Không nhận diện được mã video từ liên kết.')
-  return cached(request, `/__cache/transcript?v=${videoId}`, 60 * 60 * 24 * 7, () => build(videoId))
+  const langKey = languages?.join(',') ?? 'en'
+  return cached(request, `/__cache/transcript?v=${videoId}&l=${langKey}`, 60 * 60 * 24 * 7, () => build(videoId, languages))
 }
 
-async function build(videoId: string): Promise<Response> {
+async function build(videoId: string, languages?: string[]): Promise<Response> {
   let pr: PlayerResponse
   try {
     pr = await playerResponse(videoId)
@@ -128,7 +130,7 @@ async function build(videoId: string): Promise<Response> {
     const reason = pr.playabilityStatus?.reason
     return json({ success: false, error: reason ? `YouTube: ${reason}. Thử lại sau ít phút hoặc dùng bản chạy trên máy (py app.py).` : 'Video này chưa có phụ đề nào để lấy.', available }, 400)
   }
-  const track = pickTrack(tracks)!
+  const track = pickTrack(tracks, languages)!
   const capUrl = track.baseUrl.includes('fmt=') ? track.baseUrl.replace(/fmt=[^&]*/, 'fmt=json3') : `${track.baseUrl}&fmt=json3`
 
   let data: Json3

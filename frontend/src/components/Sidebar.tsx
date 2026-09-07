@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { BookBookmark, Books, ChartLineUp, PlayCircle, Sparkle, Waveform } from '@phosphor-icons/react'
 import { fetchTranscript } from '../lib/api'
+import { itemsOf } from '../lib/library'
 import type { View } from '../lib/types'
 import { useStore } from '../store/useStore'
 import { cx } from './ui'
@@ -54,7 +55,7 @@ export function Sidebar() {
   const nav: { view: View; label: string; hint: string; icon: (active: boolean) => React.ReactNode; badge?: number }[] = [
     { view: 'study', label: 'Học', hint: 'Đọc · Chính tả · Nói theo', icon: (a) => <PlayCircle size={18} weight={a ? 'fill' : 'regular'} /> },
     { view: 'discover', label: 'Đề xuất', hint: 'Theo bậc bạn nghe nhiều', icon: (a) => <Sparkle size={18} weight={a ? 'fill' : 'regular'} /> },
-    { view: 'library', label: 'Thư viện', hint: '100 video A1–C1', icon: (a) => <Books size={18} weight={a ? 'fill' : 'regular'} /> },
+    { view: 'library', label: 'Thư viện', hint: `${itemsOf('en').length} tiếng Anh · ${itemsOf('zh').length} tiếng Trung`, icon: (a) => <Books size={18} weight={a ? 'fill' : 'regular'} /> },
     {
       view: 'vocab',
       label: 'Từ vựng',
