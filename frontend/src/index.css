@@ -1,0 +1,326 @@
+@import "tailwindcss";
+
+/* ════════════════════════════════════════════════════════════════════════════
+   SUBLOOP — hệ màu
+   Nền trung tính ngả hồng lấy theo bảng mặc định của Trạm Đề (Hocquiz),
+   một màu nhấn duy nhất (hồng đào). Sáng là mặc định; tối định nghĩa lại
+   đúng những token đổi vai trò. Mọi màu trong component đều đi qua token.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Menlo, monospace;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Token màu ánh xạ sang Tailwind: bg-nen, text-chu, border-vien, bg-nhan/15… */
+@theme inline {
+  --color-nen: var(--nen);
+  --color-nen-cham: var(--nen-cham);
+  --color-mat: var(--mat);
+  --color-mat-chim: var(--mat-chim);
+  --color-mat-noi: var(--mat-noi);
+  --color-vien: var(--vien);
+  --color-vien-manh: var(--vien-manh);
+
+  --color-chu: var(--chu);
+  --color-chu-nhat: var(--chu-nhat);
+  --color-chu-mo: var(--chu-mo);
+  --color-chu-mo-hon: var(--chu-mo-hon);
+  --color-chu-nguoc: var(--chu-nguoc);
+
+  --color-nhan: var(--nhan);
+  --color-nhan-dam: var(--nhan-dam);
+  --color-nhan-nhat: var(--nhan-nhat);
+  --color-nhan-chu: var(--nhan-chu);
+  --color-nhan-van: var(--nhan-van);
+
+  --color-dung: var(--dung);
+  --color-dung-nen: var(--dung-nen);
+  --color-sai: var(--sai);
+  --color-sai-nen: var(--sai-nen);
+  --color-luu-y: var(--luu-y);
+  --color-luu-y-nen: var(--luu-y-nen);
+
+  --shadow-soft: var(--bong);
+}
+
+:root {
+  color-scheme: light;
+
+  --nen: oklch(0.962 0.004 300);
+  --nen-cham: oklch(0.938 0.005 300);
+  --mat: oklch(1 0 0);
+  --mat-chim: oklch(0.966 0.004 300);
+  --mat-noi: oklch(0.93 0.005 300);
+  --vien: oklch(0.86 0.006 300);
+  --vien-manh: oklch(0.76 0.016 300);
+
+  --chu: oklch(0.2 0.02 255);
+  --chu-nhat: oklch(0.36 0.02 255);
+  --chu-mo: oklch(0.47 0.018 255);
+  --chu-mo-hon: oklch(0.6 0.016 255);
+  --chu-nguoc: oklch(0.985 0.002 255);
+
+  --nhan: oklch(0.6 0.19 355);
+  --nhan-dam: oklch(0.5 0.19 355);
+  --nhan-nhat: oklch(0.945 0.03 355);
+  --nhan-chu: oklch(0.985 0.002 355);
+  --nhan-van: oklch(0.52 0.19 355);
+
+  --dung: oklch(0.556 0.108 152);
+  --dung-nen: oklch(0.945 0.038 152);
+  --sai: oklch(0.559 0.152 22);
+  --sai-nen: oklch(0.948 0.028 22);
+  --luu-y: oklch(0.65 0.124 72);
+  --luu-y-nen: oklch(0.955 0.04 72);
+
+  --bong:
+    0 1px 2px oklch(0.4 0.03 255 / 0.1),
+    0 4px 16px oklch(0.4 0.03 255 / 0.12);
+  --kinh: oklch(1 0 0 / 0.9);
+}
+
+/* Người dùng để "theo hệ thống": chỉ prefers-color-scheme quyết định. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --nen: oklch(0.17 0.005 300);
+    --nen-cham: oklch(0.14 0.005 300);
+    --mat: oklch(0.235 0.005 300);
+    --mat-chim: oklch(0.275 0.006 300);
+    --mat-noi: oklch(0.32 0.006 300);
+    --vien: oklch(0.36 0.006 300);
+    --vien-manh: oklch(0.47 0.014 340);
+
+    --chu: oklch(0.97 0.004 85);
+    --chu-nhat: oklch(0.84 0.008 85);
+    --chu-mo: oklch(0.71 0.009 85);
+    --chu-mo-hon: oklch(0.58 0.01 85);
+    --chu-nguoc: oklch(0.18 0.008 75);
+
+    --nhan: oklch(0.76 0.14 355);
+    --nhan-dam: oklch(0.84 0.1 355);
+    --nhan-nhat: oklch(0.31 0.07 355);
+    --nhan-chu: oklch(0.16 0.045 356);
+    --nhan-van: oklch(0.8 0.12 355);
+
+    --dung: oklch(0.72 0.12 152);
+    --dung-nen: oklch(0.26 0.04 152);
+    --sai: oklch(0.72 0.15 22);
+    --sai-nen: oklch(0.27 0.05 22);
+    --luu-y: oklch(0.78 0.13 72);
+    --luu-y-nen: oklch(0.28 0.05 72);
+
+    --bong: 0 12px 40px -18px oklch(0 0 0 / 0.7);
+    --kinh: oklch(0.216 0.008 75 / 0.86);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --nen: oklch(0.17 0.005 300);
+  --nen-cham: oklch(0.14 0.005 300);
+  --mat: oklch(0.235 0.005 300);
+  --mat-chim: oklch(0.275 0.006 300);
+  --mat-noi: oklch(0.32 0.006 300);
+  --vien: oklch(0.36 0.006 300);
+  --vien-manh: oklch(0.47 0.014 340);
+
+  --chu: oklch(0.97 0.004 85);
+  --chu-nhat: oklch(0.84 0.008 85);
+  --chu-mo: oklch(0.71 0.009 85);
+  --chu-mo-hon: oklch(0.58 0.01 85);
+  --chu-nguoc: oklch(0.18 0.008 75);
+
+  --nhan: oklch(0.76 0.14 355);
+  --nhan-dam: oklch(0.84 0.1 355);
+  --nhan-nhat: oklch(0.31 0.07 355);
+  --nhan-chu: oklch(0.16 0.045 356);
+  --nhan-van: oklch(0.8 0.12 355);
+
+  --dung: oklch(0.72 0.12 152);
+  --dung-nen: oklch(0.26 0.04 152);
+  --sai: oklch(0.72 0.15 22);
+  --sai-nen: oklch(0.27 0.05 22);
+  --luu-y: oklch(0.78 0.13 72);
+  --luu-y-nen: oklch(0.28 0.05 72);
+
+  --bong: 0 12px 40px -18px oklch(0 0 0 / 0.7);
+  --kinh: oklch(0.216 0.008 75 / 0.86);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--nen);
+  color: var(--chu);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  font-feature-settings: "cv11", "ss01";
+  transition: background-color 200ms var(--ease-out-expo), color 200ms var(--ease-out-expo);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--vien-manh) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--vien-manh);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--nhan) 35%, transparent);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Tiêu đề: đậm, sít, cân dòng */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+h1,
+h2 {
+  font-weight: 700;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--nhan);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Lớp tiện ích chung */
+@utility press {
+  transition:
+    transform 160ms var(--ease-out-expo),
+    background-color 160ms var(--ease-out-expo),
+    border-color 160ms var(--ease-out-expo),
+    color 160ms var(--ease-out-expo),
+    opacity 160ms var(--ease-out-expo);
+  &:active:not(:disabled) {
+    transform: translateY(1px) scale(0.985);
+  }
+}
+
+@utility glass {
+  background: var(--kinh);
+  backdrop-filter: blur(14px) saturate(1.2);
+  border: 1px solid var(--vien);
+  box-shadow: var(--bong);
+}
+
+@utility hairline {
+  border: 1px solid var(--vien);
+}
+
+@utility word {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0 1px;
+  margin: 0 -1px;
+  transition: background-color 120ms ease, color 120ms ease;
+  &:hover {
+    background: var(--nhan-nhat);
+    color: var(--chu);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+@utility skeleton {
+  background: linear-gradient(100deg, var(--mat-noi) 30%, var(--vien) 50%, var(--mat-noi) 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+  border-radius: 8px;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.55;
+  }
+}
+@utility pulse-dot {
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+/* Băng chuyền video: dải nội dung nhân đôi, trượt -50% rồi lặp -> liền mạch */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@utility marquee {
+  animation: marquee var(--marquee-duration, 60s) linear infinite;
+  will-change: transform;
+  &:hover,
+  &[data-paused="true"] {
+    animation-play-state: paused;
+  }
+}
+@utility marquee-reverse {
+  animation-direction: reverse;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+}
+
+/* Thẻ lật 3D */
+@utility preserve-3d {
+  transform-style: preserve-3d;
+}
+@utility backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+@utility perspective-1200 {
+  perspective: 1200px;
+}
