@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { LEVELS, LEVEL_LABEL, libraryItem, type Level } from '../lib/library'
+import { LEVELS_OF, LEVEL_LABEL, libraryItem, langOf } from '../lib/library'
 import { boxLabel } from '../lib/srs'
 import { buildSentences } from '../lib/text'
 import { useStore } from '../store/useStore'
@@ -75,15 +75,22 @@ export function ProgressView() {
   }, [vocab])
   const due = vocab.filter((v) => v.srs.due <= Date.now()).length
 
-  const levels = useMemo(() => {
-    const c: Record<Level, number> = { A1: 0, A2: 0, B1: 0, B2: 0, C1: 0 }
+  // đếm theo bậc, gộp cả tiếng Anh lẫn tiếng Trung; chỉ hiện bậc đã có video
+  const levelRows = useMemo(() => {
+    const c = new Map<string, number>()
     for (const h of history) {
-      const l = libraryItem(h.videoId)?.level
-      if (l) c[l]++
+      const v = libraryItem(h.videoId)
+      if (v) c.set(v.level, (c.get(v.level) ?? 0) + 1)
     }
-    return c
+    const order = [...LEVELS_OF.en, ...LEVELS_OF.zh]
+    const rows = order.map((l) => ({ level: l, n: c.get(l) ?? 0 }))
+    const anyZh = history.some((h) => {
+      const v = libraryItem(h.videoId)
+      return v && langOf(v) === 'zh'
+    })
+    return rows.filter((r) => (LEVELS_OF.en.includes(r.level) ? true : anyZh))
   }, [history])
-  const maxLevel = Math.max(1, ...Object.values(levels))
+  const maxLevel = Math.max(1, ...levelRows.map((r) => r.n))
 
   const videos = useMemo(
     () =>
@@ -216,15 +223,15 @@ export function ProgressView() {
             <h3 className="text-[17px] font-semibold tracking-tight">Bậc đã học</h3>
             <p className="mb-3 text-[13px] text-chu-mo">Số video trong thư viện đã mở theo bậc.</p>
             <ul className="flex flex-col gap-2 rounded-2xl bg-mat p-4 hairline">
-              {LEVELS.map((l) => (
-                <li key={l} className="grid grid-cols-[6.5rem_minmax(0,1fr)_2.5rem] items-center gap-2 text-sm">
+              {levelRows.map((r) => (
+                <li key={r.level} className="grid grid-cols-[6.5rem_minmax(0,1fr)_2.5rem] items-center gap-2 text-sm">
                   <span className="text-chu-nhat">
-                    <span className="font-mono font-semibold text-chu">{l}</span> <span className="text-[11px] text-chu-mo-hon">{LEVEL_LABEL[l]}</span>
+                    <span className="font-mono font-semibold text-chu">{r.level}</span> <span className="text-[11px] text-chu-mo-hon">{LEVEL_LABEL[r.level]}</span>
                   </span>
                   <span className="h-2 overflow-hidden rounded-full bg-mat-noi">
-                    <span className="block h-full rounded-full bg-nhan" style={{ width: `${(levels[l] / maxLevel) * 100}%` }} />
+                    <span className="block h-full rounded-full bg-nhan" style={{ width: `${(r.n / maxLevel) * 100}%` }} />
                   </span>
-                  <span className="text-right font-mono text-xs text-chu">{levels[l]}</span>
+                  <span className="text-right font-mono text-xs text-chu">{r.n}</span>
                 </li>
               ))}
             </ul>

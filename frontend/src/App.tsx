@@ -15,6 +15,7 @@ import { DiscoverView } from './components/DiscoverView'
 import { ContextBar } from './components/ContextBar'
 import { ProgressView } from './components/ProgressView'
 import { MoreVideos } from './components/MoreVideos'
+import { TranslateView } from './components/TranslateView'
 import { useCurrentTranscript, useSentences } from './hooks/useTranscript'
 import { fetchTranscript } from './lib/api'
 import { loadImageSlugs } from './lib/images'
@@ -158,6 +159,7 @@ function Study() {
                 </>
               ),
             },
+            { value: 'translate', label: 'Dịch' },
             {
               value: 'shadow',
               label: (
@@ -185,6 +187,7 @@ function Study() {
             {mode === 'read' && <TranscriptView data={data} sentences={sentences} />}
             {mode === 'dictation' && <DictationView data={data} sentences={sentences} />}
             {mode === 'shadow' && <ShadowingView data={data} sentences={sentences} />}
+            {mode === 'translate' && <TranslateView data={data} sentences={sentences} />}
           </motion.div>
         </AnimatePresence>
       </section>

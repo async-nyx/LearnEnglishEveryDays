@@ -16,10 +16,11 @@ const SLOW = 0.75
 /*
   CHÉP CHÍNH TẢ — theo cách của betterVocab:
   · MỘT thẻ duy nhất, dãy ô số là bản đồ cả bài (trắng chưa động, đỏ đã làm mà chưa đúng, xanh đúng)
-  · chỉ được NGHE, không lộ câu; "Kiểm tra" lộ đúng MỘT từ (từ đầu tiên chưa gõ đúng)
+  · chỉ được NGHE, không lộ câu; "Gợi ý" lộ đúng MỘT từ (từ đầu tiên chưa gõ đúng)
   · hàng từ: xanh = gõ đúng vị trí, tím = đã lộ, còn lại là chấm dài bằng từ ấy
   · tạm dừng giữ chỗ, bấm nghe lại thì nghe tiếp; đổi câu mới phát lại từ đầu
-  · Enter = Kiểm tra · Ctrl/Alt + ← → = chuyển câu · Ctrl+Space = nghe
+  · Enter = NỘP BÀI · Ctrl (bấm rồi thả) = nghe lại câu · Ctrl/Alt + ← → = chuyển câu
+  · nghĩa tiếng Việt chỉ hiện SAU khi nộp, để tai làm việc trước
 */
 export function DictationView({ data, sentences }: { data: TranscriptData; sentences: Sentence[] }) {
   const rows = useStore((s) => s.dictation[data.video_id] ?? EMPTY)
@@ -36,14 +37,24 @@ export function DictationView({ data, sentences }: { data: TranscriptData; sente
   const playRange = usePlayer((s) => s.playRange)
   const pause = usePlayer((s) => s.pause)
 
+  // Vào chế độ này thì bám theo chỗ video ĐANG phát, không kéo về câu đầu (user báo 2026-09-07:
+  // "cứ đến mỗi màn video lại chạy lại từ đầu"). Video đứng ở 0 thì mới lấy câu chưa đạt đầu tiên.
   const firstOpen = useMemo(() => {
+    const t = usePlayer.getState().currentTime
+    if (t > 0.5) {
+      let best = 0
+      for (let i = 0; i < sentences.length; i++) if (sentences[i].start <= t + 0.05) best = i
+      return best
+    }
     const i = sentences.findIndex((s) => !rows[s.id]?.ok)
     return i === -1 ? 0 : i
-  }, [sentences, rows])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sentences])
   const [at, setAt] = useState(firstOpen)
   const [showAll, setShowAll] = useState(false)
-  const [showVi, setShowVi] = useState(true)
   const [vi, setVi] = useState<string | null>(null)
+  // đã nộp bài câu này chưa (Enter hoặc nút Nộp bài)
+  const [checked, setChecked] = useState(false)
   const [autoNext, setAutoNext] = useState(true)
   const box = useRef<HTMLTextAreaElement>(null)
   const strip = useRef<HTMLDivElement>(null)
@@ -62,24 +73,28 @@ export function DictationView({ data, sentences }: { data: TranscriptData; sente
       pause()
       setAt(n)
       setShowAll(false)
+      setChecked(false)
       requestAnimationFrame(() => box.current?.focus())
     },
     [sentences.length, pause],
   )
 
-  // vào câu mới: tự phát, trỏ vào ô nhập, cuộn dãy ô số tới câu này
+  // Vào câu mới: trỏ vào ô nhập và cuộn dãy ô số. CHỈ tự phát khi người học tự đổi câu —
+  // lần đầu vào chế độ thì để video chạy tiếp chỗ đang xem.
+  const firstRender = useRef(true)
   useEffect(() => {
     if (!cur) return
-    playRange(cur.start, cur.end, 'once')
+    if (firstRender.current) firstRender.current = false
+    else playRange(cur.start, cur.end, 'once')
     box.current?.focus()
     strip.current?.querySelector<HTMLElement>('[aria-current="true"]')?.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [at, data.video_id])
 
-  // nghĩa tiếng Việt của câu đang chép
+  // nghĩa tiếng Việt: chỉ lấy SAU khi nộp bài (hoặc đã gõ đúng), không lộ trước
   useEffect(() => {
     setVi(null)
-    if (!cur || !showVi) return
+    if (!cur || !(checked || rows[cur.id]?.ok)) return
     let alive = true
     translateText(cur.text)
       .then((r) => alive && setVi(r.text))
@@ -87,7 +102,13 @@ export function DictationView({ data, sentences }: { data: TranscriptData; sente
     return () => {
       alive = false
     }
-  }, [cur, showVi])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cur, checked])
+
+  /** Nghe lại câu này từ đầu. */
+  const replay = useCallback(() => {
+    if (cur) playRange(cur.start, cur.end, 'once')
+  }, [cur, playRange])
 
   const listen = useCallback(() => {
     if (!cur) return
@@ -99,13 +120,22 @@ export function DictationView({ data, sentences }: { data: TranscriptData; sente
 
   const type = (value: string) => {
     if (!cur) return
-    const ok = isDictationCorrect(value, cur.text)
-    setDictation(data.video_id, cur.id, { typed: value, ok })
-    if (ok && !entry.ok) {
-      toast('Đúng từng chữ.', 'ok')
-      if (autoNext && at < sentences.length - 1) setTimeout(() => go(at + 1), 1100)
-    }
+    // gõ tiếp sau khi đã nộp -> phải nộp lại, không nhảy câu ngay
+    if (checked) setChecked(false)
+    setDictation(data.video_id, cur.id, { typed: value, ok: isDictationCorrect(value, cur.text) })
   }
+
+  /** NỘP BÀI (Enter): chấm câu, hiện nghĩa, đúng thì có thể tự sang câu kế. */
+  const submit = useCallback(() => {
+    if (!cur) return
+    const ok = isDictationCorrect(entry.typed, cur.text)
+    setDictation(data.video_id, cur.id, { ok })
+    setChecked(true)
+    if (ok) {
+      toast('Đúng từng chữ.', 'ok')
+      if (autoNext && at < sentences.length - 1) setTimeout(() => go(at + 1), 1200)
+    }
+  }, [cur, entry.typed, setDictation, data.video_id, toast, autoNext, at, sentences.length, go])
 
   /** Lộ thêm đúng MỘT từ: từ đầu tiên chưa gõ đúng. */
   const revealOne = useCallback(() => {
@@ -116,8 +146,19 @@ export function DictationView({ data, sentences }: { data: TranscriptData; sente
     box.current?.focus()
   }, [cur, right, diff, answer.length, entry.shown, setDictation, data.video_id])
 
+  /*
+    CTRL BẤM RỒI THẢ = NGHE LẠI CÂU — user chốt 2026-09-07.
+    Ctrl là phím bổ trợ, nên chỉ tính khi thả ra mà TRONG LÚC giữ không bấm phím nào khác
+    (không thì Ctrl+C, Ctrl+V, Ctrl+← cũng phát tiếng).
+  */
   useEffect(() => {
+    let ctrlAlone = false
     const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Control') {
+        if (!e.repeat) ctrlAlone = true
+        return
+      }
+      ctrlAlone = false
       const tag = (e.target as HTMLElement | null)?.tagName
       const typing = tag === 'TEXTAREA' || tag === 'INPUT'
       if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && (!typing || e.ctrlKey || e.altKey || e.metaKey)) {
@@ -128,9 +169,23 @@ export function DictationView({ data, sentences }: { data: TranscriptData; sente
         listen()
       }
     }
+    const onUp = (e: KeyboardEvent) => {
+      if (e.key !== 'Control') return
+      if (ctrlAlone) replay()
+      ctrlAlone = false
+    }
+    const onBlur = () => {
+      ctrlAlone = false
+    }
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [go, at, listen])
+    window.addEventListener('keyup', onUp)
+    window.addEventListener('blur', onBlur)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('keyup', onUp)
+      window.removeEventListener('blur', onBlur)
+    }
+  }, [go, at, listen, replay])
 
   if (!cur) return <EmptyState title="Chưa có câu để chép" body="Phụ đề của video này trống." />
 
@@ -182,7 +237,7 @@ export function DictationView({ data, sentences }: { data: TranscriptData; sente
           đúng <span className="font-mono text-chu">{done}</span>
         </span>
         <span className="hidden items-center gap-1 xl:flex">
-          <Kbd>Enter</Kbd> kiểm tra · <Kbd>Ctrl</Kbd>+<Kbd>Space</Kbd> nghe · <Kbd>Ctrl</Kbd>+<Kbd>←</Kbd><Kbd>→</Kbd> đổi câu
+          <Kbd>Enter</Kbd> nộp bài · <Kbd>Ctrl</Kbd> nghe lại · <Kbd>Ctrl</Kbd>+<Kbd>←</Kbd><Kbd>→</Kbd> đổi câu
         </span>
       </div>
 
@@ -219,22 +274,6 @@ export function DictationView({ data, sentences }: { data: TranscriptData; sente
             </button>
           </div>
 
-          <div className="mt-3 flex items-start gap-2 text-[14px] leading-relaxed">
-            <button
-              onMouseDown={(e) => e.preventDefault()}
-              onClick={() => setShowVi((v) => !v)}
-              className="press mt-0.5 shrink-0 rounded-md bg-mat-noi px-1.5 py-0.5 text-[11px] font-medium text-chu-mo hover:text-chu"
-              title={showVi ? 'Ẩn nghĩa' : 'Hiện nghĩa'}
-            >
-              Nghĩa
-            </button>
-            {showVi ? (
-              <span className="text-nhan-van">{vi ?? <span className="skeleton inline-block h-4 w-1/2 align-middle" />}</span>
-            ) : (
-              <span className="text-chu-mo-hon">đã ẩn</span>
-            )}
-          </div>
-
           <textarea
             ref={box}
             value={entry.typed}
@@ -242,8 +281,8 @@ export function DictationView({ data, sentences }: { data: TranscriptData; sente
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault()
-                if (right) go(at + 1)
-                else revealOne()
+                if (right && checked) go(at + 1)
+                else submit()
               }
             }}
             rows={2}
@@ -284,9 +323,14 @@ export function DictationView({ data, sentences }: { data: TranscriptData; sente
                 
               </Button>
             ) : (
-              <Button variant="primary" onMouseDown={(e) => e.preventDefault()} onClick={revealOne} disabled={entry.shown >= answer.length} className="flex-1 sm:flex-none">
-                Kiểm tra
-              </Button>
+              <>
+                <Button variant="primary" onMouseDown={(e) => e.preventDefault()} onClick={submit} disabled={!entry.typed.trim()} className="flex-1 sm:flex-none">
+                  Nộp bài
+                </Button>
+                <Button variant="subtle" onMouseDown={(e) => e.preventDefault()} onClick={revealOne} disabled={entry.shown >= answer.length}>
+                  Gợi ý 1 từ
+                </Button>
+              </>
             )}
             <Button variant="ghost" size="sm" onMouseDown={(e) => e.preventDefault()} onClick={() => setShowAll((v) => !v)} className={cx(showAll && 'text-luu-y')}>
               
@@ -297,6 +341,20 @@ export function DictationView({ data, sentences }: { data: TranscriptData; sente
               Đúng thì tự sang câu tiếp
             </label>
           </div>
+
+          <AnimatePresence>
+            {checked && !right && (
+              <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mt-3 rounded-xl bg-sai-nen px-3 py-2 text-[13px] text-sai">
+                Còn lệch vài chỗ. Nghe lại bằng phím Ctrl rồi sửa, hoặc bấm Gợi ý 1 từ.
+              </motion.div>
+            )}
+            {(checked || right) && (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-3 flex items-start gap-2 text-[14px] leading-relaxed">
+                <span className="mt-0.5 shrink-0 rounded-md bg-mat-noi px-1.5 py-0.5 text-[11px] font-medium text-chu-mo">Nghĩa</span>
+                <span className="text-nhan-van">{vi ?? <span className="skeleton inline-block h-4 w-1/2 align-middle" />}</span>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           <AnimatePresence>
             {(right || showAll) && (

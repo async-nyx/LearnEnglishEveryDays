@@ -7,12 +7,73 @@
  */
 
 export function normalizeDictation(value: string): string {
-  return value
-    .toLowerCase()
-    .replace(/[‘’ʼ]/g, "'")
-    .replace(/[^\p{L}\p{N}'\s]/gu, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
+  return (
+    value
+      .toLowerCase()
+      .replace(/[‘’ʼ]/g, "'")
+      // ký hiệu người ta hay gõ tắt: đọc thành chữ để so cho công bằng
+      .replace(/%/g, ' percent ')
+      .replace(/&/g, ' and ')
+      .replace(/\+/g, ' plus ')
+      .replace(/=/g, ' equals ')
+      // 1,000 -> 1000 ; giữ dấu chấm thập phân qua bước bỏ dấu câu bên dưới
+      .replace(/(\d),(\d)/g, '$1$2')
+      .replace(/(\d)\.(\d)/g, '$1zzdotzz$2')
+      .replace(/[^\p{L}\p{N}'\s]/gu, ' ')
+      .replace(/zzdotzz/g, '.')
+      .replace(/\s+/g, ' ')
+      .trim()
+  )
+}
+
+/*
+  SỐ VIẾT CHỮ = SỐ VIẾT SỐ — user chốt 2026-09-07: "six = 6".
+  Nghe "six" mà gõ "6" là nghe ĐÚNG, chỉ khác cách ghi. Gộp cả cụm ("twenty one" -> 21,
+  "two hundred and five" -> 205) rồi quy về dạng chữ số, nên hai lối viết ra cùng một dãy từ.
+*/
+const ONES: Record<string, number> = {
+  zero: 0, oh: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9,
+  ten: 10, eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16,
+  seventeen: 17, eighteen: 18, nineteen: 19,
+}
+const TENS: Record<string, number> = { twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80, ninety: 90 }
+const SCALES: Record<string, number> = { hundred: 100, thousand: 1000, million: 1000000, billion: 1000000000 }
+
+function isNumberWord(w: string): boolean {
+  return w in ONES || w in TENS || w in SCALES
+}
+
+/** Gộp các từ số liên tiếp thành một chữ số. `and` chỉ được nuốt khi kẹp giữa hai từ số. */
+function foldNumbers(words: string[]): string[] {
+  const out: string[] = []
+  let i = 0
+  while (i < words.length) {
+    if (!isNumberWord(words[i])) {
+      out.push(words[i++])
+      continue
+    }
+    let total = 0
+    let cur = 0
+    let used = false
+    while (i < words.length) {
+      const w = words[i]
+      if (w === 'and' && used && i + 1 < words.length && isNumberWord(words[i + 1])) {
+        i++
+        continue
+      }
+      if (w in ONES) cur += ONES[w]
+      else if (w in TENS) cur += TENS[w]
+      else if (w === 'hundred') cur = (cur || 1) * 100
+      else if (w in SCALES) {
+        total += (cur || 1) * SCALES[w]
+        cur = 0
+      } else break
+      used = true
+      i++
+    }
+    out.push(String(total + cur))
+  }
+  return out
 }
 
 /** Bung viết tắt. Cố ý bỏ mấy dạng mà bỏ dấu lược thành chữ khác (it's/its, we're/were, he'll/hell…). */
@@ -87,7 +148,22 @@ export function canonWords(text: string): Canon[] {
       const expanded = CONTRACTIONS[raw] ?? APOSTROPHE_LESS[raw] ?? raw.replace(/'/g, '')
       for (const piece of expanded.split(' ')) if (piece) out.push({ word: piece, from })
     })
-  return out
+  // gộp số SAU khi bung viết tắt, nhưng phải giữ được từ gốc nào sinh ra mảnh nào
+  const words = foldNumbers(out.map((o) => o.word))
+  if (words.length === out.length) return out.map((o, i) => ({ ...o, word: words[i] }))
+  // cụm số bị gộp -> dựng lại danh sách, mảnh gộp mang chỉ số từ gốc ĐẦU của cụm
+  const folded: Canon[] = []
+  let i = 0
+  for (const w of words) {
+    folded.push({ word: w, from: out[Math.min(i, out.length - 1)]?.from ?? 0 })
+    // nhảy qua các mảnh đã bị gộp vào w
+    let j = i
+    if (/^\d+$/.test(w) && out[i] && !/^\d+$/.test(out[i].word)) {
+      while (j < out.length && (isNumberWord(out[j].word) || (out[j].word === 'and' && j > i && j + 1 < out.length && isNumberWord(out[j + 1].word)))) j++
+    } else j = i + 1
+    i = Math.max(j, i + 1)
+  }
+  return folded
 }
 
 export function answerWords(expected: string): string[] {

@@ -13,7 +13,7 @@ import type {
 } from '../lib/types'
 import { newSrs, rateSrs } from '../lib/srs'
 import { fetchTranscript } from '../lib/api'
-import type { Level } from '../lib/library'
+import type { Lang, Level } from '../lib/library'
 import { uid } from '../lib/text'
 
 export interface Toast {
@@ -71,6 +71,8 @@ interface State {
   openLibraryVideo: (id: string) => Promise<void>
   libraryLevel: 'all' | Level
   setLibraryLevel: (l: 'all' | Level) => void
+  libraryLang: Lang
+  setLibraryLang: (l: Lang) => void
   addVocab: (item: Omit<VocabItem, 'id' | 'createdAt' | 'srs'>) => VocabItem
   removeVocab: (id: string) => void
   updateVocab: (id: string, patch: Partial<VocabItem>) => void
@@ -85,6 +87,8 @@ interface State {
 const DEFAULT_SETTINGS: Settings = {
   theme: 'light',
   sidebarCollapsed: false,
+  aiProvider: 'gemini',
+  aiKey: '',
   embedHost: 'youtube',
   fontSize: 17,
   autoScroll: true,
@@ -188,6 +192,8 @@ export const useStore = create<State>()(
       loadingVideoId: null,
       libraryLevel: 'all',
       setLibraryLevel: (libraryLevel) => set({ libraryLevel }),
+      libraryLang: 'en',
+      setLibraryLang: (libraryLang) => set({ libraryLang, libraryLevel: 'all' }),
       openLibraryVideo: async (id) => {
         const { transcripts, openVideo, setTranscript, toast, loadingVideoId } = get()
         if (loadingVideoId) return
@@ -275,6 +281,7 @@ export const useStore = create<State>()(
         studyMode: s.studyMode,
         vocabTab: s.vocabTab,
         libraryLevel: s.libraryLevel,
+        libraryLang: s.libraryLang,
         activity: s.activity,
       }),
     },

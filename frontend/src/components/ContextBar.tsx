@@ -3,7 +3,7 @@ import { LEVEL_LABEL, libraryItem } from '../lib/library'
 import { selectCurrentTranscript, useStore } from '../store/useStore'
 import { Button, cx } from './ui'
 
-const MODE_LABEL = { read: 'Đọc', dictation: 'Chép chính tả', shadow: 'Nói theo' } as const
+const MODE_LABEL = { read: 'Đọc', dictation: 'Chép chính tả', shadow: 'Nói theo', translate: 'Dịch' } as const
 const TAB_LABEL = { list: 'Danh sách', flashcards: 'Thẻ lật', spelling: 'Chép từ', quiz: 'Trắc nghiệm' } as const
 
 /** Thanh ngữ cảnh: bạn đang ở đâu (đường dẫn) + hành động của màn hiện tại. Kèm thanh tiến trình tải. */

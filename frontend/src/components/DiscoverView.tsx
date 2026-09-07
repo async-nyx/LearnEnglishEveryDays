@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Sparkle } from '@phosphor-icons/react'
-import { LEVELS, LEVEL_LABEL, LIBRARY, libraryItem, mostWatchedLevel, type Level } from '../lib/library'
+import { LANG_LABEL, LEVELS_OF, LEVEL_LABEL, itemsOf, libraryItem, mostWatchedLevel, type Lang, type Level } from '../lib/library'
 import { shuffle } from '../lib/text'
 import { useStore } from '../store/useStore'
 import { VideoRow } from './VideoRow'
@@ -15,20 +15,24 @@ export function DiscoverView() {
   const history = useStore((s) => s.history)
   const setView = useStore((s) => s.setView)
   const setLibraryLevel = useStore((s) => s.setLibraryLevel)
+  const lang = useStore((s) => s.libraryLang)
+  const setLang = useStore((s) => s.setLibraryLang)
+  const items = useMemo(() => itemsOf(lang), [lang])
+  const LEVELS = LEVELS_OF[lang]
 
   const seen = useMemo(() => new Set(history.map((h) => h.videoId)), [history])
-  const fav = useMemo(() => mostWatchedLevel(history.map((h) => h.videoId)), [history])
+  const fav = useMemo(() => mostWatchedLevel(history.map((h) => h.videoId), lang), [history, lang])
   const favCount = useMemo(() => history.filter((h) => libraryItem(h.videoId)?.level === fav.level).length, [history, fav.level])
   const up: Level | null = LEVELS[LEVELS.indexOf(fav.level) + 1] ?? null
   const down: Level | null = LEVELS[LEVELS.indexOf(fav.level) - 1] ?? null
 
   const pick = (level: Level, n = 12) => {
-    const pool = LIBRARY.filter((v) => v.level === level)
+    const pool = items.filter((v) => v.level === level)
     const fresh = shuffle(pool.filter((v) => !seen.has(v.id)))
     const old = shuffle(pool.filter((v) => seen.has(v.id)))
     return [...fresh, ...old].slice(0, n)
   }
-  const resume = history.map((h) => libraryItem(h.videoId)).filter((v): v is NonNullable<typeof v> => !!v).slice(0, 12)
+  const resume = history.map((h) => libraryItem(h.videoId)).filter((v): v is NonNullable<typeof v> => !!v && (v.lang ?? 'en') === lang).slice(0, 12)
   const goLevel = (level: Level) => ({
     label: 'Xem tất cả',
     onClick: () => {
@@ -37,7 +41,7 @@ export function DiscoverView() {
     },
   })
 
-  if (LIBRARY.length === 0) {
+  if (items.length === 0) {
     return (
       <div className="px-4 py-8 sm:px-6 lg:px-8">
         <EmptyState icon={<Sparkle size={22} />} title="Thư viện chưa có video" body="Chạy scripts/build_library.py để dựng danh sách." />
@@ -48,6 +52,17 @@ export function DiscoverView() {
   return (
     <div className="flex w-full flex-col gap-8 px-4 py-6 sm:px-6 lg:px-8">
       <header>
+        <div className="mb-3 flex items-center gap-1 rounded-xl bg-mat p-1 hairline sm:w-fit">
+          {(["en", "zh"] as Lang[]).map((l) => (
+            <button
+              key={l}
+              onClick={() => setLang(l)}
+              className={`press h-9 flex-1 rounded-lg px-4 text-[13px] font-semibold sm:flex-none ${lang === l ? "bg-nhan text-nhan-chu" : "text-chu-mo hover:text-chu"}`}
+            >
+              {LANG_LABEL[l]}
+            </button>
+          ))}
+        </div>
         <h2 className="text-2xl font-semibold tracking-tight">Đề xuất cho bạn</h2>
         <p className="mt-1 text-sm text-chu-mo">
           {fav.fromHistory

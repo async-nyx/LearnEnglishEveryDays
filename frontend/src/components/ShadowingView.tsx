@@ -23,10 +23,18 @@ export function ShadowingView({ data, sentences }: { data: TranscriptData; sente
   const rate = usePlayer((s) => s.rate)
   const setRate = usePlayer((s) => s.setRate)
 
+  // bám theo chỗ video đang phát khi vừa chuyển sang chế độ này
   const active = useMemo(() => {
+    const t = usePlayer.getState().currentTime
+    if (t > 0.5) {
+      let best = 0
+      for (let i = 0; i < sentences.length; i++) if (sentences[i].start <= t + 0.05) best = i
+      return best
+    }
     const i = sentences.findIndex((s) => (progress[s.id] ?? 0) < 0.8)
     return i === -1 ? 0 : i
-  }, [sentences, progress])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sentences])
   const [idx, setIdx] = useState(active)
   const [showVi, setShowVi] = useState(true)
   const [vi, setVi] = useState<string | null>(null)

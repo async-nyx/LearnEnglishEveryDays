@@ -106,7 +106,7 @@ export interface DictationEntry {
 }
 
 export type View = 'study' | 'discover' | 'library' | 'vocab' | 'progress'
-export type StudyMode = 'read' | 'dictation' | 'shadow'
+export type StudyMode = 'read' | 'dictation' | 'shadow' | 'translate'
 export type VocabTab = 'list' | 'flashcards' | 'spelling' | 'quiz'
 
 /** Hoạt động một ngày (khoá YYYY-MM-DD) để vẽ lịch và tính chuỗi ngày. */
@@ -125,6 +125,9 @@ export type EmbedHost = 'youtube' | 'nocookie'
 export interface Settings {
   theme: Theme
   sidebarCollapsed: boolean
+  /** AI dùng khoá của người dùng: chỉ lưu trên máy này */
+  aiProvider: 'gemini' | 'grok'
+  aiKey: string
   embedHost: EmbedHost
   fontSize: number
   autoScroll: boolean
