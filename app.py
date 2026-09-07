@@ -580,6 +580,89 @@ def tts():
     return resp
 
 
+# ---------------------------------------------------------------- video YouTube đề xuất
+def _lockup(lv: dict) -> dict | None:
+    """Giao diện YouTube mới: video đề xuất là lockupViewModel."""
+    if lv.get("contentType") != "LOCKUP_CONTENT_TYPE_VIDEO" or not lv.get("contentId"):
+        return None
+    md = (lv.get("metadata") or {}).get("lockupMetadataViewModel") or {}
+    title = ((md.get("title") or {}).get("content") or "").strip()
+    rows = ((md.get("metadata") or {}).get("contentMetadataViewModel") or {}).get("metadataRows") or []
+    channel = ""
+    if rows and rows[0].get("metadataParts"):
+        channel = ((rows[0]["metadataParts"][0].get("text") or {}).get("content") or "").strip()
+    duration = ""
+    for ov in ((lv.get("contentImage") or {}).get("thumbnailViewModel") or {}).get("overlays") or []:
+        for b in (ov.get("thumbnailBottomOverlayViewModel") or {}).get("badges") or []:
+            t = (b.get("thumbnailBadgeViewModel") or {}).get("text") or ""
+            if re.match(r"^\d+:\d\d", t):
+                duration = t
+    vid = lv["contentId"]
+    return {"id": vid, "title": title, "channel": channel, "duration": duration, "thumbnail": f"https://i.ytimg.com/vi/{vid}/mqdefault.jpg"}
+
+
+def _walk_compact(o, out: list[dict]) -> None:
+    if isinstance(o, dict):
+        if "lockupViewModel" in o:
+            item = _lockup(o["lockupViewModel"])
+            if item:
+                out.append(item)
+                return
+        r = o.get("compactVideoRenderer") or o.get("videoRenderer")
+        if r and r.get("videoId"):
+            title = r.get("title", {})
+            title_text = title.get("simpleText") or "".join(x.get("text", "") for x in title.get("runs", []))
+            by = r.get("shortBylineText") or r.get("longBylineText") or r.get("ownerText") or {}
+            channel = "".join(x.get("text", "") for x in by.get("runs", [])) or by.get("simpleText", "")
+            dur = (r.get("lengthText") or {}).get("simpleText", "")
+            out.append({"id": r["videoId"], "title": title_text.strip(), "channel": channel.strip(), "duration": dur,
+                        "thumbnail": f"https://i.ytimg.com/vi/{r['videoId']}/mqdefault.jpg"})
+            return
+        for v in o.values():
+            _walk_compact(v, out)
+    elif isinstance(o, list):
+        for v in o:
+            _walk_compact(v, out)
+
+
+@app.route("/api/related")
+def related():
+    """Danh sách video YouTube đề xuất cạnh video đang xem (innertube `next`, client WEB)."""
+    vid = re.sub(r"[^A-Za-z0-9_-]", "", request.args.get("v") or "")[:11]
+    if len(vid) != 11:
+        return jsonify({"success": False, "error": "Thiếu mã video."}), 400
+    hit = cache_get("related2", vid, max_age=24 * 3600)
+    if hit is not None:
+        return jsonify({"success": True, "items": hit})
+    try:
+        r = HTTP.post(
+            "https://www.youtube.com/youtubei/v1/next?prettyPrint=false",
+            json={"context": {"client": {"clientName": "WEB", "clientVersion": "2.20250312.04.00", "hl": "en", "gl": "US"}}, "videoId": vid},
+            headers={"User-Agent": CHROME_UA, "Content-Type": "application/json", "X-Youtube-Client-Name": "1",
+                     "X-Youtube-Client-Version": "2.20250312.04.00", "Cookie": "CONSENT=YES+1; SOCS=CAI"},
+            timeout=12,
+        )
+        r.raise_for_status()
+        data = r.json()
+    except Exception as e:  # noqa: BLE001
+        return jsonify({"success": False, "error": f"Không lấy được đề xuất: {e}"}), 502
+    found: list[dict] = []
+    sec = (((data.get("contents") or {}).get("twoColumnWatchNextResults") or {}).get("secondaryResults") or {}).get("secondaryResults") or {}
+    _walk_compact(sec.get("results") or data, found)
+    seen: set[str] = set()
+    items = []
+    for it in found:
+        if it["id"] in seen or it["id"] == vid or not it["title"]:
+            continue
+        seen.add(it["id"])
+        items.append(it)
+        if len(items) >= 20:
+            break
+    if items:
+        cache_set("related2", vid, items)
+    return jsonify({"success": True, "items": items})
+
+
 # ---------------------------------------------------------------- ảnh từ vựng
 def _image_slugs() -> list[str]:
     """Tên tệp (không đuôi) trong assets/vocabulary/en — ảnh sao từ betterVocab, slug = chữ

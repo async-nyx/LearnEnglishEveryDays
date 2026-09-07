@@ -65,3 +65,26 @@ export function translateText(q: string, tl = 'vi', sl = 'auto'): Promise<Transl
   }
   return p
 }
+
+export interface RelatedVideo {
+  id: string
+  title: string
+  channel: string
+  duration: string
+  thumbnail: string
+}
+
+const relatedCache = new Map<string, Promise<RelatedVideo[]>>()
+
+/** Video YouTube đề xuất cạnh video đang xem. */
+export function fetchRelated(videoId: string): Promise<RelatedVideo[]> {
+  let p = relatedCache.get(videoId)
+  if (!p) {
+    p = fetch(`/api/related?v=${encodeURIComponent(videoId)}`)
+      .then((r) => readJson<{ items: RelatedVideo[] }>(r))
+      .then((d) => d.items)
+    p.catch(() => relatedCache.delete(videoId))
+    relatedCache.set(videoId, p)
+  }
+  return p
+}
