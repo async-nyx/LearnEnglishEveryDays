@@ -8,8 +8,8 @@ interface DictEntry {
 }
 
 /** dictionaryapi.dev: IPA + audio người đọc + ví dụ, chậm (~20 s). */
-async function fromDictionaryApi(word: string) {
-  const entries = await fetchJson<DictEntry[]>(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`, {}, 25000)
+export async function fromDictionaryApi(word: string, timeoutMs = 25000) {
+  const entries = await fetchJson<DictEntry[]>(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`, {}, timeoutMs)
   if (!Array.isArray(entries) || !entries.length) return null
   let phonetic = ''
   let audio = ''
@@ -35,11 +35,11 @@ const TAG = /<[^>]+>/g
 const strip = (s: string) => (s ?? '').replace(TAG, '').replace(/\s+/g, ' ').trim()
 
 /** Wiktionary REST: nghĩa theo từ loại + ví dụ, không có IPA/audio. */
-async function fromWiktionary(word: string) {
+export async function fromWiktionary(word: string, timeoutMs = 10000) {
   const data = await fetchJson<Record<string, { partOfSpeech?: string; definitions?: { definition?: string; parsedExamples?: { example?: string }[] }[] }[]>>(
     `https://en.wiktionary.org/api/rest_v1/page/definition/${word}`,
     { headers: { 'user-agent': CHROME_UA, accept: 'application/json' } },
-    10000,
+    timeoutMs,
   )
   const en = data?.en
   if (!en?.length) return null
