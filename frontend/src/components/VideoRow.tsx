@@ -5,69 +5,99 @@ import { VideoCard } from './VideoCard'
 import { cx } from './ui'
 
 /**
- * Hàng video cuộn ngang.
- *  - Chuột KHÔNG ở trong hàng: tự trượt đều (băng chuyền), nội dung nhân đôi để lặp liền mạch.
- *  - Chuột vào hàng: dừng tự trượt; lăn con lăn (lên/xuống) là trượt ngang bằng tay.
- *  - Chuột rời: tự trượt tiếp từ đúng chỗ đang đứng.
- *  - Mũi tên hai đầu: nhích một quãng.
- * Tất cả trên MỘT phần tử cuộn thật, nên chuyển đổi không nhảy vị trí.
+ * Hàng video cuộn ngang, mọi chuyển động đi qua MỘT vòng lặp khung hình:
+ *  - `target` là chỗ muốn tới (tự trượt cộng đều, lăn chuột cộng một nấc, mũi tên cộng một quãng)
+ *  - `pos` đuổi theo `target` bằng nội suy mũ nên không giật, và gán vào scrollLeft mỗi khung hình
+ *
+ *  Chuột ngoài hàng: tự trượt. Chuột vào: dừng, lăn con lăn để trượt ngang. Rời chuột: chạy tiếp.
+ *
+ *  BẪY: `el.scrollLeft += 0.6` bị làm tròn nên cộng dồn dưới 1px mất sạch, hàng đứng im.
+ *  Phải giữ vị trí ở biến số thực rồi GÁN vào scrollLeft.
  */
 export function VideoRow({
   title,
   subtitle,
   badge,
   items,
+  cards,
   action,
   auto = true,
   reverse = false,
-  children,
-  childCount = 0,
 }: {
   title: ReactNode
   subtitle?: ReactNode
   badge?: ReactNode
   items?: LibraryItem[]
+  /** thẻ tuỳ ý (ví dụ video YouTube đề xuất) thay cho items */
+  cards?: ReactNode[]
   action?: { label: string; onClick: () => void }
   auto?: boolean
   reverse?: boolean
-  /** thẻ tuỳ ý (ví dụ video YouTube đề xuất) thay cho items; cần truyền childCount để biết có lặp không */
-  children?: ReactNode
-  childCount?: number
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const hover = useRef(false)
+  const dragging = useRef(false)
+  const hoverSince = useRef(0)
+  const lastPageScroll = useRef(0)
+  const lastHijack = useRef(0)
+  const target = useRef(0)
+  const pos = useRef(0)
+  const lastSet = useRef(-1)
   const loadingId = useStore((s) => s.loadingVideoId)
   const [edge, setEdge] = useState({ left: true, right: false })
-  const count = items?.length ?? childCount
-  // băng chuyền chỉ khi có đủ thẻ để tràn khung và không có thẻ tuỳ ý (children không nhân đôi được)
-  const loop = auto && !children && count >= 5
-  const SPEED = 38 // px mỗi giây
 
-  // vòng tự trượt.
-  // BẪY: `el.scrollLeft += 0.6` bị trình duyệt LÀM TRÒN nên cộng dồn dưới 1px mất sạch,
-  // hàng đứng im. Phải giữ vị trí ở biến số thực rồi GÁN vào scrollLeft mỗi khung hình.
+  const count = cards?.length ?? items?.length ?? 0
+  const loop = auto && count >= 5
+  const SPEED = 34 // px mỗi giây
+  const EASE = 13 // càng lớn càng bám sát, càng nhỏ càng trôi
+
   useEffect(() => {
-    if (!loop) return
     const el = ref.current
     if (!el) return
     let raf = 0
     let last = performance.now()
-    let pos = -1
-    let lastSet = -1
+    let init = false
     const tick = (now: number) => {
       const half = el.scrollWidth / 2
+      const max = Math.max(0, el.scrollWidth - el.clientWidth)
       const dt = Math.min(0.05, (now - last) / 1000)
       last = now
-      if (half > 0) {
-        // người dùng vừa cuộn tay (lăn chuột, mũi tên) -> bám theo vị trí thật
-        if (pos < 0 || Math.abs(el.scrollLeft - lastSet) > 1.5) pos = reverse && pos < 0 ? half : el.scrollLeft
-        if (!hover.current && loadingId === null && document.visibilityState === 'visible') {
-          pos += (reverse ? -1 : 1) * SPEED * dt
-          if (pos >= half) pos -= half
-          else if (pos <= 0) pos += half
-          el.scrollLeft = pos
-          lastSet = el.scrollLeft
+
+      // người dùng vuốt/kéo thanh cuộn -> bám theo vị trí thật
+      if (Math.abs(el.scrollLeft - lastSet.current) > 1.5) {
+        pos.current = el.scrollLeft
+        target.current = el.scrollLeft
+      }
+      if (loop && !init && half > 0) {
+        if (reverse) {
+          pos.current = half
+          target.current = half
         }
+        init = true
+      }
+
+      const idle = !hover.current && !dragging.current && loadingId === null && document.visibilityState === 'visible'
+      if (loop && half > 0 && idle) target.current += (reverse ? -1 : 1) * SPEED * dt
+      if (!loop) target.current = Math.max(0, Math.min(max, target.current))
+
+      // nội suy mũ: mỗi khung hình đi một phần quãng còn lại -> mượt, không phụ thuộc nhịp màn hình
+      pos.current += (target.current - pos.current) * (1 - Math.exp(-dt * EASE))
+
+      if (loop && half > 0) {
+        if (pos.current >= half) {
+          pos.current -= half
+          target.current -= half
+        } else if (pos.current < 0) {
+          pos.current += half
+          target.current += half
+        }
+      }
+
+      // chỉ ghi khi thật sự đang chuyển động, để không phá cú vuốt trên điện thoại
+      const moving = loop || Math.abs(target.current - pos.current) > 0.3
+      if (moving && !dragging.current && Math.abs(el.scrollLeft - pos.current) > 0.05) {
+        el.scrollLeft = pos.current
+        lastSet.current = el.scrollLeft
       }
       raf = requestAnimationFrame(tick)
     }
@@ -75,20 +105,42 @@ export function VideoRow({
     return () => cancelAnimationFrame(raf)
   }, [loop, reverse, loadingId, count])
 
-  // con lăn -> trượt ngang (listener gốc để chặn cuộn trang)
+  // nhớ lúc trang vừa cuộn dọc, để không cướp con lăn giữa chừng
+  useEffect(() => {
+    const onScroll = () => {
+      lastPageScroll.current = performance.now()
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  /*
+    CON LĂN -> TRƯỢT NGANG, NHƯNG KHÔNG CƯỚP CUỘN TRANG.
+    Người dùng đang cuộn trang mà con trỏ lướt ngang qua hàng thì trang phải cuộn tiếp. Chỉ nhận
+    con lăn khi con trỏ đã DỪNG trong hàng một nhịp và trang cũng vừa đứng yên; hoặc khi đang trong
+    một chuỗi trượt ngang; hoặc khi con lăn vốn đã là ngang (bàn di).
+  */
   useEffect(() => {
     const el = ref.current
     if (!el) return
     const onWheel = (e: WheelEvent) => {
-      const delta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX
+      const horizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY)
+      const delta = horizontal ? e.deltaX : e.deltaY
       if (!delta) return
-      e.preventDefault()
-      el.scrollLeft += delta
-      if (loop) {
-        const half = el.scrollWidth / 2
-        if (el.scrollLeft >= half) el.scrollLeft -= half
-        else if (el.scrollLeft <= 0) el.scrollLeft += half
+      const now = performance.now()
+      if (!horizontal) {
+        const chaining = now - lastHijack.current < 350
+        const settled = now - hoverSince.current > 260 && now - lastPageScroll.current > 260
+        if (!chaining && !settled) return
+        if (!loop && !chaining) {
+          // đã chạm mép hàng thì nhả cho trang cuộn tiếp
+          const max = Math.max(0, el.scrollWidth - el.clientWidth)
+          if (delta > 0 ? target.current >= max - 1 : target.current <= 1) return
+        }
       }
+      e.preventDefault()
+      target.current += delta
+      lastHijack.current = now
     }
     el.addEventListener('wheel', onWheel, { passive: false })
     return () => el.removeEventListener('wheel', onWheel)
@@ -99,10 +151,13 @@ export function VideoRow({
     if (!el || loop) return
     setEdge({ left: el.scrollLeft <= 4, right: el.scrollLeft + el.clientWidth >= el.scrollWidth - 4 })
   }
-  const by = (dir: 1 | -1) => ref.current?.scrollBy({ left: dir * 280, behavior: 'smooth' })
+  const by = (dir: 1 | -1) => {
+    target.current += dir * 300
+  }
 
-  if (!children && count === 0) return null
-  const list = loop && items ? [...items, ...items] : items ?? []
+  if (count === 0) return null
+  const doubled = loop && items ? [...items, ...items] : items ?? []
+  const doubledCards = loop && cards ? [...cards, ...cards] : cards
 
   return (
     <section className="group/row relative">
@@ -124,17 +179,29 @@ export function VideoRow({
         className="relative"
         onMouseEnter={() => {
           hover.current = true
+          hoverSince.current = performance.now()
         }}
         onMouseLeave={() => {
           hover.current = false
         }}
+        onPointerDown={() => {
+          dragging.current = true
+        }}
+        onPointerUp={() => {
+          dragging.current = false
+        }}
+        onPointerCancel={() => {
+          dragging.current = false
+        }}
       >
-        <div
-          ref={ref}
-          onScroll={update}
-          className={cx('flex gap-3 overflow-x-auto pb-2 pl-1 pr-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden', !loop && 'snap-x snap-mandatory')}
-        >
-          {children ?? list.map((v, i) => <VideoCard key={`${v.id}-${i}`} item={v} size="row" />)}
+        <div ref={ref} onScroll={update} className="flex gap-3 overflow-x-auto pb-2 pl-1 pr-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {doubledCards
+            ? doubledCards.map((c, i) => (
+                <div key={i} className="contents">
+                  {c}
+                </div>
+              ))
+            : doubled.map((v, i) => <VideoCard key={`${v.id}-${i}`} item={v} size="row" />)}
         </div>
         <Arrow side="left" hidden={!loop && edge.left} onClick={() => by(-1)} />
         <Arrow side="right" hidden={!loop && edge.right} onClick={() => by(1)} />

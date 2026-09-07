@@ -8,12 +8,12 @@ import { VideoRow } from './VideoRow'
 import { Button, cx } from './ui'
 
 /**
- * Nút "Video khác" dưới trình phát. Hàng đầu là chính các video YouTube đề xuất cho video đang xem
- * (lấy qua /api/related), bấm thẻ là app tự lấy phụ đề và chuyển sang video đó ngay trong app.
- * Bên dưới thêm gợi ý từ thư viện (cùng kênh / cùng bậc / theo bạn).
+ * Bảng "Video khác" dưới trình phát, MỞ SẴN. Nội dung là chính các video YouTube đề xuất cho video
+ * đang xem (/api/related); bấm thẻ là app lấy phụ đề và chuyển sang video đó.
+ * Thư viện chỉ hiện khi YouTube không trả về được (dự phòng).
  */
 export function MoreVideos({ currentId }: { currentId: string }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const [related, setRelated] = useState<RelatedVideo[] | null>(null)
   const [err, setErr] = useState<string | null>(null)
   const history = useStore((s) => s.history)
@@ -34,7 +34,10 @@ export function MoreVideos({ currentId }: { currentId: string }) {
     }
   }, [open, currentId])
 
-  const rows = useMemo(() => {
+  const failed = !!err || related?.length === 0
+  // dự phòng khi YouTube không trả về đề xuất
+  const fallback = useMemo(() => {
+    if (!failed) return [] as { key: string; title: string; subtitle: string; items: LibraryItem[] }[]
     const out: { key: string; title: string; subtitle: string; items: LibraryItem[] }[] = []
     const used = new Set<string>([currentId])
     const take = (list: LibraryItem[], n: number) => {
@@ -44,14 +47,15 @@ export function MoreVideos({ currentId }: { currentId: string }) {
     }
     if (cur) {
       const sameChannel = take(shuffle(LIBRARY.filter((v) => v.channel === cur.channel)), 10)
-      if (sameChannel.length) out.push({ key: 'channel', title: `Cùng kênh · ${cur.channel}`, subtitle: 'Trong thư viện, giọng và tốc độ quen tai', items: sameChannel })
-      const sameLevel = take(shuffle(LIBRARY.filter((v) => v.level === cur.level)), 10)
-      if (sameLevel.length) out.push({ key: 'level', title: `Cùng bậc · ${cur.level}`, subtitle: 'Trong thư viện, độ khó tương đương', items: sameLevel })
+      if (sameChannel.length) out.push({ key: 'channel', title: `Cùng kênh · ${cur.channel}`, subtitle: 'Trong thư viện', items: sameChannel })
     }
-    const more = take(suggestFor(currentId, seen, 30), 10)
+    const more = take(suggestFor(currentId, seen, 30), 12)
     if (more.length) out.push({ key: 'more', title: 'Gợi ý từ thư viện', subtitle: 'Ưu tiên video chưa xem', items: more })
     return out
-  }, [currentId, cur, seen])
+  }, [failed, currentId, cur, seen])
+
+  const skeletons = useMemo(() => Array.from({ length: 6 }).map((_, i) => <span key={i} className="skeleton h-[188px] w-[248px] shrink-0 rounded-2xl sm:w-[264px]" />), [])
+  const cards = related?.map((v) => <RelatedCard key={v.id} item={v} />)
 
   return (
     <div className="flex flex-col gap-3">
@@ -67,15 +71,21 @@ export function MoreVideos({ currentId }: { currentId: string }) {
         {open && (
           <motion.div key="panel" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden">
             <div className="flex flex-col gap-5 rounded-2xl bg-mat p-3 hairline">
-              {/* đề xuất của YouTube */}
-              <VideoRow title="YouTube đề xuất" subtitle="Cạnh video này trên YouTube. Bấm là mở ngay trong app, kèm phụ đề." auto={false} childCount={related?.length ?? 0}>
-                {related === null && !err && Array.from({ length: 5 }).map((_, i) => <span key={i} className="skeleton h-[188px] w-[248px] shrink-0 rounded-2xl sm:w-[264px]" />)}
-                {err && <p className="py-6 text-sm text-chu-mo-hon">Không lấy được đề xuất của YouTube ({err}). Xem gợi ý từ thư viện bên dưới.</p>}
-                {related?.length === 0 && <p className="py-6 text-sm text-chu-mo-hon">YouTube không trả về đề xuất cho video này.</p>}
-                {related?.map((v) => <RelatedCard key={v.id} item={v} />)}
-              </VideoRow>
-              {rows.map((r) => (
-                <VideoRow key={r.key} title={r.title} subtitle={r.subtitle} items={r.items} auto={false} />
+              {!failed && (
+                <VideoRow
+                  title="YouTube đề xuất"
+                  subtitle="Cạnh video này trên YouTube. Bấm là mở ngay trong app, kèm phụ đề."
+                  cards={cards ?? skeletons}
+                  auto={!!cards}
+                />
+              )}
+              {failed && (
+                <p className="px-1 text-sm text-chu-mo">
+                  YouTube không trả về đề xuất cho video này{err ? ` (${err})` : ''}. Tạm lấy từ thư viện.
+                </p>
+              )}
+              {fallback.map((r) => (
+                <VideoRow key={r.key} title={r.title} subtitle={r.subtitle} items={r.items} />
               ))}
               <p className="text-[11px] text-chu-mo-hon">Video đề xuất là của YouTube và thuộc kênh tương ứng; app chỉ nhúng qua trình phát chính thức. Video không có phụ đề sẽ báo lỗi khi mở.</p>
             </div>
@@ -96,7 +106,7 @@ function RelatedCard({ item }: { item: RelatedVideo }) {
       onClick={() => void open(item.id)}
       disabled={loadingId !== null}
       className={cx(
-        'press group grid w-[248px] shrink-0 snap-start grid-cols-[minmax(0,1fr)] overflow-hidden rounded-2xl bg-nen text-left hairline transition-colors hover:border-chu-mo-hon sm:w-[264px]',
+        'press group grid w-[248px] shrink-0 grid-cols-[minmax(0,1fr)] overflow-hidden rounded-2xl bg-nen text-left hairline transition-colors hover:border-chu-mo-hon sm:w-[264px]',
         loadingId !== null && !busy && 'opacity-60',
       )}
     >
