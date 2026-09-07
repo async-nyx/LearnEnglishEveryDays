@@ -14,6 +14,7 @@ import { LibraryView } from './components/LibraryView'
 import { DiscoverView } from './components/DiscoverView'
 import { ContextBar } from './components/ContextBar'
 import { ProgressView } from './components/ProgressView'
+import { MoreVideos } from './components/MoreVideos'
 import { useCurrentTranscript, useSentences } from './hooks/useTranscript'
 import { fetchTranscript } from './lib/api'
 import { loadImageSlugs } from './lib/images'
@@ -168,6 +169,7 @@ function Study() {
             },
           ]}
         />
+        <MoreVideos currentId={data.video_id} />
       </div>
 
       <section className="h-[70dvh] min-w-0 lg:h-[calc(100dvh-5.25rem)]">
