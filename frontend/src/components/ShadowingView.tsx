@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { translateText } from '../lib/api'
+import { translateSentence } from '../lib/api'
 import { createRecognizer, speak, speechRecognitionSupported, startRecording, type Recognizer, type RecorderHandle } from '../lib/speech'
 import { diffWords, formatTime, type DiffOp } from '../lib/text'
 import type { Sentence, TranscriptData } from '../lib/types'
@@ -79,7 +79,7 @@ export function ShadowingView({ data, sentences }: { data: TranscriptData; sente
 
   useEffect(() => {
     if (!showVi || !cur || vi) return
-    translateText(cur.text)
+    translateSentence(cur.text)
       .then((r) => setVi(r.text))
       .catch((e: Error) => setVi(`Không dịch được (${e.message})`))
   }, [showVi, cur, vi])

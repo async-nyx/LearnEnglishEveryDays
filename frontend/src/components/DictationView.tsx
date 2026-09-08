@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { answerWords, dictationDiff, isDictationCorrect } from '../lib/dictation'
-import { translateText } from '../lib/api'
+import { translateSentence } from '../lib/api'
 import { formatTime } from '../lib/text'
 import type { DictationEntry, Sentence, TranscriptData } from '../lib/types'
 import { usePlayer } from '../store/usePlayer'
@@ -96,7 +96,7 @@ export function DictationView({ data, sentences }: { data: TranscriptData; sente
     setVi(null)
     if (!cur || !(checked || rows[cur.id]?.ok)) return
     let alive = true
-    translateText(cur.text)
+    translateSentence(cur.text)
       .then((r) => alive && setVi(r.text))
       .catch((e: Error) => alive && setVi(`Không dịch được (${e.message})`))
     return () => {

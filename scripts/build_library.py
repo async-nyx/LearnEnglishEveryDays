@@ -36,6 +36,14 @@ HTTP.cookies.update({"CONSENT": "YES+1", "SOCS": "CAI"})
 
 MAX_PER_CHANNEL = 8
 
+# BẪY đã trả giá: tìm tên phim hoạt hình ra rất nhiều nhạc phim (片尾曲/插曲) và video lời bài hát.
+# Chúng có phụ đề nên lọt qua mọi bộ lọc, nhưng nghe hát thì không học được. Loại theo tên video.
+JUNK_TITLE = re.compile(
+    r"片尾曲|片頭曲|片头曲|主题曲|主題曲|插曲|歌词|歌詞|歌曲|完整版歌|演唱|Lyrics|Theme Song|"
+    r"Ending Song|Opening Song|純音樂|纯音乐|钢琴|鋼琴|\bOST\b|\bMV\b|\bcover\b",
+    re.I,
+)
+
 # (tiếng, bậc, số video, phút tối thiểu, phút tối đa, [ (truy vấn, chủ đề, [kênh cho phép]) ])
 PLAN = [
     # ───────────────────────── TIẾNG ANH A1–C1 ─────────────────────────
@@ -133,7 +141,7 @@ PLAN = [
         ("学中文 零基础 听力", "Vỡ lòng", []),
         ("Chinese Daily Podcast HSK 1", "Podcast HSK 1", []),
     ]),
-    ("zh", "HSK2", 24, 1.0, 22.0, [
+    ("zh", "HSK2", 25, 1.0, 22.0, [
         ("HSK 2 听力 字幕", "Luyện nghe HSK 2", []),
         ("HSK2 Chinese listening practice subtitles", "Luyện nghe HSK 2", []),
         ("中文 动画 短片 字幕", "Hoạt hình ngắn", []),
@@ -143,29 +151,51 @@ PLAN = [
         ("学中文 生活 vlog 慢速", "Nhật ký đời sống", []),
         ("Chinese story with pinyin subtitles", "Kể chuyện", []),
     ]),
-    ("zh", "HSK3", 16, 2.0, 25.0, [
+    ("zh", "HSK3", 24, 2.0, 25.0, [
+        ("A Will Eternal 一念永恒 EP ENG SUB", "Hoạt hình tu tiên 3D", []),
+        ("斗罗大陆 Soul Land EP ENG SUB 腾讯视频", "Hoạt hình tiên hiệp 3D", []),
+        ("MULTISUB 玄幻 动画 EP", "Hoạt hình huyền huyễn 3D", []),
+        ("斗罗大陆 动画 全集 字幕", "Hoạt hình tiên hiệp 3D", []),
         ("HSK 3 听力 字幕", "Luyện nghe HSK 3", []),
         ("intermediate Chinese listening subtitles", "Nghe trung cấp", []),
         ("中文 播客 中级 字幕", "Podcast trung cấp", []),
         ("Chinese vlog subtitles intermediate", "Nhật ký đời sống", []),
     ]),
-    ("zh", "HSK4", 14, 3.0, 28.0, [
+    ("zh", "HSK4", 26, 3.0, 28.0, [
+        ("凡人修仙传 动画 字幕", "Hoạt hình tu tiên 3D", []),
+        ("吞噬星空 动画 字幕", "Hoạt hình tu tiên 3D", []),
+        ("斗破苍穹 动画 字幕", "Hoạt hình huyền huyễn 3D", []),
+        ("完美世界 动画 字幕", "Hoạt hình tiên hiệp 3D", []),
+        ("星辰变 动画 字幕", "Hoạt hình tu tiên 3D", []),
+        ("Chinese donghua 3D cultivation english subtitles", "Hoạt hình tu tiên 3D", []),
         ("HSK 4 听力 字幕", "Luyện nghe HSK 4", []),
         ("Chinese podcast intermediate subtitles", "Podcast", []),
         ("中文 访谈 字幕", "Phỏng vấn", []),
         ("Chinese documentary subtitles short", "Phóng sự", []),
     ]),
-    ("zh", "HSK5", 10, 4.0, 30.0, [
+    ("zh", "HSK5", 22, 4.0, 30.0, [
+        ("遮天 动画 字幕", "Hoạt hình tiên hiệp 3D", []),
+        ("仙逆 动画 字幕", "Hoạt hình tu tiên 3D", []),
+        ("沧元图 动画 字幕", "Hoạt hình tu tiên 3D", []),
+        ("神印王座 动画 字幕", "Hoạt hình huyền huyễn 3D", []),
+        ("牧神记 动画 字幕", "Hoạt hình tiên hiệp 3D", []),
+        ("百炼成神 动画 字幕", "Hoạt hình tu tiên 3D", []),
         ("HSK 5 听力 字幕", "Luyện nghe HSK 5", []),
         ("中文 演讲 字幕", "Diễn thuyết", []),
         ("advanced Chinese podcast subtitles", "Podcast nâng cao", []),
     ]),
-    ("zh", "HSK6", 8, 5.0, 32.0, [
+    ("zh", "HSK6", 22, 5.0, 32.0, [
+        ("剑来 动画 字幕", "Hoạt hình tiên hiệp 3D", []),
+        ("莽荒纪 动画 字幕", "Hoạt hình tu tiên 3D", []),
+        ("武动乾坤 动画 字幕", "Hoạt hình huyền huyễn 3D", []),
+        ("长生界 动画 字幕", "Hoạt hình tiên hiệp 3D", []),
+        ("修真 动画 国语 字幕", "Hoạt hình tu tiên 3D", []),
         ("HSK 6 听力 字幕", "Luyện nghe HSK 6", []),
         ("中文 深度 访谈 字幕", "Phỏng vấn chuyên sâu", []),
         ("TEDx 中文 演讲 字幕", "Diễn thuyết TEDx", []),
     ]),
-    ("zh", "HSK7-9", 6, 6.0, 35.0, [
+    # HSK7-9 để dành cho diễn thuyết học thuật: hoạt hình tiên hiệp nằm ở HSK3–HSK6 mới đúng sức.
+    ("zh", "HSK7-9", 8, 6.0, 35.0, [
         ("中文 学术 演讲 字幕", "Diễn thuyết học thuật", []),
         ("HSK 7-9 听力", "Luyện nghe HSK 7-9", []),
         ("一席 演讲 字幕", "Diễn thuyết", []),
@@ -305,6 +335,8 @@ def main() -> None:
                 if not (min_m * 60 <= d <= max_m * 60):
                     continue
                 if per_channel.get(c["channel"], 0) >= MAX_PER_CHANNEL:
+                    continue
+                if JUNK_TITLE.search(c["title"]):
                     continue
                 ok, code, generated = captions_for(c["id"], lang)
                 time.sleep(0.35)

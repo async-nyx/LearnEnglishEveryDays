@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { translateText } from '../lib/api'
-import { AI_KEY_HINT, AI_MODELS, aiExplain, aiTranslate, type AiProvider, type AiSentence } from '../lib/ai'
+import { translateSentence } from '../lib/api'
+import { AI_KEY_HINT, AI_MODELS, AI_MODEL_OPTIONS, aiExplain, aiTranslate, type AiProvider, type AiSentence } from '../lib/ai'
+import { STYLE_HINT, STYLE_LABEL, type TransStyle } from '../lib/novel-style'
 import { formatTime } from '../lib/text'
 import type { Sentence, TranscriptData } from '../lib/types'
 import { usePlayer } from '../store/usePlayer'
 import { useStore } from '../store/useStore'
+import { ensurePinyin, pinyinLine, usePinyinReady } from '../lib/pinyin'
+import { hanVietLine, hasHan, matchTerms } from '../lib/xianxia'
 import { ClickableText } from './ClickableText'
 import { Button, EmptyState, cx } from './ui'
 
@@ -15,9 +18,11 @@ const CHUNK = 12 // số câu gửi AI mỗi lượt
  * Tab Dịch: cả bài song ngữ. Dịch máy chạy sẵn (miễn phí); cắm khoá Gemini hoặc Grok thì có bản
  * dịch theo văn cảnh, ghi chú cấu trúc, và nút giảng sâu từng câu. Khoá lưu trên máy người dùng.
  */
-export function TranslateView({ sentences }: { data: TranscriptData; sentences: Sentence[] }) {
+export function TranslateView({ data, sentences }: { data: TranscriptData; sentences: Sentence[] }) {
   const provider = useStore((s) => s.settings.aiProvider)
   const key = useStore((s) => s.settings.aiKey)
+  const aiModel = useStore((s) => s.settings.aiModel)
+  const style = useStore((s) => s.settings.transStyle)
   const updateSettings = useStore((s) => s.updateSettings)
   const toast = useStore((s) => s.toast)
   const seekTo = usePlayer((s) => s.seekTo)
@@ -31,6 +36,14 @@ export function TranslateView({ sentences }: { data: TranscriptData; sentences: 
   const [explain, setExplain] = useState<string | null>(null)
   const [showKey, setShowKey] = useState(false)
   const [draftKey, setDraftKey] = useState(key)
+  const [showHv, setShowHv] = useState(true)
+  const pinyinVersion = usePinyinReady((st) => st.version)
+
+  /** Phụ đề tiếng Trung: bật lớp tiên hiệp (thuật ngữ Hán-Việt, dòng đọc Hán-Việt, prompt riêng). */
+  const isZh = (data.language_code ?? '').toLowerCase().startsWith('zh') || sentences.slice(0, 5).some((s) => hasHan(s.text))
+  useEffect(() => {
+    if (isZh) void ensurePinyin()
+  }, [isZh])
   const abort = useRef<AbortController | null>(null)
 
   const hasKey = key.trim().length > 0
@@ -51,7 +64,7 @@ export function TranslateView({ sentences }: { data: TranscriptData; sentences: 
       for (const s of sentences) {
         if (!alive) return
         try {
-          const r = await translateText(s.text)
+          const r = await translateSentence(s.text)
           if (!alive) return
           setMachine((m) => ({ ...m, [s.id]: r.text }))
         } catch {
@@ -62,7 +75,7 @@ export function TranslateView({ sentences }: { data: TranscriptData; sentences: 
     return () => {
       alive = false
     }
-  }, [sentences])
+  }, [sentences, style])
 
   const runAi = useCallback(async () => {
     if (!hasKey || busy) return
@@ -74,7 +87,7 @@ export function TranslateView({ sentences }: { data: TranscriptData; sentences: 
     try {
       for (let i = 0; i < sentences.length; i += CHUNK) {
         const part = sentences.slice(i, i + CHUNK)
-        const out = await aiTranslate(provider, key, part.map((s) => s.text), ctrl.signal)
+        const out = await aiTranslate(provider, key, part.map((s) => s.text), ctrl.signal, isZh ? 'zh' : 'en', aiModel, style)
         setAi((prev) => {
           const next = { ...prev }
           part.forEach((s, j) => {
@@ -90,7 +103,7 @@ export function TranslateView({ sentences }: { data: TranscriptData; sentences: 
     } finally {
       setBusy(false)
     }
-  }, [hasKey, busy, sentences, provider, key, toast])
+  }, [hasKey, busy, sentences, provider, key, toast, isZh, aiModel])
 
   const runExplain = async (i: number) => {
     if (!hasKey) {
@@ -101,7 +114,7 @@ export function TranslateView({ sentences }: { data: TranscriptData; sentences: 
     setExplain(null)
     const context = sentences.slice(Math.max(0, i - 1), i + 2).map((s) => s.text).join(' ')
     try {
-      setExplain(await aiExplain(provider, key, sentences[i].text, context))
+      setExplain(await aiExplain(provider, key, sentences[i].text, context, undefined, isZh ? 'zh' : 'en', aiModel, style))
     } catch (e) {
       setExplain(`Không giảng được: ${(e as Error).message}`)
     }
@@ -126,7 +139,29 @@ export function TranslateView({ sentences }: { data: TranscriptData; sentences: 
         <Button variant={showKey ? 'outline' : 'subtle'} onClick={() => setShowKey((v) => !v)} className={cx(showKey && 'border-nhan/40 text-nhan-van')}>
           {hasKey ? `Khoá ${provider === 'gemini' ? 'Gemini' : 'Grok'}` : 'Cắm khoá AI'}
         </Button>
-        <span className="ml-auto text-xs text-chu-mo-hon">{hasKey ? `Mô hình ${AI_MODELS[provider]}` : 'Chưa có khoá: đang dùng dịch máy'}</span>
+        <div className="flex items-center gap-0.5 rounded-lg bg-mat p-0.5 hairline" title="Văn phong bản dịch">
+          {(['tunhien', 'truyen', 'cophong'] as TransStyle[]).map((k) => (
+            <button
+              key={k}
+              onClick={() => updateSettings({ transStyle: k })}
+              title={STYLE_HINT[k]}
+              className={cx(
+                'press h-8 rounded-md px-2.5 text-[12.5px] font-medium',
+                style === k ? 'bg-nhan text-nhan-chu' : 'text-chu-nhat hover:text-chu',
+              )}
+            >
+              {STYLE_LABEL[k]}
+            </button>
+          ))}
+        </div>
+        {isZh && (
+          <Button variant={showHv ? 'outline' : 'subtle'} onClick={() => setShowHv((v) => !v)} className={cx(showHv && 'border-nhan/40 text-nhan-van')}>
+            Hán-Việt
+          </Button>
+        )}
+        <span className="ml-auto text-xs text-chu-mo-hon">
+          {hasKey ? `Mô hình ${aiModel || `tự chọn (${AI_MODELS[provider]}…)`}` : 'Chưa có khoá: đang dùng dịch máy'}
+        </span>
       </div>
 
       <AnimatePresence initial={false}>
@@ -146,6 +181,19 @@ export function TranslateView({ sentences }: { data: TranscriptData; sentences: 
                     {p === 'gemini' ? 'Google Gemini' : 'xAI Grok'}
                   </button>
                 ))}
+                <select
+                  value={aiModel}
+                  onChange={(e) => updateSettings({ aiModel: e.target.value })}
+                  className="h-9 rounded-lg border border-vien bg-nen px-2 text-[13px] text-chu focus:border-chu-mo-hon focus:outline-none"
+                  aria-label="Mô hình AI"
+                >
+                  <option value="">Tự chọn (thử từ mới nhất)</option>
+                  {AI_MODEL_OPTIONS[provider].map((m) => (
+                    <option key={m} value={m}>
+                      {m}
+                    </option>
+                  ))}
+                </select>
                 <a href={AI_KEY_HINT[provider].url} target="_blank" rel="noreferrer" className="text-[13px] text-nhan-van underline-offset-2 hover:underline">
                   Lấy khoá ở {AI_KEY_HINT[provider].label}
                 </a>
@@ -184,6 +232,7 @@ export function TranslateView({ sentences }: { data: TranscriptData; sentences: 
                 )}
               </div>
               <p className="mt-2 text-[11px] leading-relaxed text-chu-mo-hon">
+                Google hay khai tử model cũ (khoá mới không gọi được gemini-2.5-flash nữa). Để “Tự chọn” thì app thử lần lượt từ model mới nhất xuống, gặp cái nào chạy được thì dùng tiếp cái đó.
                 Khoá chỉ nằm trong trình duyệt của bạn và gửi thẳng tới nhà cung cấp. App không lưu khoá trên máy chủ. Nếu trình duyệt chặn, lời gọi đi vòng qua máy chủ của app nhưng khoá vẫn không được ghi lại.
               </p>
             </div>
@@ -209,7 +258,23 @@ export function TranslateView({ sentences }: { data: TranscriptData; sentences: 
                       {a?.vi ?? machine[s.id] ?? <span className="skeleton inline-block h-4 w-2/5 align-middle" />}
                       {a && <span className="ml-2 rounded bg-nhan-nhat px-1.5 py-0.5 text-[10px] font-semibold text-nhan-van">AI</span>}
                     </div>
+                    {isZh && (s.pinyin || pinyinVersion >= 0) && (
+                      <div className="mt-0.5 text-[13px] leading-relaxed text-chu-mo-hon">{s.pinyin || pinyinLine(s.text)}</div>
+                    )}
+                    {isZh && showHv && <div className="mt-1 text-[13px] leading-relaxed text-chu-mo-hon">{hanVietLine(s.text)}</div>}
                     {a?.note && <div className="mt-1 text-[13px] leading-relaxed text-chu-mo">{a.note}</div>}
+                    {isZh && (
+                      <div className="mt-1.5 flex flex-wrap gap-1.5">
+                        {matchTerms(s.text)
+                          .filter((h) => !h.isName)
+                          .slice(0, 4)
+                          .map((h) => (
+                            <span key={h.at} className="rounded-md bg-mat-noi px-1.5 py-0.5 text-[11.5px] text-chu-mo" title={h.note}>
+                              <b className="font-semibold text-chu">{h.zh}</b> = {h.vi}
+                            </span>
+                          ))}
+                      </div>
+                    )}
                     <button onClick={() => void runExplain(i)} className="press mt-1.5 rounded-md px-1.5 py-0.5 text-[12px] font-medium text-chu-mo hover:bg-mat-noi hover:text-chu">
                       Giảng câu này
                     </button>

@@ -1,12 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { MagnifyingGlass } from '@phosphor-icons/react'
-import { translateText } from '../lib/api'
+import { translateSentence } from '../lib/api'
+import { hasHan } from '../lib/xianxia'
 import { formatTime, toSrt, downloadText, wordsOf } from '../lib/text'
 import type { Sentence, TranscriptData } from '../lib/types'
 import { usePlayer } from '../store/usePlayer'
 import { useStore } from '../store/useStore'
 import { useActiveIndex, useDebounced } from '../hooks/useTranscript'
+import { ensurePinyin, pinyinLine, usePinyinReady } from '../lib/pinyin'
+import { splitTrilingual } from '../lib/trilingual'
 import { ClickableText } from './ClickableText'
 import { Button, Kbd, cx } from './ui'
 
@@ -15,6 +18,10 @@ interface Row {
   start: number
   end: number
   text: string
+  /** phiên âm tách ra từ dòng phụ đề ba tầng */
+  pinyin?: string
+  /** bản tiếng Anh in sẵn trong phụ đề */
+  en?: string
 }
 
 export function TranscriptView({ data, sentences }: { data: TranscriptData; sentences: Sentence[] }) {
@@ -31,10 +38,28 @@ export function TranscriptView({ data, sentences }: { data: TranscriptData; sent
   const rows: Row[] = useMemo(
     () =>
       settings.sentenceMode
-        ? sentences.map((s) => ({ id: s.id, start: s.start, end: s.end, text: s.text }))
-        : data.segments.map((s, i) => ({ id: i, start: s.start, end: s.start + s.duration, text: s.text })),
+        ? sentences.map((s) => ({ id: s.id, start: s.start, end: s.end, text: s.text, pinyin: s.pinyin, en: s.en }))
+        : data.segments.map((s, i) => {
+            const parts = splitTrilingual(s.text)
+            return {
+              id: i,
+              start: s.start,
+              end: s.start + s.duration,
+              text: parts.split && parts.zh ? parts.zh : s.text,
+              pinyin: parts.pinyin || undefined,
+              en: parts.en || undefined,
+            }
+          }),
     [settings.sentenceMode, sentences, data.segments],
   )
+
+  const layers = settings.subLayers
+  const isZh = (data.language_code ?? '').toLowerCase().startsWith('zh') || hasHan(rows[0]?.text ?? '')
+  const pinyinVersion = usePinyinReady((s) => s.version)
+  useEffect(() => {
+    // phụ đề không kèm sẵn pinyin thì tự phiên âm — bảng nặng nên chỉ tải khi bật lớp này
+    if (isZh && layers.pinyin) void ensurePinyin()
+  }, [isZh, layers.pinyin])
 
   const active = useActiveIndex(rows)
   const listRef = useRef<HTMLDivElement>(null)
@@ -44,7 +69,7 @@ export function TranscriptView({ data, sentences }: { data: TranscriptData; sent
   // bật Dịch: dịch trước 2 câu kế để tới lượt là có ngay
   useEffect(() => {
     if (!settings.showTranslation || active < 0) return
-    for (const r of rows.slice(active + 1, active + 3)) void translateText(r.text, 'vi', 'auto').catch(() => undefined)
+    for (const r of rows.slice(active + 1, active + 3)) void translateSentence(r.text).catch(() => undefined)
   }, [active, rows, settings.showTranslation])
 
   // cuộn theo dòng đang phát
@@ -118,10 +143,33 @@ export function TranscriptView({ data, sentences }: { data: TranscriptData; sent
           
           <span>{settings.sentenceMode ? 'Theo câu' : 'Theo dòng'}</span>
         </ToolToggle>
-        <ToolToggle active={settings.showTranslation} onClick={() => updateSettings({ showTranslation: !settings.showTranslation })} title="Dịch câu đang phát">
-          
-          <span>Dịch</span>
-        </ToolToggle>
+        {isZh ? (
+          <div className="flex items-center gap-0.5 rounded-lg bg-mat p-0.5 hairline" title="Chọn lớp phụ đề muốn thấy">
+            {(
+              [
+                ['zh', '中文'],
+                ['pinyin', 'Pinyin'],
+                ['vi', 'Việt'],
+                ['en', 'English'],
+              ] as const
+            ).map(([k, label]) => (
+              <button
+                key={k}
+                onClick={() => updateSettings({ subLayers: { ...layers, [k]: !layers[k] } })}
+                className={cx(
+                  'press h-8 rounded-md px-2 text-[12.5px] font-medium',
+                  layers[k] ? 'bg-nhan text-nhan-chu' : 'text-chu-nhat hover:text-chu',
+                )}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        ) : (
+          <ToolToggle active={settings.showTranslation} onClick={() => updateSettings({ showTranslation: !settings.showTranslation })} title="Dịch câu đang phát">
+            <span>Dịch</span>
+          </ToolToggle>
+        )}
         <ToolToggle active={settings.autoScroll} onClick={() => updateSettings({ autoScroll: !settings.autoScroll })} title="Tự cuộn theo video">
           
           <span>Tự cuộn</span>
@@ -212,13 +260,22 @@ export function TranscriptView({ data, sentences }: { data: TranscriptData; sent
                   </button>
                 </div>
                 <div>
-                  <ClickableText
-                    text={r.text}
-                    start={r.start}
-                    highlight={highlight}
-                    className={cx('leading-relaxed', isActive ? 'text-chu' : 'text-chu-nhat')}
-                  />
-                  {settings.showTranslation && isActive && <Translation text={r.text} />}
+                  {/* tắt hết lớp có nội dung thì vẫn phải thấy chữ, không thì dòng trống trơn */}
+                  {(!isZh || layers.zh || !(layers.pinyin || layers.vi || layers.en)) && (
+                    <ClickableText
+                      text={r.text}
+                      start={r.start}
+                      highlight={highlight}
+                      className={cx('leading-relaxed', isActive ? 'text-chu' : 'text-chu-nhat')}
+                    />
+                  )}
+                  {isZh && layers.pinyin && (
+                    <div className={cx('leading-relaxed text-chu-mo-hon', layers.zh ? 'mt-0.5 text-[0.8em]' : 'text-[1em] text-chu-nhat')}>
+                      {r.pinyin || (pinyinVersion >= 0 ? pinyinLine(r.text) : '')}
+                    </div>
+                  )}
+                  {isZh && layers.en && r.en && <div className="mt-0.5 text-[0.82em] leading-relaxed text-chu-mo">{r.en}</div>}
+                  {((isZh && layers.vi) || (!isZh && settings.showTranslation)) && isActive && <Translation text={r.text} />}
                 </div>
               </li>
             )
@@ -234,7 +291,7 @@ function Translation({ text }: { text: string }) {
   useEffect(() => {
     let alive = true
     setVi(null)
-    translateText(text, 'vi', 'auto')
+    translateSentence(text)
       .then((r) => alive && setVi(r.text))
       .catch((e: Error) => alive && setVi(`Không dịch được (${e.message})`))
     return () => {

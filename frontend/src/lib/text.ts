@@ -1,3 +1,4 @@
+import { splitTrilingual } from './trilingual'
 import type { Segment, Sentence } from './types'
 
 export interface Token {
@@ -93,6 +94,11 @@ export function formatTime(seconds: number): string {
  * Gộp các dòng phụ đề rời thành câu để luyện tập.
  * Ngắt khi: kết thúc bằng dấu câu, hoặc đủ số từ, hoặc khoảng lặng lớn.
  */
+/**
+ * Gộp đoạn phụ đề thành câu. Dòng nào in chung chữ Hán + pinyin + tiếng Anh (nhiều kênh dạy tiếng
+ * Trung làm vậy) thì tách ra trước, xem `lib/trilingual.ts` — không thì chép chính tả bắt gõ cả
+ * pinyin lẫn tiếng Anh.
+ */
 export function buildSentences(segments: Segment[], opts?: { maxWords?: number; maxGap?: number }): Sentence[] {
   const maxWords = opts?.maxWords ?? 14
   const maxGap = opts?.maxGap ?? 1.4
@@ -104,16 +110,28 @@ export function buildSentences(segments: Segment[], opts?: { maxWords?: number; 
     cur = null
   }
 
-  segments.forEach((seg, idx) => {
+  segments.forEach((raw, idx) => {
+    const parts = splitTrilingual(raw.text)
+    const seg = parts.split && parts.zh ? { ...raw, text: parts.zh } : raw
     const segEnd = seg.start + Math.max(seg.duration, 0.5)
     if (cur) {
       const gap = seg.start - cur.end
       if (gap > maxGap) flush()
     }
     if (!cur) {
-      cur = { id: 0, start: seg.start, end: segEnd, text: seg.text, segIndexes: [idx] }
+      cur = {
+        id: 0,
+        start: seg.start,
+        end: segEnd,
+        text: seg.text,
+        pinyin: parts.pinyin || undefined,
+        en: parts.en || undefined,
+        segIndexes: [idx],
+      }
     } else {
       cur.text += ' ' + seg.text
+      if (parts.pinyin) cur.pinyin = `${cur.pinyin ? cur.pinyin + ' ' : ''}${parts.pinyin}`
+      if (parts.en) cur.en = `${cur.en ? cur.en + ' ' : ''}${parts.en}`
       cur.end = Math.max(cur.end, segEnd)
       cur.segIndexes.push(idx)
     }

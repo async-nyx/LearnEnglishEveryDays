@@ -4,6 +4,7 @@ import { LANG_LABEL, LEVELS_OF, LEVEL_LABEL, itemsOf, libraryItem, mostWatchedLe
 import { shuffle } from '../lib/text'
 import { useStore } from '../store/useStore'
 import { VideoRow } from './VideoRow'
+import { YoutubeSearch } from './YoutubeSearch'
 import { EmptyState } from './ui'
 
 /**
@@ -70,6 +71,8 @@ export function DiscoverView() {
             : 'Bạn chưa mở video nào trong thư viện, tạm gợi ý từ bậc B1. Mở vài video, đề xuất sẽ theo bậc bạn nghe.'}
         </p>
       </header>
+
+      <YoutubeSearch />
 
       <VideoRow
         title={`Dành cho bạn · ${fav.level}`}

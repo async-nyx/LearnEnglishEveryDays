@@ -6,6 +6,7 @@ import type { DefineResult, TranslateResult } from '../lib/types'
 import { playWordAudio } from '../lib/speech'
 import { normalizeWord } from '../lib/text'
 import { findImage } from '../lib/images'
+import { hanVietChar, termAt } from '../lib/xianxia'
 import { useLookup } from '../store/useLookup'
 import { useStore } from '../store/useStore'
 import { Button, cx } from './ui'
@@ -38,6 +39,9 @@ export function WordPopover() {
   const norm = target ? normalizeWord(target.word) : ''
   // chữ Hán: từ điển Anh-Anh không có, chỉ dịch sang tiếng Việt
   const isHan = /\p{Script=Han}/u.test(norm)
+  // Lớp ƯU TIÊN cho phim tiên hiệp: cụm thuật ngữ phủ lên chữ vừa bấm (元婴, 道友…) và âm Hán-Việt.
+  const term = target && isHan ? termAt(target.example, target.index) : null
+  const reading = isHan ? Array.from(norm).map((c) => hanVietChar(c) ?? c).join(' ') : ''
   const lemma = dict?.lemma ?? norm
   const saved = vocab.find((v) => v.lemma === lemma || v.word === norm)
   const image = target ? findImage(imageSlugs, lemma, norm) : null
@@ -174,7 +178,9 @@ export function WordPopover() {
                 {dict && dict.lemma !== norm && <span className="text-sm text-chu-mo">← {norm}</span>}
               </div>
               <div className="mt-0.5 flex items-center gap-2 text-sm text-chu-mo">
-                {dict ? (
+                {isHan ? (
+                  <span className="font-medium text-chu-nhat">{reading}</span>
+                ) : dict ? (
                   <span className="font-mono">{dict.phonetic || '—'}</span>
                 ) : (
                   <span className="skeleton inline-block h-4 w-20" />
@@ -200,6 +206,20 @@ export function WordPopover() {
               </div>
             )}
             {err && !vi && <div className="text-sm text-sai">{err}</div>}
+
+            {/* Lớp ưu tiên cho phim tiên hiệp: cụm thuật ngữ luôn thắng bản dịch máy. */}
+            {term && (
+              <div className="mb-3 rounded-xl bg-nhan-nhat p-3">
+                <div className="flex flex-wrap items-baseline gap-x-2">
+                  <span className="text-[15px] font-semibold text-chu">{term.zh}</span>
+                  <span className="text-[15px] font-semibold text-nhan-van">{term.vi}</span>
+                  <span className="ml-auto text-[10.5px] font-semibold uppercase tracking-wide text-nhan-van">
+                    {term.isName ? 'Tên riêng' : 'Tu tiên'}
+                  </span>
+                </div>
+                {term.note && <p className="mt-1 text-[13px] leading-relaxed text-chu-mo">{term.note}</p>}
+              </div>
+            )}
 
             {/* nghĩa tiếng Việt: nguồn nhanh */}
             {vi ? (

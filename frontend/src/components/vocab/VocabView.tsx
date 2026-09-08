@@ -5,6 +5,7 @@ import { Segmented } from '../ui'
 import { Flashcards } from './Flashcards'
 import { Quiz } from './Quiz'
 import { SpellingDrill } from './SpellingDrill'
+import { DeckBrowser } from './DeckBrowser'
 import { VocabList } from './VocabList'
 
 export function VocabView() {
@@ -30,6 +31,7 @@ export function VocabView() {
                 { value: 'flashcards', label: 'Thẻ lật' },
                 { value: 'spelling', label: 'Chép từ' },
                 { value: 'quiz', label: 'Trắc nghiệm' },
+                { value: 'decks', label: 'Bộ từ' },
               ]}
               className="[&>button]:shrink-0"
             />
@@ -39,6 +41,7 @@ export function VocabView() {
             <SideItem active={tab === 'flashcards'} onClick={() => setTab('flashcards')} label="Thẻ lật" hint="Ôn theo lịch giãn cách" />
             <SideItem active={tab === 'spelling'} onClick={() => setTab('spelling')} label="Chép từ" hint="Nghe rồi gõ đúng chính tả" />
             <SideItem active={tab === 'quiz'} onClick={() => setTab('quiz')} label="Trắc nghiệm" hint="Từ ↔ nghĩa, 4 đáp án" />
+            <SideItem active={tab === 'decks'} onClick={() => setTab('decks')} label="Bộ từ" hint="TOEIC, tiếng Anh thương mại, HSK 1–4" />
           </nav>
         </aside>
 
@@ -49,6 +52,7 @@ export function VocabView() {
               {tab === 'flashcards' && <Flashcards />}
               {tab === 'spelling' && <SpellingDrill />}
               {tab === 'quiz' && <Quiz />}
+              {tab === 'decks' && <DeckBrowser />}
             </motion.div>
           </AnimatePresence>
         </section>

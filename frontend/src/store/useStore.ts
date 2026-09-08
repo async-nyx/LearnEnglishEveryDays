@@ -12,7 +12,7 @@ import type {
   VocabTab,
 } from '../lib/types'
 import { newSrs, rateSrs } from '../lib/srs'
-import { fetchTranscript } from '../lib/api'
+import { ZH_LANGS, fetchTranscript } from '../lib/api'
 import { langOf, libraryItem, type Lang, type Level } from '../lib/library'
 import { uid } from '../lib/text'
 
@@ -68,7 +68,10 @@ interface State {
   cycleTheme: () => void
   /** video đang được lấy phụ đề khi bấm từ thư viện/đề xuất (để thẻ hiện hoạt ảnh) */
   loadingVideoId: string | null
-  openLibraryVideo: (id: string) => Promise<void>
+  /** `lang` cho video NGOÀI thư viện (tập phim trong Bộ sưu tập) để xin đúng phụ đề */
+  openLibraryVideo: (id: string, lang?: Lang) => Promise<void>
+  /** Nạp lại phụ đề của video đang xem bằng một tiếng khác (video có nhiều track) */
+  switchCaptions: (code: string) => Promise<void>
   libraryLevel: 'all' | Level
   setLibraryLevel: (l: 'all' | Level) => void
   libraryLang: Lang
@@ -89,11 +92,20 @@ const DEFAULT_SETTINGS: Settings = {
   sidebarCollapsed: false,
   aiProvider: 'gemini',
   aiKey: '',
+  aiModel: '',
   embedHost: 'youtube',
   fontSize: 17,
   autoScroll: true,
   playbackRate: 1,
+  videoQuality: 'auto',
   showTranslation: false,
+  subLayers: { zh: true, pinyin: true, vi: true, en: false },
+  videoSubLayers: { zh: true, pinyin: true, vi: true, en: false },
+  videoSubs: true,
+  subFontSize: 22,
+  subPos: null,
+  transStyle: 'truyen',
+  preferSubLang: 'auto',
   sentenceMode: true,
 }
 
@@ -194,7 +206,7 @@ export const useStore = create<State>()(
       setLibraryLevel: (libraryLevel) => set({ libraryLevel }),
       libraryLang: 'en',
       setLibraryLang: (libraryLang) => set({ libraryLang, libraryLevel: 'all' }),
-      openLibraryVideo: async (id) => {
+      openLibraryVideo: async (id, lang) => {
         const { transcripts, openVideo, setTranscript, toast, loadingVideoId } = get()
         if (loadingVideoId) return
         if (transcripts[id]) {
@@ -208,13 +220,35 @@ export const useStore = create<State>()(
           // video ngoài thư viện (đề xuất YouTube): đoán theo video đang xem, để chuỗi video tiếng
           // Trung không rơi về phụ đề tiếng Anh
           const cur = get().currentVideoId ? libraryItem(get().currentVideoId as string) : undefined
-          const zh = item ? langOf(item) === 'zh' : cur ? langOf(cur) === 'zh' : false
+          const zh = lang ? lang === 'zh' : item ? langOf(item) === 'zh' : cur ? langOf(cur) === 'zh' : false
           const languages = zh ? ['zh-Hans', 'zh-CN', 'zh', 'zh-Hant', 'zh-TW', 'zh-HK'] : undefined
-          setTranscript(await fetchTranscript(id, languages))
+          const data = await fetchTranscript(id, languages)
+          setTranscript(data)
+          // vài tập lẻ trong một bộ không được gắn phụ đề tiếng Trung — nói thẳng chứ đừng để
+          // người học ngồi đoán vì sao đang xem phim Trung mà chữ lại là tiếng Anh
+          if (zh && !(data.language_code ?? '').toLowerCase().startsWith('zh')) {
+            const other = data.language || data.language_code || 'ngôn ngữ khác'
+            toast(`Tập này không có phụ đề tiếng Trung, đang hiện ${other}. Đổi ở ô "Phụ đề" dưới tên video.`, 'bad')
+          }
         } catch (e) {
           toast(`Không lấy được phụ đề: ${(e as Error).message}`, 'bad')
         } finally {
           set({ loadingVideoId: null, loading: false })
+        }
+      },
+
+      switchCaptions: async (code) => {
+        const { currentVideoId, setTranscript, toast } = get()
+        if (!currentVideoId) return
+        set({ loading: true })
+        try {
+          const langs = code.startsWith('zh') ? [code, ...ZH_LANGS] : [code, code.split('-')[0]]
+          setTranscript(await fetchTranscript(currentVideoId, langs))
+          toast(`Đã đổi sang phụ đề ${code}`, 'ok')
+        } catch (e) {
+          toast(`Không đổi được phụ đề: ${(e as Error).message}`, 'bad')
+        } finally {
+          set({ loading: false })
         }
       },
 
@@ -275,6 +309,9 @@ export const useStore = create<State>()(
         }
         const settings = { ...DEFAULT_SETTINGS, ...(p.settings ?? {}) } as Settings
         if ((settings.theme as string) === 'system') settings.theme = 'light'
+        // người dùng cũ chưa có khoá này; thiếu thì mọi lớp phụ đề tắt sạch
+        settings.subLayers = { ...DEFAULT_SETTINGS.subLayers, ...(settings.subLayers ?? {}) }
+        settings.videoSubLayers = { ...DEFAULT_SETTINGS.videoSubLayers, ...(settings.videoSubLayers ?? {}) }
         return { ...current, ...p, dictation, settings }
       },
       partialize: (s) => ({
@@ -290,6 +327,8 @@ export const useStore = create<State>()(
         libraryLevel: s.libraryLevel,
         libraryLang: s.libraryLang,
         activity: s.activity,
+        // USER: tải lại trang trong Bộ sưu tập thì văng về màn khác — vì `view` không được lưu
+        view: s.view,
       }),
     },
   ),

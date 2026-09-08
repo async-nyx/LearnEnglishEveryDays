@@ -183,6 +183,9 @@ export function TopBar() {
           <NavBtn label="Thư viện" active={view === 'library'} onClick={() => setView('library')}>
             Thư viện
           </NavBtn>
+          <NavBtn label="Bộ sưu tập" active={view === 'series'} onClick={() => setView('series')}>
+            Bộ sưu tập
+          </NavBtn>
           <NavBtn label="Tiến trình" active={view === 'progress'} onClick={() => setView('progress')}>
             Tiến trình
           </NavBtn>

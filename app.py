@@ -21,6 +21,7 @@ from urllib.parse import parse_qs, urlparse
 
 import requests
 from flask import Flask, jsonify, request, send_from_directory
+import yt_transcript
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api._errors import (
     NoTranscriptFound,
@@ -144,7 +145,7 @@ def get_transcript():
         return jsonify({"success": False, "error": "Không nhận diện được mã video từ liên kết."}), 400
 
     try:
-        api = YouTubeTranscriptApi()
+        api = yt_transcript.api()
         fetched = None
         available = []
 
@@ -179,6 +180,9 @@ def get_transcript():
                         break
 
         if fetched is None:
+            alt = _innertube_payload(video_id, preferred, available)
+            if alt is not None:
+                return alt
             return (
                 jsonify(
                     {
@@ -228,7 +232,49 @@ def get_transcript():
     except VideoUnavailable:
         return jsonify({"success": False, "error": "Video không tồn tại hoặc không công khai."}), 400
     except Exception as e:  # noqa: BLE001
+        # BẪY: YouTube chặn IP thì thư viện ném lỗi dài loằng ngoằng. Thử đường innertube (client
+        # điện thoại) trước, vẫn hỏng thì nói rõ nguyên nhân và cách cắm proxy.
+        alt = _innertube_payload(video_id, preferred, [])
+        if alt is not None:
+            return alt
+        if yt_transcript.is_blocked(e):
+            return jsonify({"success": False, "error": yt_transcript.BLOCKED_HINT, "blocked": True}), 429
         return jsonify({"success": False, "error": f"Lỗi máy chủ: {e}"}), 500
+
+
+def _innertube_payload(video_id: str, preferred: list[str], available: list[dict]):
+    """Đường dự phòng khi `youtube_transcript_api` bị chặn. None = cũng không lấy được."""
+    try:
+        segments, track, found = yt_transcript.fetch_via_innertube(video_id, preferred)
+    except Exception:  # noqa: BLE001
+        return None
+    if not segments:
+        return None
+    meta = fetch_oembed(video_id)
+    return jsonify(
+        {
+            "success": True,
+            "video_id": video_id,
+            "title": meta["title"],
+            "author": meta["author"],
+            "thumbnail": meta["thumbnail"],
+            "language": (track.get("name", {}) or {}).get("simpleText") or track.get("languageCode"),
+            "language_code": track.get("languageCode"),
+            "is_generated": track.get("kind") == "asr",
+            "available": found or available,
+            "segments": [
+                {
+                    "start": round(float(x["start"]), 3),
+                    "duration": round(float(x["duration"]), 3),
+                    "text": x["text"],
+                    "timestamp": format_time(x["start"]),
+                }
+                for x in segments
+            ],
+            "segment_count": len(segments),
+            "source": "innertube",
+        }
+    )
 
 
 # ---------------------------------------------------------------- translate
@@ -665,6 +711,58 @@ def related():
             break
     if items:
         cache_set("related2", vid, items)
+    return jsonify({"success": True, "items": items})
+
+
+# ---------------------------------------------------------------- tìm video trên YouTube
+@app.route("/api/search")
+def search_videos():
+    """Tìm video theo từ khoá (innertube `search`, client WEB). Trả mã video + liên kết."""
+    q = (request.args.get("q") or "").strip()[:120]
+    if not q:
+        return jsonify({"success": False, "error": "Thiếu từ khoá."}), 400
+    only_cc = request.args.get("cc") == "1"
+    params = "EgQQARgD" if only_cc else "EgIQAQ=="  # chỉ video / video có phụ đề
+    key = f"{params}|{q}"
+    hit = cache_get("search1", key, max_age=6 * 3600)
+    if hit is not None:
+        return jsonify({"success": True, "items": hit})
+    try:
+        r = HTTP.post(
+            "https://www.youtube.com/youtubei/v1/search?prettyPrint=false",
+            json={
+                "context": {"client": {"clientName": "WEB", "clientVersion": "2.20250312.04.00", "hl": "en", "gl": "US"}},
+                "query": q,
+                "params": params,
+            },
+            headers={
+                "User-Agent": CHROME_UA,
+                "Content-Type": "application/json",
+                "X-Youtube-Client-Name": "1",
+                "X-Youtube-Client-Version": "2.20250312.04.00",
+                "Cookie": "CONSENT=YES+1; SOCS=CAI",
+            },
+            timeout=12,
+        )
+        r.raise_for_status()
+        data = r.json()
+    except Exception as e:  # noqa: BLE001
+        return jsonify({"success": False, "error": f"Không tìm được: {e}"}), 502
+
+    found: list[dict] = []
+    _walk_compact(data, found)
+    seen: set[str] = set()
+    items = []
+    for it in found:
+        if it["id"] in seen or not it["title"]:
+            continue
+        seen.add(it["id"])
+        it["url"] = f"https://www.youtube.com/watch?v={it['id']}"
+        items.append(it)
+        if len(items) >= 24:
+            break
+    if items:
+        cache_set("search1", key, items)
     return jsonify({"success": True, "items": items})
 
 

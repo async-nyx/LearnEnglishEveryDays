@@ -12,6 +12,10 @@ interface YTPlayer {
   getDuration(): number
   getPlayerState(): number
   setPlaybackRate(rate: number): void
+  getAvailableQualityLevels(): string[]
+  getPlaybackQuality(): string
+  setPlaybackQuality(quality: string): void
+  setPlaybackQualityRange(min: string, max?: string): void
   setVolume(v: number): void
   getVolume(): number
   mute(): void
@@ -40,6 +44,12 @@ interface PlayerState {
   currentTime: number
   duration: number
   rate: number
+  /** chất lượng ĐANG phát theo YouTube ('hd1080', 'large'… hoặc '' khi chưa biết) */
+  quality: string
+  /** các mức YouTube báo là có cho video này */
+  qualities: string[]
+  /** mức người dùng chọn; 'auto' = để YouTube tự quyết */
+  qualityPref: string
   loop: Loop | null
   loopCount: number
   /** mã lỗi YouTube (2, 5, 100, 101, 150) nếu video không phát được */
@@ -55,6 +65,7 @@ interface PlayerState {
   toggle(): void
   seekTo(t: number, autoplay?: boolean): void
   setRate(rate: number): void
+  setQuality(quality: string): void
   setLoop(loop: Loop | null): void
   /** phát một đoạn [start,end): tự dừng ở cuối (hoặc lặp) */
   playRange(start: number, end: number, mode?: Loop['mode']): void
@@ -105,6 +116,9 @@ export const usePlayer = create<PlayerState>()((set, get) => ({
   currentTime: 0,
   duration: 0,
   rate: 1,
+  quality: '',
+  qualities: [],
+  qualityPref: 'auto',
   loop: null,
   loopCount: 0,
   error: null,
@@ -141,6 +155,11 @@ export const usePlayer = create<PlayerState>()((set, get) => ({
     live()?.setPlaybackRate(rate)
     set({ rate })
   },
+  setQuality: (quality) => {
+    set({ qualityPref: quality })
+    applyQuality(quality)
+    refreshQuality()
+  },
   setLoop: (loop) => set({ loop, loopCount: 0 }),
   playRange: (start, end, mode = 'once') => {
     set({ loop: { start, end, mode }, loopCount: 0 })
@@ -158,6 +177,43 @@ export const usePlayer = create<PlayerState>()((set, get) => ({
   },
 }))
 
+/**
+ * Áp chất lượng cho trình phát. YouTube coi đây là ĐỀ NGHỊ: `setPlaybackQuality` đã bị khai tử,
+ * `setPlaybackQualityRange` vẫn còn tác dụng ở nhúng nên gọi cả hai; mức thật đọc lại bằng
+ * `getPlaybackQuality()` ở `refreshQuality`.
+ */
+function applyQuality(pref: string) {
+  const p = live()
+  if (!p) return
+  try {
+    if (pref === 'auto') {
+      p.setPlaybackQualityRange('tiny', 'highres')
+      p.setPlaybackQuality('default')
+    } else {
+      p.setPlaybackQualityRange(pref, pref)
+      p.setPlaybackQuality(pref)
+    }
+  } catch {
+    /* bỏ qua */
+  }
+}
+
+/** Danh sách mức chỉ có sau khi video bắt đầu tải, nên phải đọc lại nhiều lần. */
+function refreshQuality() {
+  const p = live()
+  if (!p) return
+  try {
+    const list = p.getAvailableQualityLevels() ?? []
+    const now = p.getPlaybackQuality() ?? ''
+    const st = usePlayer.getState()
+    if (now !== st.quality || list.join() !== st.qualities.join()) {
+      usePlayer.setState({ quality: now, qualities: list })
+    }
+  } catch {
+    /* bỏ qua */
+  }
+}
+
 function startTicker() {
   if (tick !== null) return
   tick = window.setInterval(() => {
@@ -168,6 +224,7 @@ function startTicker() {
     } catch {
       return
     }
+    refreshQuality()
     // người dùng bấm video đề xuất trong iframe -> trình phát đổi video mà app không biết
     if (Date.now() > ignoreForeignUntil) {
       try {
@@ -250,6 +307,8 @@ export function mountPlayer(el: HTMLElement, videoId: string, host: 'youtube' | 
           usePlayer.setState({ playing, ended: e.data === 0 })
           // mô-đun phụ đề chỉ tháo được khi đã bắt đầu phát; thử lại ở mỗi lần vào trạng thái phát
           if (playing) {
+            applyQuality(usePlayer.getState().qualityPref)
+            refreshQuality()
             try {
               player?.unloadModule('captions')
               player?.unloadModule('cc')
@@ -261,6 +320,10 @@ export function mountPlayer(el: HTMLElement, videoId: string, host: 'youtube' | 
           if (player && e.data !== -1) usePlayer.setState({ duration: player.getDuration() })
         },
         onPlaybackRateChange: (e: { data: number }) => usePlayer.setState({ rate: e.data }),
+        onPlaybackQualityChange: (e: { data: string }) => {
+          usePlayer.setState({ quality: e.data })
+          refreshQuality()
+        },
         onError: (e: { data: number }) => usePlayer.setState({ error: e.data }),
       },
     })
@@ -286,7 +349,7 @@ export function switchVideo(videoId: string) {
   if (!player || currentVideoId === videoId) return
   currentVideoId = videoId
   ignoreForeignUntil = Date.now() + 4000
-  usePlayer.setState({ loop: null, currentTime: 0, playing: false, error: null, externalVideoId: null })
+  usePlayer.setState({ loop: null, currentTime: 0, playing: false, error: null, externalVideoId: null, qualities: [], quality: '' })
   player.cueVideoById(videoId)
   try {
     player.unloadModule('captions')

@@ -18,6 +18,15 @@ interface Props {
 /** Đoạn văn mà mỗi từ đều bấm được để tra nghĩa. */
 export const ClickableText = memo(function ClickableText({ text, start, className, highlight, onWordClick }: Props) {
   const tokens = useMemo(() => tokenize(text), [text])
+  // vị trí ký tự đầu của từng token trong câu (popover cần để dò cụm thuật ngữ tiên hiệp)
+  const offsets = useMemo(() => {
+    let at = 0
+    return tokens.map((t) => {
+      const start = at
+      at += t.text.length
+      return start
+    })
+  }, [tokens])
   const open = useLookup((s) => s.open)
   const saved = useStore((s) => s.vocab)
   const savedSet = useMemo(() => new Set(saved.map((v) => v.lemma)), [saved])
@@ -56,6 +65,7 @@ export const ClickableText = memo(function ClickableText({ text, start, classNam
               open({
                 word: tok.text,
                 example: text,
+                index: offsets[i],
                 videoId: st.currentVideoId ?? '',
                 videoTitle: data?.title ?? '',
                 start,

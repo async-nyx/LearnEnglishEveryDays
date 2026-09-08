@@ -1,0 +1,899 @@
+{
+  "note": "Thuật ngữ tiên hiệp / tu tiên. Dịch máy hay dịch phẳng những chữ này (元婴 -> 'em bé nguyên thủy', 道友 -> 'bạn đạo'), nên đây là lớp ƯU TIÊN: tra từ và AI dịch đều đọc bảng này trước.",
+  "terms": {
+    "修仙": {
+      "hv": "tu tiên",
+      "vi": "tu luyện để thành tiên"
+    },
+    "修真": {
+      "hv": "tu chân",
+      "vi": "tu luyện theo chân đạo, nghĩa gần như tu tiên"
+    },
+    "修炼": {
+      "hv": "tu luyện",
+      "vi": "rèn luyện để lên cảnh giới cao hơn"
+    },
+    "修行": {
+      "hv": "tu hành",
+      "vi": "quá trình tu luyện"
+    },
+    "修为": {
+      "hv": "tu vi",
+      "vi": "trình độ tu luyện đang có"
+    },
+    "境界": {
+      "hv": "cảnh giới",
+      "vi": "bậc tu luyện"
+    },
+    "突破": {
+      "hv": "đột phá",
+      "vi": "lên cảnh giới mới"
+    },
+    "瓶颈": {
+      "hv": "bình cảnh",
+      "vi": "chỗ nghẽn không lên cảnh giới được"
+    },
+    "炼气": {
+      "hv": "Luyện Khí",
+      "vi": "cảnh giới đầu tiên: hút linh khí vào người"
+    },
+    "练气": {
+      "hv": "Luyện Khí",
+      "vi": "cảnh giới đầu tiên: hút linh khí vào người"
+    },
+    "筑基": {
+      "hv": "Trúc Cơ",
+      "vi": "cảnh giới xây nền đạo, sau Luyện Khí"
+    },
+    "结丹": {
+      "hv": "Kết Đan",
+      "vi": "kết thành kim đan trong đan điền"
+    },
+    "金丹": {
+      "hv": "Kim Đan",
+      "vi": "cảnh giới kết được kim đan"
+    },
+    "元婴": {
+      "hv": "Nguyên Anh",
+      "vi": "cảnh giới sau Kim Đan: nguyên thần kết thành hình hài đứa trẻ"
+    },
+    "化神": {
+      "hv": "Hóa Thần",
+      "vi": "cảnh giới sau Nguyên Anh"
+    },
+    "炼虚": {
+      "hv": "Luyện Hư",
+      "vi": "cảnh giới sau Hóa Thần"
+    },
+    "合体": {
+      "hv": "Hợp Thể",
+      "vi": "cảnh giới hợp nhất thân và đạo"
+    },
+    "大乘": {
+      "hv": "Đại Thừa",
+      "vi": "cảnh giới cao nhất trước khi phi thăng"
+    },
+    "渡劫": {
+      "hv": "độ kiếp",
+      "vi": "vượt qua thiên kiếp để lên cảnh giới"
+    },
+    "飞升": {
+      "hv": "phi thăng",
+      "vi": "bay lên tiên giới"
+    },
+    "天劫": {
+      "hv": "thiên kiếp",
+      "vi": "tai kiếp trời giáng khi tu vi vượt bậc"
+    },
+    "雷劫": {
+      "hv": "lôi kiếp",
+      "vi": "thiên kiếp bằng sấm sét"
+    },
+    "心魔": {
+      "hv": "tâm ma",
+      "vi": "ma chướng trong lòng, cản đường tu"
+    },
+    "走火入魔": {
+      "hv": "tẩu hỏa nhập ma",
+      "vi": "tu sai đường, khí loạn hóa điên"
+    },
+    "道心": {
+      "hv": "đạo tâm",
+      "vi": "lòng kiên định với con đường tu"
+    },
+    "顿悟": {
+      "hv": "đốn ngộ",
+      "vi": "bừng ngộ, hiểu ra trong chớp mắt"
+    },
+    "悟性": {
+      "hv": "ngộ tính",
+      "vi": "khả năng lĩnh hội đạo"
+    },
+    "机缘": {
+      "hv": "cơ duyên",
+      "vi": "may mắn gặp được cơ hội lớn"
+    },
+    "灵根": {
+      "hv": "linh căn",
+      "vi": "gốc rễ tu tiên bẩm sinh"
+    },
+    "灵气": {
+      "hv": "linh khí",
+      "vi": "khí của trời đất dùng để tu luyện"
+    },
+    "灵力": {
+      "hv": "linh lực",
+      "vi": "sức mạnh tu luyện được"
+    },
+    "法力": {
+      "hv": "pháp lực",
+      "vi": "sức mạnh phép thuật"
+    },
+    "真气": {
+      "hv": "chân khí",
+      "vi": "khí luyện trong người"
+    },
+    "内力": {
+      "hv": "nội lực",
+      "vi": "sức mạnh bên trong của võ giả"
+    },
+    "灵石": {
+      "hv": "linh thạch",
+      "vi": "đá chứa linh khí, dùng như tiền"
+    },
+    "丹药": {
+      "hv": "đan dược",
+      "vi": "thuốc luyện để tăng tu vi"
+    },
+    "炼丹": {
+      "hv": "luyện đan",
+      "vi": "nấu thuốc tiên"
+    },
+    "丹炉": {
+      "hv": "đan lô",
+      "vi": "lò luyện đan"
+    },
+    "炼器": {
+      "hv": "luyện khí cụ",
+      "vi": "rèn pháp bảo"
+    },
+    "法宝": {
+      "hv": "pháp bảo",
+      "vi": "bảo vật có phép"
+    },
+    "法器": {
+      "hv": "pháp khí",
+      "vi": "vũ khí có phép, bậc dưới pháp bảo"
+    },
+    "符箓": {
+      "hv": "phù lục",
+      "vi": "bùa chú"
+    },
+    "阵法": {
+      "hv": "trận pháp",
+      "vi": "phép bày trận"
+    },
+    "神识": {
+      "hv": "thần thức",
+      "vi": "ý thức trải ra dò xét xung quanh"
+    },
+    "元神": {
+      "hv": "nguyên thần",
+      "vi": "phần hồn cốt lõi của người tu"
+    },
+    "神魂": {
+      "hv": "thần hồn",
+      "vi": "hồn phách của người tu"
+    },
+    "魂魄": {
+      "hv": "hồn phách",
+      "vi": "phần hồn của con người"
+    },
+    "经脉": {
+      "hv": "kinh mạch",
+      "vi": "đường khí chạy trong người"
+    },
+    "丹田": {
+      "hv": "đan điền",
+      "vi": "nơi tụ khí dưới rốn"
+    },
+    "肉身": {
+      "hv": "nhục thân",
+      "vi": "thân xác"
+    },
+    "炼体": {
+      "hv": "luyện thể",
+      "vi": "rèn thân xác thay vì rèn khí"
+    },
+    "闭关": {
+      "hv": "bế quan",
+      "vi": "đóng cửa tu luyện, không gặp ai"
+    },
+    "出关": {
+      "hv": "xuất quan",
+      "vi": "kết thúc bế quan"
+    },
+    "打坐": {
+      "hv": "đả tọa",
+      "vi": "ngồi thiền luyện khí"
+    },
+    "吐纳": {
+      "hv": "thổ nạp",
+      "vi": "hít thở theo phép tu"
+    },
+    "洞府": {
+      "hv": "động phủ",
+      "vi": "hang động làm nơi ở và tu luyện"
+    },
+    "秘境": {
+      "hv": "bí cảnh",
+      "vi": "vùng đất kín chứa cơ duyên"
+    },
+    "遗迹": {
+      "hv": "di tích",
+      "vi": "tàn tích của người xưa"
+    },
+    "宗门": {
+      "hv": "tông môn",
+      "vi": "môn phái tu tiên"
+    },
+    "门派": {
+      "hv": "môn phái",
+      "vi": "phe phái tu luyện"
+    },
+    "掌门": {
+      "hv": "chưởng môn",
+      "vi": "người đứng đầu môn phái"
+    },
+    "长老": {
+      "hv": "trưởng lão",
+      "vi": "bậc trên trong tông môn"
+    },
+    "弟子": {
+      "hv": "đệ tử",
+      "vi": "học trò trong tông môn"
+    },
+    "师尊": {
+      "hv": "sư tôn",
+      "vi": "cách gọi kính trọng thầy"
+    },
+    "师父": {
+      "hv": "sư phụ",
+      "vi": "thầy"
+    },
+    "师兄": {
+      "hv": "sư huynh",
+      "vi": "bạn đồng môn vào trước, nam"
+    },
+    "师姐": {
+      "hv": "sư tỷ",
+      "vi": "bạn đồng môn vào trước, nữ"
+    },
+    "师弟": {
+      "hv": "sư đệ",
+      "vi": "bạn đồng môn vào sau, nam"
+    },
+    "师妹": {
+      "hv": "sư muội",
+      "vi": "bạn đồng môn vào sau, nữ"
+    },
+    "道友": {
+      "hv": "đạo hữu",
+      "vi": "cách người tu gọi nhau, ngang hàng"
+    },
+    "前辈": {
+      "hv": "tiền bối",
+      "vi": "người đi trước"
+    },
+    "晚辈": {
+      "hv": "vãn bối",
+      "vi": "kẻ hậu sinh, tự xưng khiêm tốn"
+    },
+    "修士": {
+      "hv": "tu sĩ",
+      "vi": "người tu tiên"
+    },
+    "散修": {
+      "hv": "tán tu",
+      "vi": "người tu không thuộc môn phái nào"
+    },
+    "强者": {
+      "hv": "cường giả",
+      "vi": "kẻ mạnh"
+    },
+    "大能": {
+      "hv": "đại năng",
+      "vi": "cao thủ cảnh giới rất cao"
+    },
+    "废物": {
+      "hv": "phế vật",
+      "vi": "kẻ vô dụng, không tu được"
+    },
+    "天才": {
+      "hv": "thiên tài",
+      "vi": "người có tư chất hơn người"
+    },
+    "逆天": {
+      "hv": "nghịch thiên",
+      "vi": "chống lại ý trời"
+    },
+    "天道": {
+      "hv": "thiên đạo",
+      "vi": "đạo trời, quy luật của trời đất"
+    },
+    "大道": {
+      "hv": "đại đạo",
+      "vi": "con đường lớn của trời đất"
+    },
+    "因果": {
+      "hv": "nhân quả",
+      "vi": "gieo gì gặt nấy"
+    },
+    "轮回": {
+      "hv": "luân hồi",
+      "vi": "vòng sinh tử lặp lại"
+    },
+    "转世": {
+      "hv": "chuyển thế",
+      "vi": "đầu thai sang kiếp khác"
+    },
+    "长生": {
+      "hv": "trường sinh",
+      "vi": "sống mãi không già"
+    },
+    "不死": {
+      "hv": "bất tử",
+      "vi": "không chết"
+    },
+    "功法": {
+      "hv": "công pháp",
+      "vi": "bài tu luyện"
+    },
+    "心法": {
+      "hv": "tâm pháp",
+      "vi": "phép tu bằng ý niệm"
+    },
+    "神通": {
+      "hv": "thần thông",
+      "vi": "phép lớn, thi triển được điều phi thường"
+    },
+    "法术": {
+      "hv": "pháp thuật",
+      "vi": "phép thuật"
+    },
+    "术法": {
+      "hv": "thuật pháp",
+      "vi": "phép thuật"
+    },
+    "剑法": {
+      "hv": "kiếm pháp",
+      "vi": "bài kiếm"
+    },
+    "剑气": {
+      "hv": "kiếm khí",
+      "vi": "khí phát ra từ kiếm"
+    },
+    "剑意": {
+      "hv": "kiếm ý",
+      "vi": "ý chí trong đường kiếm"
+    },
+    "御剑": {
+      "hv": "ngự kiếm",
+      "vi": "điều khiển kiếm bay"
+    },
+    "飞剑": {
+      "hv": "phi kiếm",
+      "vi": "kiếm bay điều khiển bằng thần thức"
+    },
+    "本命": {
+      "hv": "bản mệnh",
+      "vi": "gắn với mạng sống, mất là trọng thương"
+    },
+    "血脉": {
+      "hv": "huyết mạch",
+      "vi": "dòng máu mang sức mạnh tổ tiên"
+    },
+    "传承": {
+      "hv": "truyền thừa",
+      "vi": "di sản người xưa để lại cho hậu bối"
+    },
+    "妖兽": {
+      "hv": "yêu thú",
+      "vi": "thú hoang tu luyện thành tinh"
+    },
+    "灵兽": {
+      "hv": "linh thú",
+      "vi": "thú có linh tính, theo người tu"
+    },
+    "妖族": {
+      "hv": "yêu tộc",
+      "vi": "tộc của yêu thú"
+    },
+    "魔族": {
+      "hv": "ma tộc",
+      "vi": "tộc ma"
+    },
+    "人族": {
+      "hv": "nhân tộc",
+      "vi": "loài người"
+    },
+    "魔道": {
+      "hv": "ma đạo",
+      "vi": "con đường tu của ma"
+    },
+    "正道": {
+      "hv": "chính đạo",
+      "vi": "phe chính phái"
+    },
+    "邪修": {
+      "hv": "tà tu",
+      "vi": "kẻ tu theo đường tà"
+    },
+    "仙人": {
+      "hv": "tiên nhân",
+      "vi": "người đã thành tiên"
+    },
+    "神仙": {
+      "hv": "thần tiên",
+      "vi": "tiên, thần"
+    },
+    "仙界": {
+      "hv": "tiên giới",
+      "vi": "cõi tiên"
+    },
+    "凡人": {
+      "hv": "phàm nhân",
+      "vi": "người thường, không tu luyện"
+    },
+    "凡间": {
+      "hv": "phàm gian",
+      "vi": "cõi người thường"
+    },
+    "红尘": {
+      "hv": "hồng trần",
+      "vi": "cõi đời bụi bặm"
+    },
+    "苍生": {
+      "hv": "thương sinh",
+      "vi": "muôn dân"
+    },
+    "天下": {
+      "hv": "thiên hạ",
+      "vi": "cả thiên hạ, cả đời"
+    },
+    "江湖": {
+      "hv": "giang hồ",
+      "vi": "chốn giang hồ"
+    },
+    "武林": {
+      "hv": "võ lâm",
+      "vi": "giới võ"
+    },
+    "内门": {
+      "hv": "nội môn",
+      "vi": "vòng trong của tông môn"
+    },
+    "外门": {
+      "hv": "ngoại môn",
+      "vi": "vòng ngoài của tông môn"
+    },
+    "灵药": {
+      "hv": "linh dược",
+      "vi": "cỏ thuốc quý"
+    },
+    "灵草": {
+      "hv": "linh thảo",
+      "vi": "cỏ linh"
+    },
+    "天材地宝": {
+      "hv": "thiên tài địa bảo",
+      "vi": "báu vật hiếm của trời đất"
+    },
+    "护法": {
+      "hv": "hộ pháp",
+      "vi": "người canh cho lúc tu luyện"
+    },
+    "护身": {
+      "hv": "hộ thân",
+      "vi": "che chắn cho thân"
+    },
+    "结界": {
+      "hv": "kết giới",
+      "vi": "màn chắn bằng phép"
+    },
+    "禁制": {
+      "hv": "cấm chế",
+      "vi": "cấm trận ngăn người vào"
+    },
+    "傀儡": {
+      "hv": "khôi lỗi",
+      "vi": "con rối bị điều khiển"
+    },
+    "分身": {
+      "hv": "phân thân",
+      "vi": "tách thân thứ hai"
+    },
+    "化形": {
+      "hv": "hóa hình",
+      "vi": "yêu thú biến thành người"
+    },
+    "开脉": {
+      "hv": "khai mạch",
+      "vi": "mở kinh mạch để tu"
+    },
+    "封印": {
+      "hv": "phong ấn",
+      "vi": "niêm phong bằng phép"
+    },
+    "血祭": {
+      "hv": "huyết tế",
+      "vi": "lấy máu làm lễ tế"
+    },
+    "夺舍": {
+      "hv": "đoạt xá",
+      "vi": "chiếm thân xác người khác"
+    },
+    "斗气": {
+      "hv": "đấu khí",
+      "vi": "sức mạnh chiến đấu (Đấu Phá Thương Khung)"
+    },
+    "斗者": {
+      "hv": "Đấu Giả",
+      "vi": "bậc đầu của đấu khí"
+    },
+    "斗师": {
+      "hv": "Đấu Sư",
+      "vi": "bậc đấu khí trên Đấu Giả"
+    },
+    "斗灵": {
+      "hv": "Đấu Linh",
+      "vi": "bậc đấu khí"
+    },
+    "斗王": {
+      "hv": "Đấu Vương",
+      "vi": "bậc đấu khí"
+    },
+    "斗皇": {
+      "hv": "Đấu Hoàng",
+      "vi": "bậc đấu khí"
+    },
+    "斗宗": {
+      "hv": "Đấu Tông",
+      "vi": "bậc đấu khí"
+    },
+    "斗尊": {
+      "hv": "Đấu Tôn",
+      "vi": "bậc đấu khí"
+    },
+    "斗圣": {
+      "hv": "Đấu Thánh",
+      "vi": "bậc đấu khí"
+    },
+    "斗帝": {
+      "hv": "Đấu Đế",
+      "vi": "bậc đấu khí cao nhất"
+    },
+    "异火": {
+      "hv": "dị hỏa",
+      "vi": "ngọn lửa lạ, xếp hạng theo bảng"
+    },
+    "武魂": {
+      "hv": "võ hồn",
+      "vi": "hồn khí bẩm sinh (Đấu La Đại Lục)"
+    },
+    "魂师": {
+      "hv": "hồn sư",
+      "vi": "người luyện võ hồn"
+    },
+    "魂力": {
+      "hv": "hồn lực",
+      "vi": "sức mạnh của hồn sư"
+    },
+    "魂环": {
+      "hv": "hồn hoàn",
+      "vi": "vòng hồn lấy từ hồn thú"
+    },
+    "魂骨": {
+      "hv": "hồn cốt",
+      "vi": "xương hồn thú, tăng sức"
+    },
+    "魂技": {
+      "hv": "hồn kỹ",
+      "vi": "chiêu thức của hồn sư"
+    },
+    "魂兽": {
+      "hv": "hồn thú",
+      "vi": "thú tu luyện trong rừng hồn thú"
+    },
+    "魂导器": {
+      "hv": "hồn đạo khí",
+      "vi": "khí cụ chạy bằng hồn lực"
+    },
+    "封号斗罗": {
+      "hv": "Phong Hào Đấu La",
+      "vi": "hồn sư bậc cao nhất, có danh hiệu"
+    },
+    "斗罗": {
+      "hv": "Đấu La",
+      "vi": "bậc hồn sư cao nhất"
+    },
+    "魂圣": {
+      "hv": "Hồn Thánh",
+      "vi": "bậc hồn sư"
+    },
+    "魂斗罗": {
+      "hv": "Hồn Đấu La",
+      "vi": "bậc hồn sư"
+    },
+    "魂宗": {
+      "hv": "Hồn Tông",
+      "vi": "bậc hồn sư"
+    },
+    "魂王": {
+      "hv": "Hồn Vương",
+      "vi": "bậc hồn sư"
+    },
+    "魂帝": {
+      "hv": "Hồn Đế",
+      "vi": "bậc hồn sư"
+    },
+    "神印": {
+      "hv": "thần ấn",
+      "vi": "ấn của thần (Thần Ấn Vương Tọa)"
+    },
+    "骑士": {
+      "hv": "kỵ sĩ",
+      "vi": "hiệp sĩ"
+    },
+    "圣殿": {
+      "hv": "thánh điện",
+      "vi": "đền thánh"
+    },
+    "魔神": {
+      "hv": "ma thần",
+      "vi": "thần của ma tộc"
+    },
+    "元气": {
+      "hv": "nguyên khí",
+      "vi": "khí gốc của trời đất"
+    },
+    "武者": {
+      "hv": "võ giả",
+      "vi": "người luyện võ"
+    },
+    "武道": {
+      "hv": "võ đạo",
+      "vi": "con đường võ"
+    },
+    "星辰": {
+      "hv": "tinh thần",
+      "vi": "sao trời"
+    },
+    "宇宙": {
+      "hv": "vũ trụ",
+      "vi": "vũ trụ"
+    },
+    "虚空": {
+      "hv": "hư không",
+      "vi": "khoảng không trống rỗng"
+    },
+    "混沌": {
+      "hv": "hỗn độn",
+      "vi": "trạng thái hỗn mang thuở đầu"
+    },
+    "轮回者": {
+      "hv": "kẻ luân hồi",
+      "vi": "người trải qua luân hồi"
+    },
+    "大帝": {
+      "hv": "Đại Đế",
+      "vi": "bậc chí tôn một thời đại"
+    },
+    "圣人": {
+      "hv": "thánh nhân",
+      "vi": "bậc thánh"
+    },
+    "帝兵": {
+      "hv": "đế binh",
+      "vi": "vũ khí của Đại Đế"
+    },
+    "仙帝": {
+      "hv": "Tiên Đế",
+      "vi": "đế của tiên giới"
+    },
+    "证道": {
+      "hv": "chứng đạo",
+      "vi": "đạt tới đạo, thành tựu cao nhất"
+    },
+    "成仙": {
+      "hv": "thành tiên",
+      "vi": "tu thành tiên"
+    },
+    "陨落": {
+      "hv": "vẫn lạc",
+      "vi": "cao thủ ngã xuống, chết"
+    },
+    "杀劫": {
+      "hv": "sát kiếp",
+      "vi": "kiếp nạn chém giết"
+    },
+    "气运": {
+      "hv": "khí vận",
+      "vi": "vận may của trời đất dồn cho một người"
+    },
+    "福缘": {
+      "hv": "phúc duyên",
+      "vi": "duyên lành"
+    },
+    "灵识": {
+      "hv": "linh thức",
+      "vi": "thần thức"
+    },
+    "神念": {
+      "hv": "thần niệm",
+      "vi": "ý niệm phóng ra"
+    },
+    "元丹": {
+      "hv": "nguyên đan",
+      "vi": "viên đan trong người yêu thú"
+    },
+    "内丹": {
+      "hv": "nội đan",
+      "vi": "đan kết trong thân yêu thú"
+    },
+    "妖丹": {
+      "hv": "yêu đan",
+      "vi": "nội đan của yêu thú"
+    }
+  },
+  "names": {
+    "pham-nhan-tu-tien": {
+      "韩立": "Hàn Lập",
+      "南宫婉": "Nam Cung Uyển",
+      "墨大夫": "Mặc đại phu",
+      "厉飞雨": "Lệ Phi Vũ",
+      "紫灵": "Tử Linh",
+      "银月": "Ngân Nguyệt",
+      "黄枫谷": "Hoàng Phong Cốc",
+      "七玄门": "Thất Huyền Môn",
+      "元瑶": "Nguyên Dao"
+    },
+    "dou-luo-dai-luc": {
+      "唐三": "Đường Tam",
+      "小舞": "Tiểu Vũ",
+      "戴沐白": "Đới Mộc Bạch",
+      "奥斯卡": "Oscar",
+      "宁荣荣": "Ninh Vinh Vinh",
+      "马红俊": "Mã Hồng Tuấn",
+      "朱竹清": "Chu Trúc Thanh",
+      "史莱克": "Shrek",
+      "唐昊": "Đường Hạo",
+      "比比东": "Bỉ Bỉ Đông",
+      "千仞雪": "Thiên Nhận Tuyết"
+    },
+    "tuyet-the-duong-mon": {
+      "霍雨浩": "Hoắc Vũ Hạo",
+      "王冬儿": "Vương Đông Nhi",
+      "唐舞桐": "Đường Vũ Đồng",
+      "戴华斌": "Đới Hoa Bân",
+      "王秋儿": "Vương Thu Nhi",
+      "雪帝": "Tuyết Đế"
+    },
+    "thon-phe-tinh-khong": {
+      "罗峰": "La Phong",
+      "洪": "Hồng",
+      "雷神": "Lôi Thần",
+      "巴巴塔": "Ba Ba Tháp",
+      "李耀": "Lý Diệu"
+    },
+    "tien-nghich": {
+      "王林": "Vương Lâm",
+      "李慕婉": "Lý Mộ Uyển",
+      "司马兰": "Tư Mã Lan",
+      "赵国": "Triệu quốc",
+      "恒岳派": "Hằng Nhạc phái"
+    },
+    "kiem-lai": {
+      "陈平安": "Trần Bình An",
+      "宁姚": "Ninh Diêu",
+      "齐静春": "Tề Tĩnh Xuân",
+      "阮邛": "Nguyễn Cung",
+      "李槐": "Lý Hòe",
+      "骊珠洞天": "Ly Châu Động Thiên"
+    },
+    "muc-than-ky": {
+      "秦牧": "Tần Mục",
+      "残老村": "Tàn Lão thôn",
+      "瞎子": "Hạt Tử",
+      "司婆婆": "Tư bà bà",
+      "延康国": "Diên Khang quốc"
+    },
+    "than-an-vuong-toa": {
+      "龙皓晨": "Long Hạo Thần",
+      "长孙婉儿": "Trưởng Tôn Uyển Nhi",
+      "奥兰多": "Orlando",
+      "光明神殿": "Quang Minh Thần Điện"
+    },
+    "dau-pha-thuong-khung": {
+      "萧炎": "Tiêu Viêm",
+      "药老": "Dược lão",
+      "萧薰儿": "Tiêu Huân Nhi",
+      "纳兰嫣然": "Nạp Lan Yên Nhiên",
+      "云韵": "Vân Vận",
+      "美杜莎": "Medusa"
+    },
+    "hoan-my-the-gioi": {
+      "石昊": "Thạch Hạo",
+      "石村": "Thạch thôn",
+      "云曦": "Vân Hi",
+      "火灵儿": "Hỏa Linh Nhi"
+    },
+    "gia-thien": {
+      "叶凡": "Diệp Phàm",
+      "庞博": "Bàng Bác",
+      "李小曼": "Lý Tiểu Mạn",
+      "青铜古棺": "quan tài đồng xanh"
+    },
+    "thuong-nguyen-do": {
+      "孟川": "Mạnh Xuyên",
+      "柳七月": "Liễu Thất Nguyệt",
+      "元神": "nguyên thần"
+    },
+    "nhat-niem-vinh-hang": {
+      "白小纯": "Bạch Tiểu Thuần",
+      "李青候": "Lý Thanh Hầu",
+      "许宝财": "Hứa Bảo Tài",
+      "灵溪宗": "Linh Khê tông"
+    },
+    "vu-dong-can-khon": {
+      "林动": "Lâm Động",
+      "绫清竹": "Lăng Thanh Trúc",
+      "祖符": "Tổ Phù"
+    },
+    "tinh-than-bien": {
+      "秦羽": "Tần Vũ",
+      "秦德": "Tần Đức",
+      "琉璃": "Lưu Ly"
+    },
+    "bach-luyen-thanh-than": {
+      "罗征": "La Chinh",
+      "小蝶": "Tiểu Điệp"
+    },
+    "truong-sinh-gioi": {
+      "苏牧白": "Tô Mục Bạch"
+    },
+    "ten-phim": {
+      "凡人修仙传": "Phàm Nhân Tu Tiên",
+      "凡人修仙傳": "Phàm Nhân Tu Tiên",
+      "斗罗大陆": "Đấu La Đại Lục",
+      "鬥羅大陸": "Đấu La Đại Lục",
+      "绝世唐门": "Tuyệt Thế Đường Môn",
+      "絕世唐門": "Tuyệt Thế Đường Môn",
+      "吞噬星空": "Thôn Phệ Tinh Không",
+      "神印王座": "Thần Ấn Vương Tọa",
+      "剑来": "Kiếm Lai",
+      "劍來": "Kiếm Lai",
+      "牧神记": "Mục Thần Ký",
+      "牧神記": "Mục Thần Ký",
+      "沧元图": "Thương Nguyên Đồ",
+      "滄元圖": "Thương Nguyên Đồ",
+      "仙逆": "Tiên Nghịch",
+      "斗破苍穹": "Đấu Phá Thương Khung",
+      "鬥破蒼穹": "Đấu Phá Thương Khung",
+      "完美世界": "Hoàn Mỹ Thế Giới",
+      "遮天": "Già Thiên",
+      "星辰变": "Tinh Thần Biến",
+      "星辰變": "Tinh Thần Biến",
+      "武动乾坤": "Vũ Động Càn Khôn",
+      "武動乾坤": "Vũ Động Càn Khôn",
+      "一念永恒": "Nhất Niệm Vĩnh Hằng",
+      "一念永恆": "Nhất Niệm Vĩnh Hằng",
+      "长生界": "Trường Sinh Giới",
+      "長生界": "Trường Sinh Giới",
+      "百炼成神": "Bách Luyện Thành Thần",
+      "百煉成神": "Bách Luyện Thành Thần",
+      "慕兰之战": "Trận Mộ Lan",
+      "慕蘭之戰": "Trận Mộ Lan"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { BookBookmark, Books, ChartLineUp, PlayCircle, Sparkle, Waveform } from '@phosphor-icons/react'
+import { BookBookmark, Books, ChartLineUp, FilmSlate, PlayCircle, Sparkle, Waveform } from '@phosphor-icons/react'
 import { fetchTranscript } from '../lib/api'
 import { itemsOf } from '../lib/library'
 import type { View } from '../lib/types'
@@ -56,6 +56,7 @@ export function Sidebar() {
     { view: 'study', label: 'Học', hint: 'Đọc · Chính tả · Nói theo', icon: (a) => <PlayCircle size={18} weight={a ? 'fill' : 'regular'} /> },
     { view: 'discover', label: 'Đề xuất', hint: 'Theo bậc bạn nghe nhiều', icon: (a) => <Sparkle size={18} weight={a ? 'fill' : 'regular'} /> },
     { view: 'library', label: 'Thư viện', hint: `${itemsOf('en').length} tiếng Anh · ${itemsOf('zh').length} tiếng Trung`, icon: (a) => <Books size={18} weight={a ? 'fill' : 'regular'} /> },
+    { view: 'series', label: 'Bộ sưu tập', hint: 'Phim tiên hiệp, trọn bộ theo tập', icon: (a) => <FilmSlate size={18} weight={a ? 'fill' : 'regular'} /> },
     {
       view: 'vocab',
       label: 'Từ vựng',

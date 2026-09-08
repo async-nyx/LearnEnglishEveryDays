@@ -14,10 +14,10 @@ const LEVEL_BLURB: Record<string, string> = {
   C1: 'Diễn thuyết dài, kinh tế, triết học. Nhiều thành ngữ và ẩn dụ.',
   HSK1: 'Hoạt hình và câu rất ngắn, nói chậm. Bắt đầu từ đây.',
   HSK2: 'Hội thoại hằng ngày, kể chuyện chậm, chủ đề quen thuộc.',
-  HSK3: 'Nghe hiểu đời sống, nhật ký, podcast cho người học.',
-  HSK4: 'Podcast và phỏng vấn, tốc độ gần tự nhiên.',
-  HSK5: 'Diễn thuyết và phóng sự, từ vựng rộng.',
-  HSK6: 'Phỏng vấn chuyên sâu, lập luận dài.',
+  HSK3: 'Nghe hiểu đời sống, podcast cho người học và hoạt hình Đấu La Đại Lục.',
+  HSK4: 'Podcast, phỏng vấn và hoạt hình tu tiên 3D (Phàm Nhân, Thôn Phệ Tinh Không).',
+  HSK5: 'Diễn thuyết, phóng sự và hoạt hình tiên hiệp (Thần Ấn Vương Tọa, Mục Thần Ký).',
+  HSK6: 'Phỏng vấn chuyên sâu, lập luận dài, hoạt hình Kiếm Lai và Tuyệt Thế Đường Môn.',
   'HSK7-9': 'Diễn thuyết học thuật, tốc độ và từ vựng như người bản ngữ.',
 }
 
@@ -72,7 +72,7 @@ export function LibraryView() {
             <p className="mt-1 max-w-[68ch] text-sm leading-relaxed text-chu-mo">
               {lang === 'en'
                 ? `${total.en} video tiếng Anh từ TED, TED-Ed, BBC Learning English, Kurzgesagt, Vox và các kênh dạy tiếng Anh, xếp theo bậc A1–C1.`
-                : `${total.zh} video tiếng Trung xếp theo HSK 1–9, ưu tiên hoạt hình và video nói chậm.`}{' '}
+                : `${total.zh} video tiếng Trung xếp theo HSK 1–9: hoạt hình thiếu nhi và video nói chậm ở bậc thấp, hoạt hình tiên hiệp – tu tiên 3D và podcast ở bậc trên.`}{' '}
               Mỗi video đã kiểm tra là có phụ đề đúng tiếng.
             </p>
           </div>

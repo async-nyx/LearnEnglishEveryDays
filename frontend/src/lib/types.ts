@@ -1,3 +1,4 @@
+import type { TransStyle } from './novel-style'
 export interface Segment {
   start: number
   duration: number
@@ -29,7 +30,12 @@ export interface Sentence {
   id: number
   start: number
   end: number
+  /** chỉ phần chữ Hán / tiếng gốc — pinyin và tiếng Anh in kèm đã được tách ra */
   text: string
+  /** phiên âm có sẵn trong phụ đề (kênh in chung một dòng), nếu có */
+  pinyin?: string
+  /** bản tiếng Anh có sẵn trong phụ đề, nếu có */
+  en?: string
   segIndexes: number[]
 }
 
@@ -105,9 +111,9 @@ export interface DictationEntry {
   ok: boolean
 }
 
-export type View = 'study' | 'discover' | 'library' | 'vocab' | 'progress'
+export type View = 'study' | 'discover' | 'library' | 'series' | 'vocab' | 'progress'
 export type StudyMode = 'read' | 'dictation' | 'shadow' | 'translate'
-export type VocabTab = 'list' | 'flashcards' | 'spelling' | 'quiz'
+export type VocabTab = 'list' | 'flashcards' | 'spelling' | 'quiz' | 'decks'
 
 /** Hoạt động một ngày (khoá YYYY-MM-DD) để vẽ lịch và tính chuỗi ngày. */
 export interface DayActivity {
@@ -128,10 +134,28 @@ export interface Settings {
   /** AI dùng khoá của người dùng: chỉ lưu trên máy này */
   aiProvider: 'gemini' | 'grok'
   aiKey: string
+  /** model AI người dùng chọn; rỗng = để app tự thử từ mới tới cũ */
+  aiModel: string
   embedHost: EmbedHost
   fontSize: number
   autoScroll: boolean
   playbackRate: number
+  /** chất lượng video mong muốn: "auto" hoặc mã của YouTube (hd1080, large…) */
+  videoQuality: string
   showTranslation: boolean
+  /** Lớp phụ đề ở CỘT ĐỌC bên phải. Người mới (HSK1) thường bật pinyin + tiếng Việt. */
+  subLayers: { zh: boolean; pinyin: boolean; vi: boolean; en: boolean }
+  /** Lớp phụ đề CHẠY TRÊN VIDEO — hoàn toàn tách khỏi cột đọc (USER yêu cầu nút riêng) */
+  videoSubLayers: { zh: boolean; pinyin: boolean; vi: boolean; en: boolean }
+  /** Phụ đề chạy ĐÈ TRÊN video, theo thời gian thật */
+  videoSubs: boolean
+  /** Cỡ chữ dòng chính của phụ đề trên video (px) */
+  subFontSize: number
+  /** Vị trí phụ đề trên video, theo % khung; null = mặc định dưới giữa */
+  subPos: { x: number; y: number } | null
+  /** Văn phong bản dịch: tự nhiên / truyện / cổ phong */
+  transStyle: TransStyle
+  /** Tiếng phụ đề ưu tiên khi video có nhiều track: tự đoán / luôn tiếng Trung / luôn tiếng Anh */
+  preferSubLang: 'auto' | 'zh' | 'en'
   sentenceMode: boolean
 }

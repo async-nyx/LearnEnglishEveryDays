@@ -1,3 +1,6 @@
+import { setPreferSubLang } from './lib/api'
+import { setTransStyle } from './lib/novel-style'
+import { buildTermMemory, setTermMemory } from './lib/xianxia'
 import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { DictationView } from './components/DictationView'
@@ -10,6 +13,7 @@ import { VideoPane } from './components/VideoPane'
 import { WordPopover } from './components/WordPopover'
 import { Segmented, Toaster } from './components/ui'
 import { VocabView } from './components/vocab/VocabView'
+import { SeriesView } from './components/SeriesView'
 import { LibraryView } from './components/LibraryView'
 import { DiscoverView } from './components/DiscoverView'
 import { ContextBar } from './components/ContextBar'
@@ -62,6 +66,10 @@ export default function App() {
             <motion.div key="library" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.16 }}>
               <LibraryView />
             </motion.div>
+          ) : view === 'series' ? (
+            <motion.div key="series" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.16 }}>
+              <SeriesView />
+            </motion.div>
           ) : view === 'vocab' ? (
             <motion.div key="vocab" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.16 }}>
               <VocabView />
@@ -105,6 +113,14 @@ function Study() {
       })
   }, [externalVideoId, data?.video_id, setTranscript, setLoading, toast])
   const sentences = useSentences(data)
+  const transStyleSetting = useStore((s) => s.settings.transStyle)
+  useEffect(() => setTransStyle(transStyleSetting), [transStyleSetting])
+  const preferSubLang = useStore((s) => s.settings.preferSubLang)
+  useEffect(() => setPreferSubLang(preferSubLang), [preferSubLang])
+  // trí nhớ thuật ngữ của CẢ video: tên riêng và thuật ngữ dịch giống nhau từ câu đầu tới câu cuối
+  useEffect(() => {
+    setTermMemory(buildTermMemory(sentences.map((s) => s.text)))
+  }, [sentences])
   const mode = useStore((s) => s.studyMode)
   const setMode = useStore((s) => s.setStudyMode)
   const dictation = useStore((s) => (data ? s.dictation[data.video_id] : undefined))
@@ -143,7 +159,7 @@ function Study() {
   return (
     <div className="grid w-full flex-1 grid-cols-[minmax(0,1fr)] gap-6 px-4 py-5 sm:px-6 lg:grid-cols-[minmax(0,calc(60%-30px))_minmax(0,1fr)] lg:gap-8 lg:px-8">
       <div className="flex flex-col gap-4 lg:sticky lg:top-[3.75rem] lg:self-start">
-        <VideoPane key={embedHost} data={data} />
+        <VideoPane key={embedHost} data={data} sentences={sentences} />
         <Segmented<StudyMode>
           value={mode}
           onChange={setMode}

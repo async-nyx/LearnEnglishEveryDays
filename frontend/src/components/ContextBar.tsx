@@ -4,7 +4,7 @@ import { selectCurrentTranscript, useStore } from '../store/useStore'
 import { Button, cx } from './ui'
 
 const MODE_LABEL = { read: 'Đọc', dictation: 'Chép chính tả', shadow: 'Nói theo', translate: 'Dịch' } as const
-const TAB_LABEL = { list: 'Danh sách', flashcards: 'Thẻ lật', spelling: 'Chép từ', quiz: 'Trắc nghiệm' } as const
+const TAB_LABEL = { list: 'Danh sách', flashcards: 'Thẻ lật', spelling: 'Chép từ', quiz: 'Trắc nghiệm', decks: 'Bộ từ' } as const
 
 /** Thanh ngữ cảnh: bạn đang ở đâu (đường dẫn) + hành động của màn hiện tại. Kèm thanh tiến trình tải. */
 export function ContextBar() {
@@ -52,6 +52,9 @@ export function ContextBar() {
   } else if (view === 'library') {
     crumbs.push({ label: 'Thư viện', onClick: libraryLevel !== 'all' ? () => setLibraryLevel('all') : undefined })
     crumbs.push({ label: libraryLevel === 'all' ? 'Tất cả bậc' : `${libraryLevel} · ${LEVEL_LABEL[libraryLevel]}` })
+  } else if (view === 'series') {
+    crumbs.push({ label: 'Bộ sưu tập' })
+    crumbs.push({ label: 'Phim tiên hiệp · tu tiên' })
   } else if (view === 'discover') {
     crumbs.push({ label: 'Đề xuất' })
     crumbs.push({ label: 'Theo bậc bạn nghe nhiều nhất' })

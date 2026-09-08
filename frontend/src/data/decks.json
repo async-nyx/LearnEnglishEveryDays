@@ -1,0 +1,59 @@
+{
+ "generatedAt": "2026-09-07",
+ "decks": [
+  {
+   "id": "toeic-tsl",
+   "lang": "en",
+   "title": "TOEIC Service List",
+   "blurb": "1.200 từ dựng từ kho ngữ liệu đề TOEIC thật; học hết là đọc hiểu được gần trọn đề.",
+   "credit": "Browne, C. & Culligan, B. (2016) · TOEIC Service List 1.2 · CC BY-SA 4.0",
+   "count": 1247,
+   "parts": 7
+  },
+  {
+   "id": "business-bsl",
+   "lang": "en",
+   "title": "Tiếng Anh thương mại",
+   "blurb": "1.700 từ hay gặp trong email, hợp đồng, họp hành — phần Reading của TOEIC dùng rất nhiều.",
+   "credit": "Browne, C., Culligan, B. & Phillips, J. (2013) · Business Service List 1.2 · CC BY-SA 4.0",
+   "count": 1744,
+   "parts": 9
+  },
+  {
+   "id": "hsk1",
+   "lang": "zh",
+   "title": "HSK 1",
+   "blurb": "300 từ bậc HSK 1 — có pinyin, nghĩa tiếng Việt và câu ví dụ.",
+   "credit": "Kho từ HSK của chính bạn (dự án chinese-vocab)",
+   "count": 300,
+   "parts": 6
+  },
+  {
+   "id": "hsk2",
+   "lang": "zh",
+   "title": "HSK 2",
+   "blurb": "198 từ bậc HSK 2 — có pinyin, nghĩa tiếng Việt và câu ví dụ.",
+   "credit": "Kho từ HSK của chính bạn (dự án chinese-vocab)",
+   "count": 198,
+   "parts": 4
+  },
+  {
+   "id": "hsk3",
+   "lang": "zh",
+   "title": "HSK 3",
+   "blurb": "499 từ bậc HSK 3 — có pinyin, nghĩa tiếng Việt và câu ví dụ.",
+   "credit": "Kho từ HSK của chính bạn (dự án chinese-vocab)",
+   "count": 499,
+   "parts": 10
+  },
+  {
+   "id": "hsk4",
+   "lang": "zh",
+   "title": "HSK 4",
+   "blurb": "998 từ bậc HSK 4 — có pinyin, nghĩa tiếng Việt và câu ví dụ.",
+   "credit": "Kho từ HSK của chính bạn (dự án chinese-vocab)",
+   "count": 998,
+   "parts": 20
+  }
+ ]
+}
